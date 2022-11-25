@@ -1,0 +1,2 @@
+CPU:  "4"
+database: '"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])'

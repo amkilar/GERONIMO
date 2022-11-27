@@ -1,0 +1,11 @@
+prefix=/home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: libidn2
+Description: Library implementing IDNA2008 and TR46
+Version: 2.3.4
+Cflags: -I${includedir}
+Libs: -L${libdir} -lidn2
+Libs.private:  -L/home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c/lib -lunistring -R/home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c/lib

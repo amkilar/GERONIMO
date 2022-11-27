@@ -1,0 +1,53 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	downloading_genomes
+	1
+
+[Sun Nov 27 19:42:43 2022]
+rule downloading_genomes:
+    output: database/list_of_genomes.txt
+    jobid: 0
+
+
+        esearch -db assembly -query '"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
+            wget "$line/$fname" ;
+        done
+
+
+        ls *gz > list_of_genomes.txt
+
+        
+Activating conda environment: /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c
+Terminating processes on user request, this might take some time.
+[Sun Nov 27 19:51:38 2022]
+Error in rule downloading_genomes:
+    jobid: 0
+    output: database/list_of_genomes.txt
+    conda-env: /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c
+    shell:
+        
+        esearch -db assembly -query '"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
+            wget "$line/$fname" ;
+        done
+
+
+        ls *gz > list_of_genomes.txt
+
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/log/2022-11-27T194242.991793.snakemake.log

@@ -1,0 +1,21 @@
+name: entrez_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=2_gnu
+  - ca-certificates=2022.9.24=ha878542_0
+  - entrez-direct=16.2=he881be0_1
+  - gettext=0.21.1=h27087fc_0
+  - libgcc-ng=12.2.0=h65d4601_19
+  - libgomp=12.2.0=h65d4601_19
+  - libidn2=2.3.4=h166bdaf_0
+  - libunistring=0.9.10=h7f98852_0
+  - libzlib=1.2.13=h166bdaf_4
+  - openssl=3.0.7=h166bdaf_0
+  - wget=1.20.3=ha35d2d1_1
+  - zlib=1.2.13=h166bdaf_4
+prefix: /home/kilar/anaconda2/envs/entrez_env
+

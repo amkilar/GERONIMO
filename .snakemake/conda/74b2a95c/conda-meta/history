@@ -1,0 +1,17 @@
+==> 2022-11-26 18:07:29 <==
+# cmd: /home/amk/anaconda3/bin/conda-env create --file /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c.yaml --prefix /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c
+# conda version: 22.9.0
++bioconda/linux-64::entrez-direct-16.2-he881be0_1
++conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
++conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
++conda-forge/linux-64::ca-certificates-2022.9.24-ha878542_0
++conda-forge/linux-64::gettext-0.21.1-h27087fc_0
++conda-forge/linux-64::libgcc-ng-12.2.0-h65d4601_19
++conda-forge/linux-64::libgomp-12.2.0-h65d4601_19
++conda-forge/linux-64::libidn2-2.3.4-h166bdaf_0
++conda-forge/linux-64::libunistring-0.9.10-h7f98852_0
++conda-forge/linux-64::libzlib-1.2.13-h166bdaf_4
++conda-forge/linux-64::openssl-3.0.7-h166bdaf_0
++conda-forge/linux-64::wget-1.20.3-ha35d2d1_1
++conda-forge/linux-64::zlib-1.2.13-h166bdaf_4
+# update specs: ['ca-certificates==2022.9.24=ha878542_0', 'libidn2==2.3.4=h166bdaf_0', 'zlib==1.2.13=h166bdaf_4', 'entrez-direct==16.2=he881be0_1', '_openmp_mutex==4.5=2_gnu', 'libgomp==12.2.0=h65d4601_19', 'openssl==3.0.7=h166bdaf_0', 'gettext==0.21.1=h27087fc_0', 'wget==1.20.3=ha35d2d1_1', 'libzlib==1.2.13=h166bdaf_4', 'libunistring==0.9.10=h7f98852_0', '_libgcc_mutex==0.1=conda_forge', 'libgcc-ng==12.2.0=h65d4601_19']

@@ -1,0 +1,3 @@
+Building DAG of jobs...
+MissingRuleException:
+No rule to produce database/GCA_014825875.1_ASM1482587v1_genomic.fna.gz (if you use input functions make sure that they don't raise unexpected exceptions).

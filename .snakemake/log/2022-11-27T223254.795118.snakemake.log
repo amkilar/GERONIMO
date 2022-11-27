@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in line 53 of /home/amk/Desktop/Geronimo/GERONIMO/Snakefile:
+Wildcards in input files cannot be determined from output files:
+'GENOME'

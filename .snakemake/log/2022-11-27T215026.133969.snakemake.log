@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	downloading_genomes
+	1
+
+[Sun Nov 27 21:50:26 2022]
+rule downloading_genomes:
+    output: list_of_genomes.txt
+    jobid: 0
+
+
+        esearch -db assembly -query '"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank >> list_of_genomes.txt
+
+        
+Activating conda environment: /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/conda/74b2a95c
+[Sun Nov 27 21:50:30 2022]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/amk/Desktop/Geronimo/GERONIMO/.snakemake/log/2022-11-27T215026.133969.snakemake.log

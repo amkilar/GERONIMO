@@ -1,0 +1,48 @@
+{
+  "build": "ha878542_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [],
+  "extracted_package_dir": "/home/amk/anaconda3/pkgs/ca-certificates-2022.9.24-ha878542_0",
+  "features": "",
+  "files": [
+    "ssl/cacert.pem",
+    "ssl/cert.pem"
+  ],
+  "fn": "ca-certificates-2022.9.24-ha878542_0.tar.bz2",
+  "license": "ISC",
+  "link": {
+    "source": "/home/amk/anaconda3/pkgs/ca-certificates-2022.9.24-ha878542_0",
+    "type": 1
+  },
+  "md5": "41e4e87062433e283696cf384f952ef6",
+  "name": "ca-certificates",
+  "package_tarball_full_path": "/home/amk/anaconda3/pkgs/ca-certificates-2022.9.24-ha878542_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "ssl/cacert.pem",
+        "path_type": "hardlink",
+        "sha256": "de5f02716b7fa8be36d37d2b1a2783dd22ee7c80855f46d8b4684397f11754f2",
+        "sha256_in_prefix": "de5f02716b7fa8be36d37d2b1a2783dd22ee7c80855f46d8b4684397f11754f2",
+        "size_in_bytes": 286370
+      },
+      {
+        "_path": "ssl/cert.pem",
+        "path_type": "softlink",
+        "sha256": "de5f02716b7fa8be36d37d2b1a2783dd22ee7c80855f46d8b4684397f11754f2",
+        "size_in_bytes": 286370
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "ca-certificates==2022.9.24=ha878542_0",
+  "sha256": "058355034667e77d15389700f6b2364cc74efce0af63a418eacc1ce252458942",
+  "size": 153866,
+  "subdir": "linux-64",
+  "timestamp": 1664052554328,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2022.9.24-ha878542_0.tar.bz2",
+  "version": "2022.9.24"
+}

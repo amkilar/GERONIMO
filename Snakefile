@@ -30,16 +30,21 @@ rule download_genome:
     shell:
         r"""
 
-        GENOME=$(head -n 1 {input})
+        GENOME_LINK=$(head -n 1 {input})
 
         tail -n +2 {input} > "FILE.tmp" && mv "FILE.tmp" {input}
 
+        cd ./database
 
-        wget -P ./database "$GENOME" -o tmp.gz
+        wget "$GENOME_LINK"
 
-        sleep 0.01
+        GENOME="${GENOME_LINK##*/}"
 
-        gunzip ./database/tpm.gz
+        #gunzip $GENOME
+
+        gzip -d $GENOME
+
+        cd ../
 
         #tail -n +2 {input} > "$FILE.tmp" && mv "$FILE.tmp" {input}
 

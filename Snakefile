@@ -1,3 +1,6 @@
+# snakemake -j1 -F -p ./database/*fna --use-conda
+
+
 
 configfile: "config.yaml"
 print("Config is: ", config)
@@ -5,6 +8,49 @@ print("Config is: ", config)
 DATABASE = config["database"]
 print(DATABASE)
 
+
+
+rule download_genome:
+    input:  "temp/{LOCAL}.txt"
+    output: "database/{GENOME}"
+
+    shell:
+        r"""
+
+        GENOME_LINK=$(cat {input})
+
+        GENOME="${GENOME_LINK##*/}"
+
+        wget -P ./database $GENOME_LINK 
+
+        gunzip ./database/$GENOME
+
+        mv ./database/$GENOME ./database/{output}
+
+        """
+
+rule split_genomes_from_list:
+    input: "list_of_genomes.txt"
+    #output: temp(local("temp/{LOCAL}.txt"))
+    output: "temp/{LOCAL}"
+
+    shell:
+        r"""
+
+        while read line
+        do
+
+        echo $line > ./temp/"${line##*/}".txt
+
+        VAR=$(./temp/"${line##*/}".txt)
+
+        mv $VAR {output}
+
+        done < {input}
+
+
+
+        """    
 
 rule create_genome_list:
     output: "list_of_genomes.txt"
@@ -21,34 +67,13 @@ rule create_genome_list:
             echo "$line/$fname" >> list_of_genomes.txt;
         done
        
-        """    
+        """   
 
-rule download_genome:
-    input:  "list_of_genomes.txt"
-    output: "database/{GENOME}.fna"
 
-    shell:
-        r"""
 
-        GENOME_LINK=$(head -n 1 {input})
 
-        tail -n +2 {input} > "FILE.tmp" && mv "FILE.tmp" {input}
 
-        cd ./database
 
-        wget "$GENOME_LINK"
-
-        GENOME="${GENOME_LINK##*/}"
-
-        #gunzip $GENOME
-
-        gzip -d $GENOME
-
-        cd ../
-
-        #tail -n +2 {input} > "$FILE.tmp" && mv "$FILE.tmp" {input}
-
-        """
 
 #rule downoload_genome:
 #    input:  "{GENOME}"

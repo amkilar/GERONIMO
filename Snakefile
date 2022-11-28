@@ -11,7 +11,7 @@ print(DATABASE)
 
 
 rule download_genome:
-    input:  "temp/{LOCAL}.txt"
+    input:  "temp/{LOCAL}"
     output: "database/{GENOME}"
 
     shell:
@@ -40,6 +40,8 @@ rule split_genomes_from_list:
         while read line
         do
 
+        VAR=$(./temp/"${line##*/}".txt)
+
         echo $line > ./temp/"${line##*/}".txt
 
         VAR=$(./temp/"${line##*/}".txt)
@@ -47,8 +49,6 @@ rule split_genomes_from_list:
         mv $VAR {output}
 
         done < {input}
-
-
 
         """    
 

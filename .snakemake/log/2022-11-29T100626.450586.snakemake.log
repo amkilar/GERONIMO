@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	create_genome_list
+	1	split_genomes_from_list
+	2
+
+[Tue Nov 29 10:06:26 2022]
+rule create_genome_list:
+    output: list_of_genomes.txt
+    jobid: 1
+
+
+        esearch -db assembly -query '"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
+            echo "$line/$fname" >> list_of_genomes.txt;
+        done
+       
+        
+Activating conda environment: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/1da98d13
+[Tue Nov 29 10:06:29 2022]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Tue Nov 29 10:06:29 2022]
+rule split_genomes_from_list:
+    input: list_of_genomes.txt
+    output: temp/*
+    jobid: 0
+    wildcards: LOCAL=*
+
+RuleException in line 33 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
+NameError: The name 'line##*/' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

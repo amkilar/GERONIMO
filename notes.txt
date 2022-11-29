@@ -1,0 +1,5 @@
+
+
+#take the last string part after \
+#
+#    VAR=$(echo ${line##*/}.txt)

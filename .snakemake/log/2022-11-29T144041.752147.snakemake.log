@@ -1,0 +1,3 @@
+WildcardError in line 14 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
+No values given for wildcard 'wildcards'.
+  File "/home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile", line 14, in <module>

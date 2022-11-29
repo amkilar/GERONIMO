@@ -1,0 +1,5 @@
+Building DAG of jobs...
+Relative file path './database/{wildcards.GENOME}' starts with './'. This is redundant and strongly discouraged. It can also lead to inconsistent results of the file-matching approach used by Snakemake. You can simply omit the './' for relative file paths.
+WildcardError in line 43 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
+Wildcards in input files cannot be determined from output files:
+'LOCAL'

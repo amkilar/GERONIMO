@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	create_genome_list
+	1	download_genome
+	1	make_list_downloaded_genomes
+	3
+
+[Tue Nov 29 14:18:47 2022]
+Job 2: Creating the genomes list...
+
+
+        esearch -db assembly -query '"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
+            echo "$line/$fname" > temp/$fname.temp;
+        done
+       
+        
+Activating conda environment: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/1da98d13
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 12 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
+Missing files after 5 seconds:
+temp/{wildcards.GENOME}.temp
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/log/2022-11-29T141847.140711.snakemake.log

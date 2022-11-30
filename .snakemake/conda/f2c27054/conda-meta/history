@@ -1,0 +1,17 @@
+==> 2022-11-30 16:08:29 <==
+# cmd: /home/kilar/anaconda2/bin/conda-env create --file /home/kilar/Desktop/Git/GERONIMO/.snakemake/conda/f2c27054.yaml --prefix /home/kilar/Desktop/Git/GERONIMO/.snakemake/conda/f2c27054
+# conda version: 4.7.12
++bioconda::entrez-direct-16.2-he881be0_1
++conda-forge::_libgcc_mutex-0.1-conda_forge
++conda-forge::_openmp_mutex-4.5-2_gnu
++conda-forge::ca-certificates-2022.9.24-ha878542_0
++conda-forge::gettext-0.21.1-h27087fc_0
++conda-forge::libgcc-ng-12.2.0-h65d4601_19
++conda-forge::libgomp-12.2.0-h65d4601_19
++conda-forge::libidn2-2.3.4-h166bdaf_0
++conda-forge::libunistring-0.9.10-h7f98852_0
++conda-forge::libzlib-1.2.13-h166bdaf_4
++conda-forge::openssl-3.0.7-h166bdaf_0
++conda-forge::wget-1.20.3-ha35d2d1_1
++conda-forge::zlib-1.2.13-h166bdaf_4
+# update specs: [u'zlib==1.2.13=h166bdaf_4', u'libidn2==2.3.4=h166bdaf_0', u'_openmp_mutex==4.5=2_gnu', u'libgcc-ng==12.2.0=h65d4601_19', u'libzlib==1.2.13=h166bdaf_4', u'_libgcc_mutex==0.1=conda_forge', u'gettext==0.21.1=h27087fc_0', u'openssl==3.0.7=h166bdaf_0', u'libunistring==0.9.10=h7f98852_0', u'wget==1.20.3=ha35d2d1_1', u'ca-certificates==2022.9.24=ha878542_0', u'libgomp==12.2.0=h65d4601_19', u'entrez-direct==16.2=he881be0_1']

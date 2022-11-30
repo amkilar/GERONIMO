@@ -1,4 +1,4 @@
-# snakemake -j1 -F -p database/*.fna.gz --use-conda
+# snakemake -j1 -F -p database/GCA_014905175.1_ASM1490517v1_genomic.fna --use-conda
 
 
 configfile: "config.yaml"
@@ -32,6 +32,7 @@ rule create_genome_list:
 
 rule download_genome:
     output: touch("database/{genome}.fna.gz")
+    
     input:  "temp/{genome}.fna.gz.temp"
 
     message: "Downloading genomes..."
@@ -45,27 +46,24 @@ rule download_genome:
         wget -P ./database $GENOME_LINK 
         """
 
-#
-#rule unzip_genome:
-#    output: "{database}/{GENOME}.fna",
-#            "{database}/list_of_downloaded_genomes.txt"
-#
-#    input:  "{database}/{GENOME}.fna.gz"
-#
-#    message: "Unzipping genomes..."
-#    
-#    shell:
-#        r"""
-#        gunzip {input}
-#
-#        ls {input} > {output[1]}
-#
-#        """        
+
+rule unzip_genome:
+    output: touch("database/{genome}.fna")
+
+    input:  "database/{genome}.fna.gz"
+
+    message: "Unzipping genomes..."
+    
+    shell:
+        r"""
+        gunzip {input}
+
+        """        
 
 
 #rule make_list_downloaded_genomes:
-#    output: 
-#    input:  "database/{GENOME}.fna"
+#    output: "./downloaded_genomes.txt"
+#    input:  "database/{genome}.fna"
 #
 #    shell:
 #        r"""

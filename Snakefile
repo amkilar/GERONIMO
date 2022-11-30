@@ -61,6 +61,23 @@ rule unzip_genome:
         """        
 
 
+rule infernal_search:
+    output: result = "results/raw_infernal/{model}/result_{model}_vs_{genome}",
+            alingment = "results/raw_infernal/{model}/result_{model}_vs_{genome}-alignment",
+            table = "results/raw_infernal/{model}/result_{model}_vs_{genome}.csv",
+
+    input:  genome = "database/{genome}.fna",
+            model = "models_calibrated/cov_model_{model}"
+
+    conda:  "infernal_env.yaml"
+    message: "Run Infernal search"
+    
+    shell:
+        r"""
+       cmsearch --notextw -A {output.alingment} -o {output.result} --tblout {output.table} {input.model} {input.genome}
+
+        """      
+
 #rule make_list_downloaded_genomes:
 #    output: "./downloaded_genomes.txt"
 #    input:  "database/{genome}.fna"

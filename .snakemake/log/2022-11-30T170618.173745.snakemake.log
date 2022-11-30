@@ -1,0 +1,21 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	infernal_search
+	1
+
+[Wed Nov 30 17:06:18 2022]
+Job 0: Run Infernal search
+
+
+       cmsearch --notextw -A results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment -o results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic --tblout results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv models_calibrated/cov_model_bombus database/GCA_022817605.1_ASM2281760v1_genomic.fna
+
+        
+Activating conda environment: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/a61e4c78
+[Wed Nov 30 17:08:05 2022]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/log/2022-11-30T170618.173745.snakemake.log

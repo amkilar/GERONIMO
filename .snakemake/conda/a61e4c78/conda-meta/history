@@ -1,0 +1,23 @@
+==> 2022-11-30 17:04:11 <==
+# cmd: /home/kilar/anaconda2/bin/conda-env create --file /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/a61e4c78.yaml --prefix /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/a61e4c78
+# conda version: 4.7.12
++bioconda::infernal-1.1.2-h14c3975_2
++defaults::_libgcc_mutex-0.1-main
++defaults::ca-certificates-2019.10.16-0
++defaults::certifi-2018.8.24-py35_1
++defaults::libedit-3.1.20181209-hc058e9b_0
++defaults::libffi-3.2.1-hd88cf55_4
++defaults::libgcc-ng-9.1.0-hdf63c60_0
++defaults::libstdcxx-ng-9.1.0-hdf63c60_0
++defaults::ncurses-6.1-he6710b0_1
++defaults::openssl-1.0.2t-h7b6447c_1
++defaults::pip-10.0.1-py35_0
++defaults::python-3.5.6-hc3d631a_0
++defaults::readline-7.0-h7b6447c_5
++defaults::setuptools-40.2.0-py35_0
++defaults::sqlite-3.30.1-h7b6447c_0
++defaults::tk-8.6.8-hbc83047_0
++defaults::wheel-0.31.1-py35_0
++defaults::xz-5.2.4-h14c3975_4
++defaults::zlib-1.2.11-h7b6447c_3
+# update specs: [u'certifi==2018.8.24=py35_1', u'tk==8.6.8=hbc83047_0', u'setuptools==40.2.0=py35_0', u'_libgcc_mutex==0.1=main', u'python==3.5.6=hc3d631a_0', u'zlib==1.2.11=h7b6447c_3', u'sqlite==3.30.1=h7b6447c_0', u'pip==10.0.1=py35_0', u'ca-certificates==2019.10.16=0', u'ncurses==6.1=he6710b0_1', u'libgcc-ng==9.1.0=hdf63c60_0', u'libstdcxx-ng==9.1.0=hdf63c60_0', u'openssl==1.0.2t=h7b6447c_1', u'libffi==3.2.1=hd88cf55_4', u'libedit==3.1.20181209=hc058e9b_0', u'xz==5.2.4=h14c3975_4', u'infernal==1.1.2=h14c3975_2', u'wheel==0.31.1=py35_0', u'readline==7.0=h7b6447c_5']

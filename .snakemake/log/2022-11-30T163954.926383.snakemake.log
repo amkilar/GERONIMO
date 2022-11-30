@@ -1,0 +1,58 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	create_genome_list
+	1	download_genome
+	1	unzip_genome
+	3
+
+[Wed Nov 30 16:39:54 2022]
+Job 2: Creating the genomes list...
+
+
+        esearch -db assembly -query '"Calotelea sp. ZL-2020"[Organism] AND (latest[filter] AND ("chromosome level"[filter] OR "complete genome"[filter]) AND "representative genome"[filter] AND (all[filter] NOT anomalous[filter] AND all[filter] NOT partial[filter]))' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
+            echo "$line/$fname" > temp/$fname.temp;
+        done
+       
+        
+Activating conda environment: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/1da98d13
+Touching output file temp/*.fna.gz.temp.
+[Wed Nov 30 16:39:56 2022]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Wed Nov 30 16:39:56 2022]
+Job 1: Downloading genomes...
+
+
+        GENOME_LINK=$(cat temp/*.fna.gz.temp)
+
+        GENOME="${GENOME_LINK##*/}"
+
+        wget -P ./database $GENOME_LINK 
+        
+[Wed Nov 30 16:39:56 2022]
+Error in rule download_genome:
+    jobid: 1
+    output: database/*.fna.gz
+    shell:
+        
+        GENOME_LINK=$(cat temp/*.fna.gz.temp)
+
+        GENOME="${GENOME_LINK##*/}"
+
+        wget -P ./database $GENOME_LINK 
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/log/2022-11-30T163954.926383.snakemake.log

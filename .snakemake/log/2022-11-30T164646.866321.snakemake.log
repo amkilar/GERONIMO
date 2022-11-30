@@ -1,0 +1,45 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	create_genome_list
+	1	download_genome
+	2
+
+[Wed Nov 30 16:46:46 2022]
+Job 1: Creating the genomes list...
+
+
+        esearch -db assembly -query '"Calotelea sp. ZL-2020"[Organism]' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
+            echo "$line/$fname" > temp/$fname.temp;
+        done
+       
+        
+Activating conda environment: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/1da98d13
+Touching output file temp/GCA_022817605.1_ASM2281760v1_genomic.fna.gz.temp.
+[Wed Nov 30 16:46:49 2022]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Wed Nov 30 16:46:49 2022]
+Job 0: Downloading genomes...
+
+
+        GENOME_LINK=$(cat temp/GCA_022817605.1_ASM2281760v1_genomic.fna.gz.temp)
+
+        GENOME="${GENOME_LINK##*/}"
+
+        wget -P ./database $GENOME_LINK 
+        
+Touching output file database/GCA_022817605.1_ASM2281760v1_genomic.fna.gz.
+[Wed Nov 30 16:46:53 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/log/2022-11-30T164646.866321.snakemake.log

@@ -1,0 +1,65 @@
+{
+  "build": "pl5321h87f3376_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=12",
+    "libstdcxx-ng >=12",
+    "perl >=5.32.1,<5.33.0a0 *_perl5"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-compress-raw-zlib-2.105-pl5321h87f3376_0",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/Compress/Raw/Zlib.pm",
+    "lib/perl5/5.32/site_perl/auto/Compress/Raw/Zlib/.packlist",
+    "lib/perl5/5.32/site_perl/auto/Compress/Raw/Zlib/Zlib.so"
+  ],
+  "fn": "perl-compress-raw-zlib-2.105-pl5321h87f3376_0.tar.bz2",
+  "license": "perl_5",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-compress-raw-zlib-2.105-pl5321h87f3376_0",
+    "type": 1
+  },
+  "md5": "6b25bedc10361529a269b523cc589afd",
+  "name": "perl-compress-raw-zlib",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-compress-raw-zlib-2.105-pl5321h87f3376_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/Compress/Raw/Zlib.pm",
+        "path_type": "hardlink",
+        "sha256": "831171bb965289e98f20135f88a844f1846fb3221772ba042e194af7b447e0e1",
+        "sha256_in_prefix": "831171bb965289e98f20135f88a844f1846fb3221772ba042e194af7b447e0e1",
+        "size_in_bytes": 47413
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Compress/Raw/Zlib/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-compress-raw-zlib_1653130891368/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_",
+        "sha256": "9f57d855400421ea01680a09ede7f7e724acb2fba735d6916260cb2092b7668b",
+        "sha256_in_prefix": "c0456042c58789bdcc6295c8d3527ed7e771f8816a0377f3346277bc05439f40",
+        "size_in_bytes": 1033
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Compress/Raw/Zlib/Zlib.so",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-compress-raw-zlib_1653130891368/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_",
+        "sha256": "1dcc60e2f8d320ca06ada3bf2da7f2c52ea2b3025798bca994478b15748cbe6f",
+        "sha256_in_prefix": "e8daf4d54eeb4a7fa3b12234fd29fef566017902222da87ea5f999fb918668bd",
+        "size_in_bytes": 150216
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-compress-raw-zlib==2.105=pl5321h87f3376_0",
+  "sha256": "391491c750a652898b386d780268fc897a3f9d6d7dbf3df8d7073328b430d69e",
+  "size": 77218,
+  "subdir": "linux-64",
+  "timestamp": 1653131032789,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/perl-compress-raw-zlib-2.105-pl5321h87f3376_0.tar.bz2",
+  "version": "2.105"
+}

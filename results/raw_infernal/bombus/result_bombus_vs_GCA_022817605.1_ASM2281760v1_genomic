@@ -4,7 +4,7 @@
 # Freely distributed under a BSD open source license.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # query CM file:                         models_calibrated/cov_model_bombus
-# target sequence database:              database/GCA_022817605.1_ASM2281760v1_genomic.fna
+# target sequence database:              database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna
 # output directed to file:               results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic
 # MSA of significant hits saved to file: results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
 # tabular output of hits:                results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv
@@ -688,7 +688,7 @@ Envelopes passing glocal HMM envelope defn filter:            2976  (0.00272); e
 Envelopes passing  local CM  CYK           filter:             860  (0.0004091); expected (0.0001)
 Total CM hits reported:                                         50  (1.685e-05); includes 7 truncated hit(s)
 
-# CPU time: 799.56u 20.77s 00:13:40.33 Elapsed: 00:01:46.43
+# CPU time: 799.68u 20.81s 00:13:40.48 Elapsed: 00:01:46.98
 # Alignment of 2 hits satisfying inclusion thresholds saved to: results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
 //
 [ok]

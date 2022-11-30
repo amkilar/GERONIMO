@@ -1,0 +1,65 @@
+{
+  "build": "pl5321h87f3376_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=12",
+    "libstdcxx-ng >=12",
+    "perl >=5.32.1,<5.33.0a0 *_perl5"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-compress-raw-bzip2-2.201-pl5321h87f3376_1",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/Compress/Raw/Bzip2.pm",
+    "lib/perl5/5.32/site_perl/auto/Compress/Raw/Bzip2/.packlist",
+    "lib/perl5/5.32/site_perl/auto/Compress/Raw/Bzip2/Bzip2.so"
+  ],
+  "fn": "perl-compress-raw-bzip2-2.201-pl5321h87f3376_1.tar.bz2",
+  "license": "perl_5",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-compress-raw-bzip2-2.201-pl5321h87f3376_1",
+    "type": 1
+  },
+  "md5": "1f59b739cceb60c0418df32ff64ed0c0",
+  "name": "perl-compress-raw-bzip2",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-compress-raw-bzip2-2.201-pl5321h87f3376_1.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/Compress/Raw/Bzip2.pm",
+        "path_type": "hardlink",
+        "sha256": "eec60eab879ac1b1910e9db628a1afd2f133f13470b08fe139f32be5c9fd3550",
+        "sha256_in_prefix": "eec60eab879ac1b1910e9db628a1afd2f133f13470b08fe139f32be5c9fd3550",
+        "size_in_bytes": 10996
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Compress/Raw/Bzip2/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-compress-raw-bzip2_1659382919925/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold",
+        "sha256": "9a11ff605a0fb940eca0bff93d713adfd0be576560b3bc68b82a2ed5d6f36ea2",
+        "sha256_in_prefix": "522832b0505fb0293058cf7df879fc4dafd0bb45b99333cdbb2d22693f48e36f",
+        "size_in_bytes": 1040
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Compress/Raw/Bzip2/Bzip2.so",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-compress-raw-bzip2_1659382919925/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold",
+        "sha256": "a959edc946c9027542b0b779f1ad03e9fcebc9a22dfd6a19ba407b73032f25fb",
+        "sha256_in_prefix": "aad1e7bc576fcad9ca236ab5ee0df00a5d505c02475af7af05b29bb26c7f6c68",
+        "size_in_bytes": 93800
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-compress-raw-bzip2==2.201=pl5321h87f3376_1",
+  "sha256": "639d8ca9e92c986188ea0a75618a7f88a337b8c6ee1668cd7fe1cf79645b4056",
+  "size": 48815,
+  "subdir": "linux-64",
+  "timestamp": 1659383082450,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/perl-compress-raw-bzip2-2.201-pl5321h87f3376_1.tar.bz2",
+  "version": "2.201"
+}

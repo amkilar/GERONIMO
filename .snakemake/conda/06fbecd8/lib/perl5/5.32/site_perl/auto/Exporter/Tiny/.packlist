@@ -1,0 +1,12 @@
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Shiny.pm relocate_as=../../../../../site_perl/Exporter/Shiny.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Tiny.pm relocate_as=../../../../../site_perl/Exporter/Tiny.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Tiny/Manual/Etc.pod relocate_as=../../../../../site_perl/Exporter/Tiny/Manual/Etc.pod
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Tiny/Manual/Exporting.pod relocate_as=../../../../../site_perl/Exporter/Tiny/Manual/Exporting.pod
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Tiny/Manual/Importing.pod relocate_as=../../../../../site_perl/Exporter/Tiny/Manual/Importing.pod
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Tiny/Manual/QuickStart.pod relocate_as=../../../../../site_perl/Exporter/Tiny/Manual/QuickStart.pod
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Shiny.3 relocate_as=../../../../../../../man/man3/Exporter::Shiny.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Tiny.3 relocate_as=../../../../../../../man/man3/Exporter::Tiny.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Tiny::Manual::Etc.3 relocate_as=../../../../../../../man/man3/Exporter::Tiny::Manual::Etc.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Tiny::Manual::Exporting.3 relocate_as=../../../../../../../man/man3/Exporter::Tiny::Manual::Exporting.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Tiny::Manual::Importing.3 relocate_as=../../../../../../../man/man3/Exporter::Tiny::Manual::Importing.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Tiny::Manual::QuickStart.3 relocate_as=../../../../../../../man/man3/Exporter::Tiny::Manual::QuickStart.3

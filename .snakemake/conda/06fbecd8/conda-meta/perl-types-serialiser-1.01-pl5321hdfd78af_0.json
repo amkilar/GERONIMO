@@ -1,0 +1,80 @@
+{
+  "build": "pl5321hdfd78af_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "perl >=5.32.1,<6.0a0 *_perl5",
+    "perl-common-sense"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-types-serialiser-1.01-pl5321hdfd78af_0",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/auto/Types/Serialiser/.packlist",
+    "lib/perl5/site_perl/Types/Serialiser.pm",
+    "lib/perl5/site_perl/Types/Serialiser/Error.pm",
+    "man/man3/Types::Serialiser.3",
+    "man/man3/Types::Serialiser::Error.3"
+  ],
+  "fn": "perl-types-serialiser-1.01-pl5321hdfd78af_0.tar.bz2",
+  "license": "perl_5",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-types-serialiser-1.01-pl5321hdfd78af_0",
+    "type": 1
+  },
+  "md5": "cfc65753e827bbef80c00eaa395f6ae7",
+  "name": "perl-types-serialiser",
+  "noarch": "generic",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-types-serialiser-1.01-pl5321hdfd78af_0.tar.bz2",
+  "package_type": "noarch_generic",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Types/Serialiser/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-types-serialiser_1644512178282/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_p",
+        "sha256": "3d7e8a95f466305e97328c5300724e280a606a7e8e4214b3dd5e926e32c9a520",
+        "sha256_in_prefix": "67592143448bdf91325cebd7ba64eacb1a9fc31809e9e7de2df8a11781b86347",
+        "size_in_bytes": 1426
+      },
+      {
+        "_path": "lib/perl5/site_perl/Types/Serialiser.pm",
+        "path_type": "hardlink",
+        "sha256": "3bd05e05d4a7542ed6b447c276728e0132935d2c19517014b3e3e1ff8d1dbb60",
+        "sha256_in_prefix": "3bd05e05d4a7542ed6b447c276728e0132935d2c19517014b3e3e1ff8d1dbb60",
+        "size_in_bytes": 9148
+      },
+      {
+        "_path": "lib/perl5/site_perl/Types/Serialiser/Error.pm",
+        "path_type": "hardlink",
+        "sha256": "4746bdd94780f666c9cdcbabff14087411c456172ce3fc3dc4aa2cefcb5cc334",
+        "sha256_in_prefix": "4746bdd94780f666c9cdcbabff14087411c456172ce3fc3dc4aa2cefcb5cc334",
+        "size_in_bytes": 451
+      },
+      {
+        "_path": "man/man3/Types::Serialiser.3",
+        "path_type": "hardlink",
+        "sha256": "7f60049920ccce1e59423af30fb59bc4ea65735618029f6d34122506f9fa4ca3",
+        "sha256_in_prefix": "7f60049920ccce1e59423af30fb59bc4ea65735618029f6d34122506f9fa4ca3",
+        "size_in_bytes": 11977
+      },
+      {
+        "_path": "man/man3/Types::Serialiser::Error.3",
+        "path_type": "hardlink",
+        "sha256": "34e27687b00e003578395675d33633cde526c557dfc0753a332437e48a92b265",
+        "sha256_in_prefix": "34e27687b00e003578395675d33633cde526c557dfc0753a332437e48a92b265",
+        "size_in_bytes": 2701
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-types-serialiser==1.01=pl5321hdfd78af_0",
+  "sha256": "20f61217b16235d0161ad6fa0a234585afcc04ec5a6142c65b5867e26216dfe3",
+  "size": 13136,
+  "subdir": "noarch",
+  "timestamp": 1644512391683,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/perl-types-serialiser-1.01-pl5321hdfd78af_0.tar.bz2",
+  "version": "1.01"
+}

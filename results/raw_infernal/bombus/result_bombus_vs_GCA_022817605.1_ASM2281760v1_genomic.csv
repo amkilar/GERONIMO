@@ -55,8 +55,8 @@ JABFPA010046719.1    -         insects              -          cm        1      
 # Version:         1.1.2 (July 2016)
 # Pipeline mode:   SEARCH
 # Query file:      models_calibrated/cov_model_bombus
-# Target file:     database/GCA_022817605.1_ASM2281760v1_genomic.fna
-# Option settings: cmsearch -o results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic -A results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment --tblout results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv --notextw models_calibrated/cov_model_bombus database/GCA_022817605.1_ASM2281760v1_genomic.fna 
+# Target file:     database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna
+# Option settings: cmsearch -o results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic -A results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment --tblout results/raw_infernal/bombus/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv --notextw models_calibrated/cov_model_bombus database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna 
 # Current dir:     /home/kilar/Desktop/GERONIMO/GERONIMO
-# Date:            Wed Nov 30 17:08:05 2022
+# Date:            Wed Nov 30 17:45:44 2022
 # [ok]

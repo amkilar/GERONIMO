@@ -1,0 +1,3 @@
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/Compress/Raw/Zlib.pm relocate_as=../../../../Compress/Raw/Zlib.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/auto/Compress/Raw/Zlib/Zlib.so relocate_as=Zlib.so
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Compress::Raw::Zlib.3 relocate_as=../../../../../../../../man/man3/Compress::Raw::Zlib.3

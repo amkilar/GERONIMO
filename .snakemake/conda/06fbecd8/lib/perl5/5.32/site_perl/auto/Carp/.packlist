@@ -1,0 +1,3 @@
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Carp.pm relocate_as=../../../../site_perl/Carp.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Carp/Heavy.pm relocate_as=../../../../site_perl/Carp/Heavy.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Carp.3 relocate_as=../../../../../../man/man3/Carp.3

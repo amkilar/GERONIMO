@@ -31,7 +31,7 @@ rule create_genome_list:
 
 
 rule download_genome:
-    output: touch("database/{genome}.fna.gz")
+    output: touch("database/{genome}/{genome}.fna.gz")
     
     input:  "temp/{genome}.fna.gz.temp"
 
@@ -43,14 +43,14 @@ rule download_genome:
 
         GENOME="${{GENOME_LINK##*/}}"
 
-        wget -P ./database $GENOME_LINK 
+        wget -P ./database/{wildcards.genome}/ $GENOME_LINK 
         """
 
 
 rule unzip_genome:
-    output: touch("database/{genome}.fna")
+    output: touch("database/{genome}/{genome}.fna")
 
-    input:  "database/{genome}.fna.gz"
+    input:  "database/{genome}/{genome}.fna.gz"
 
     message: "Unzipping genomes..."
     
@@ -66,7 +66,7 @@ rule infernal_search:
             alingment = "results/raw_infernal/{model}/result_{model}_vs_{genome}-alignment",
             table = "results/raw_infernal/{model}/result_{model}_vs_{genome}.csv",
 
-    input:  genome = "database/{genome}.fna",
+    input:  genome = "database/{genome}/{genome}.fna",
             model = "models_calibrated/cov_model_{model}"
 
     conda:  "infernal_env.yaml"
@@ -78,13 +78,16 @@ rule infernal_search:
 
         """      
 
-#rule make_list_downloaded_genomes:
-#    output: "./downloaded_genomes.txt"
-#    input:  "database/{genome}.fna"
-#
-#    shell:
-#        r"""
-#        ls {input} > {output}
-#        """        
+rule makeblastdb:
+    output: touch("database/{genome}/{genome}.fna.nhr")
+    
+    input:  genome = "database/{genome}/{genome}.fna"
 
+    conda:  "blast_env.yaml"
+    message:    "Preparing database..."
+
+    shell:
+        r"""
+        makeblastdb -in {input} -dbtype nucl -parse_seqids
+        """
 

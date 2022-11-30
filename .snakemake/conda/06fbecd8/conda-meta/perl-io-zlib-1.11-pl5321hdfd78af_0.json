@@ -1,0 +1,55 @@
+{
+  "build": "pl5321hdfd78af_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "perl >=5.32.1,<6.0a0 *_perl5"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-io-zlib-1.11-pl5321hdfd78af_0",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/auto/IO/Zlib/.packlist",
+    "lib/perl5/site_perl/IO/Zlib.pm"
+  ],
+  "fn": "perl-io-zlib-1.11-pl5321hdfd78af_0.tar.bz2",
+  "license": "unknown",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-io-zlib-1.11-pl5321hdfd78af_0",
+    "type": 1
+  },
+  "md5": "0bc11b066e1ec99fefd5558e87b8e0f0",
+  "name": "perl-io-zlib",
+  "noarch": "generic",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-io-zlib-1.11-pl5321hdfd78af_0.tar.bz2",
+  "package_type": "noarch_generic",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/IO/Zlib/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-io-zlib_1644833403696/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_",
+        "sha256": "a551324c29e3310b97ed802cfb5840a0490fbf4b714ec882308406f5889b017b",
+        "sha256_in_prefix": "d13313d8b723c01cba4b1693b4d024481cdf7244f0c916a03a318a1ecba29a6e",
+        "size_in_bytes": 664
+      },
+      {
+        "_path": "lib/perl5/site_perl/IO/Zlib.pm",
+        "path_type": "hardlink",
+        "sha256": "bbd070027fe350a888b25a0dd5ab66a054f6db42300d3b3629f0a28ae6662e82",
+        "sha256_in_prefix": "bbd070027fe350a888b25a0dd5ab66a054f6db42300d3b3629f0a28ae6662e82",
+        "size_in_bytes": 16101
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-io-zlib==1.11=pl5321hdfd78af_0",
+  "sha256": "a6e1b932e0447bc727c97fec224b6563bd948ff6828cc9a56dae7e71455fd3d1",
+  "size": 11462,
+  "subdir": "noarch",
+  "timestamp": 1644833564728,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/perl-io-zlib-1.11-pl5321hdfd78af_0.tar.bz2",
+  "version": "1.11"
+}

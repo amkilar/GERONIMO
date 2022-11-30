@@ -1,0 +1,109 @@
+{
+  "build": "pl5321h9f5acd7_5",
+  "build_number": 5,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=10.3.0",
+    "libstdcxx-ng >=10.3.0",
+    "perl >=5.32.1,<5.33.0a0 *_perl5",
+    "perl-common-sense",
+    "perl-types-serialiser"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-json-xs-2.34-pl5321h9f5acd7_5",
+  "features": "",
+  "files": [
+    "bin/json_xs",
+    "lib/perl5/5.32/site_perl/JSON/XS.pm",
+    "lib/perl5/5.32/site_perl/JSON/XS/Boolean.pm",
+    "lib/perl5/5.32/site_perl/auto/JSON/XS/.packlist",
+    "lib/perl5/5.32/site_perl/auto/JSON/XS/XS.so",
+    "man/man1/json_xs.1",
+    "man/man3/JSON::XS.3",
+    "man/man3/JSON::XS::Boolean.3"
+  ],
+  "fn": "perl-json-xs-2.34-pl5321h9f5acd7_5.tar.bz2",
+  "license": "unknown",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-json-xs-2.34-pl5321h9f5acd7_5",
+    "type": 1
+  },
+  "md5": "73c6dd8e7f7a6440cf1412112882c320",
+  "name": "perl-json-xs",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-json-xs-2.34-pl5321h9f5acd7_5.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/json_xs",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-json-xs_1645660017491/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_",
+        "sha256": "b85379bb9dd4e4c8ea1d7f7a50b27d1a615d08ba6245f355f8629182190704c7",
+        "sha256_in_prefix": "6ee10d3e802b15669cd5a9d25ab5b172b92ce7858f47ad0791e2bef122fd1a92",
+        "size_in_bytes": 6746
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/JSON/XS.pm",
+        "path_type": "hardlink",
+        "sha256": "41390de766a07c4d86fe2eeaaef5da486e8cdb50f61c909384dcb1b9327a56f9",
+        "sha256_in_prefix": "41390de766a07c4d86fe2eeaaef5da486e8cdb50f61c909384dcb1b9327a56f9",
+        "size_in_bytes": 57830
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/JSON/XS/Boolean.pm",
+        "path_type": "hardlink",
+        "sha256": "d4100c73e66c231a4947fd20c2f5d462dd0a4ecb451975966a89e69ae1481ba4",
+        "sha256_in_prefix": "d4100c73e66c231a4947fd20c2f5d462dd0a4ecb451975966a89e69ae1481ba4",
+        "size_in_bytes": 386
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/JSON/XS/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-json-xs_1645660017491/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_",
+        "sha256": "d9025f6af30c9d183ed6ca765638b546824aa598ebe114dc2afc37cbcdd5125c",
+        "sha256_in_prefix": "d0cf4c0d30c2cbbce8abc28653b156bd1ccddb6518ec2c32ba41a243fff9e11e",
+        "size_in_bytes": 2298
+      },
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/JSON/XS/XS.so",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-json-xs_1645660017491/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_",
+        "sha256": "0c3884a18be9684e9a12739f49e5bac48f541a390a90095e55c8c8acaff11d67",
+        "sha256_in_prefix": "7150e8f3e8344d7bdb7f824f2fa847c3b4ef80ed4bc23171e270b9034fa956da",
+        "size_in_bytes": 64976
+      },
+      {
+        "_path": "man/man1/json_xs.1",
+        "path_type": "hardlink",
+        "sha256": "12a710e297788282cee54b6495d9b06b9084e0326d752554d3390588f97fd834",
+        "sha256_in_prefix": "12a710e297788282cee54b6495d9b06b9084e0326d752554d3390588f97fd834",
+        "size_in_bytes": 7987
+      },
+      {
+        "_path": "man/man3/JSON::XS.3",
+        "path_type": "hardlink",
+        "sha256": "da913c387646f8467b076759ca68a8aacc8f8360aa63d564a81be96233d1caba",
+        "sha256_in_prefix": "da913c387646f8467b076759ca68a8aacc8f8360aa63d564a81be96233d1caba",
+        "size_in_bytes": 73120
+      },
+      {
+        "_path": "man/man3/JSON::XS::Boolean.3",
+        "path_type": "hardlink",
+        "sha256": "85615bebf6e523b2103e369602134fb97875a94ea41a5b3531b53948f3daf7b9",
+        "sha256_in_prefix": "85615bebf6e523b2103e369602134fb97875a94ea41a5b3531b53948f3daf7b9",
+        "size_in_bytes": 2641
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-json-xs==2.34=pl5321h9f5acd7_5",
+  "sha256": "60d7f20a2cb10205b8ab611ebedfe4bf5513f6ba39a2dd3c24d0e8745db9d464",
+  "size": 65357,
+  "subdir": "linux-64",
+  "timestamp": 1645660312759,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/perl-json-xs-2.34-pl5321h9f5acd7_5.tar.bz2",
+  "version": "2.34"
+}

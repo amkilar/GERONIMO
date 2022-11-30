@@ -1,0 +1,65 @@
+{
+  "build": "pl5321hdfd78af_4",
+  "build_number": 4,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "perl >=5.32.1,<6.0a0 *_perl5",
+    "perl-exporter",
+    "perl-extutils-makemaker"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-carp-1.38-pl5321hdfd78af_4",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/auto/Carp/.packlist",
+    "lib/perl5/site_perl/Carp.pm",
+    "lib/perl5/site_perl/Carp/Heavy.pm"
+  ],
+  "fn": "perl-carp-1.38-pl5321hdfd78af_4.tar.bz2",
+  "license": "perl_5",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-carp-1.38-pl5321hdfd78af_4",
+    "type": 1
+  },
+  "md5": "e4cbd5d05ff5018e31668ae0b4a47a05",
+  "name": "perl-carp",
+  "noarch": "generic",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-carp-1.38-pl5321hdfd78af_4.tar.bz2",
+  "package_type": "noarch_generic",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Carp/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-carp_1642457352266/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "343a9a8037a88e1d8621cfac95945a55979f6d412deb0fc2cd92e0402b87a75d",
+        "sha256_in_prefix": "b098a587dbf992966db853e64e267fe29558131c9cef863fa2c9722848da90f4",
+        "size_in_bytes": 982
+      },
+      {
+        "_path": "lib/perl5/site_perl/Carp.pm",
+        "path_type": "hardlink",
+        "sha256": "d343a981e86111332a0ba08858356c8afb1dea5056312211d0e1bb27805ff60e",
+        "sha256_in_prefix": "d343a981e86111332a0ba08858356c8afb1dea5056312211d0e1bb27805ff60e",
+        "size_in_bytes": 30436
+      },
+      {
+        "_path": "lib/perl5/site_perl/Carp/Heavy.pm",
+        "path_type": "hardlink",
+        "sha256": "8a022a1a7f7982d1fa3f892bf4ba1db352b5503d2778d22138f27e85cbc27f67",
+        "sha256_in_prefix": "8a022a1a7f7982d1fa3f892bf4ba1db352b5503d2778d22138f27e85cbc27f67",
+        "size_in_bytes": 773
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-carp==1.38=pl5321hdfd78af_4",
+  "sha256": "3adab57878b03af2bee23a7fb36c1c07cbce5812497aa11d8985bb3c209eb37a",
+  "size": 17085,
+  "subdir": "noarch",
+  "timestamp": 1642457507620,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/perl-carp-1.38-pl5321hdfd78af_4.tar.bz2",
+  "version": "1.38"
+}

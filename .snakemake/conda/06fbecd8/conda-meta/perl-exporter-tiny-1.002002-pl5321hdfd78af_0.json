@@ -1,0 +1,143 @@
+{
+  "build": "pl5321hdfd78af_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "perl >=5.32.1,<6.0a0 *_perl5"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-exporter-tiny-1.002002-pl5321hdfd78af_0",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/auto/Exporter/Tiny/.packlist",
+    "lib/perl5/site_perl/Exporter/Shiny.pm",
+    "lib/perl5/site_perl/Exporter/Tiny.pm",
+    "lib/perl5/site_perl/Exporter/Tiny/Manual/Etc.pod",
+    "lib/perl5/site_perl/Exporter/Tiny/Manual/Exporting.pod",
+    "lib/perl5/site_perl/Exporter/Tiny/Manual/Importing.pod",
+    "lib/perl5/site_perl/Exporter/Tiny/Manual/QuickStart.pod",
+    "man/man3/Exporter::Shiny.3",
+    "man/man3/Exporter::Tiny.3",
+    "man/man3/Exporter::Tiny::Manual::Etc.3",
+    "man/man3/Exporter::Tiny::Manual::Exporting.3",
+    "man/man3/Exporter::Tiny::Manual::Importing.3",
+    "man/man3/Exporter::Tiny::Manual::QuickStart.3"
+  ],
+  "fn": "perl-exporter-tiny-1.002002-pl5321hdfd78af_0.tar.bz2",
+  "license": "perl_5",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-exporter-tiny-1.002002-pl5321hdfd78af_0",
+    "type": 1
+  },
+  "md5": "4cf435ed1fd536725957dda475522f57",
+  "name": "perl-exporter-tiny",
+  "noarch": "generic",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-exporter-tiny-1.002002-pl5321hdfd78af_0.tar.bz2",
+  "package_type": "noarch_generic",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/Exporter/Tiny/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-exporter-tiny_1644430686800/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac",
+        "sha256": "8557e55b0211ac38857b5bd33204ca4f81bcfcf97f4f88b1670adf3ca03a7400",
+        "sha256_in_prefix": "1e7dfa6d227244eb128398fa48083990ae657bd73b7ff6532ca4aa837caeb140",
+        "size_in_bytes": 4408
+      },
+      {
+        "_path": "lib/perl5/site_perl/Exporter/Shiny.pm",
+        "path_type": "hardlink",
+        "sha256": "814e52b4e5cc338e2f90b876a9c0c6bae69b016eea440f26dc188b8f6b0fc60f",
+        "sha256_in_prefix": "814e52b4e5cc338e2f90b876a9c0c6bae69b016eea440f26dc188b8f6b0fc60f",
+        "size_in_bytes": 2485
+      },
+      {
+        "_path": "lib/perl5/site_perl/Exporter/Tiny.pm",
+        "path_type": "hardlink",
+        "sha256": "a565cc5c7247d66e0fb2c8de72b2d1fcffee9cddd92b7e30c8a4f11d6e2d624b",
+        "sha256_in_prefix": "a565cc5c7247d66e0fb2c8de72b2d1fcffee9cddd92b7e30c8a4f11d6e2d624b",
+        "size_in_bytes": 13549
+      },
+      {
+        "_path": "lib/perl5/site_perl/Exporter/Tiny/Manual/Etc.pod",
+        "path_type": "hardlink",
+        "sha256": "3e080e8653b3b717c52dad07fcfc84c31766a9034c9c3b881ff41301a19b378a",
+        "sha256_in_prefix": "3e080e8653b3b717c52dad07fcfc84c31766a9034c9c3b881ff41301a19b378a",
+        "size_in_bytes": 4629
+      },
+      {
+        "_path": "lib/perl5/site_perl/Exporter/Tiny/Manual/Exporting.pod",
+        "path_type": "hardlink",
+        "sha256": "293f6a8c2d4dacb49b775b24547a2f4845487bd6549b08a82f06dd89281111c8",
+        "sha256_in_prefix": "293f6a8c2d4dacb49b775b24547a2f4845487bd6549b08a82f06dd89281111c8",
+        "size_in_bytes": 8572
+      },
+      {
+        "_path": "lib/perl5/site_perl/Exporter/Tiny/Manual/Importing.pod",
+        "path_type": "hardlink",
+        "sha256": "b30bb287d84da14a188de33cffbb886aeefc006338bdea42c9692b851d496b41",
+        "sha256_in_prefix": "b30bb287d84da14a188de33cffbb886aeefc006338bdea42c9692b851d496b41",
+        "size_in_bytes": 7277
+      },
+      {
+        "_path": "lib/perl5/site_perl/Exporter/Tiny/Manual/QuickStart.pod",
+        "path_type": "hardlink",
+        "sha256": "02201691ea56dd237b75984d680ac5d6c1152d09c761ef6376a2a3df84c18109",
+        "sha256_in_prefix": "02201691ea56dd237b75984d680ac5d6c1152d09c761ef6376a2a3df84c18109",
+        "size_in_bytes": 4298
+      },
+      {
+        "_path": "man/man3/Exporter::Shiny.3",
+        "path_type": "hardlink",
+        "sha256": "0bc0deedca5ada6fdfbe40ceb17dd861a4211d186e86064cfe7cb36c988c189f",
+        "sha256_in_prefix": "0bc0deedca5ada6fdfbe40ceb17dd861a4211d186e86064cfe7cb36c988c189f",
+        "size_in_bytes": 4135
+      },
+      {
+        "_path": "man/man3/Exporter::Tiny.3",
+        "path_type": "hardlink",
+        "sha256": "95a9b6372e830a1ab598d0307e2bf97065227de64b2edec10453e2c425ba280b",
+        "sha256_in_prefix": "95a9b6372e830a1ab598d0307e2bf97065227de64b2edec10453e2c425ba280b",
+        "size_in_bytes": 4627
+      },
+      {
+        "_path": "man/man3/Exporter::Tiny::Manual::Etc.3",
+        "path_type": "hardlink",
+        "sha256": "739fb22040725748904fffafacc8d8ba486fcf497631bd636f0cf44c941e04c4",
+        "sha256_in_prefix": "739fb22040725748904fffafacc8d8ba486fcf497631bd636f0cf44c941e04c4",
+        "size_in_bytes": 7389
+      },
+      {
+        "_path": "man/man3/Exporter::Tiny::Manual::Exporting.3",
+        "path_type": "hardlink",
+        "sha256": "a6ca00a2fe01858b916075894c2e593a8498e50a2274a498b968a525d9425c33",
+        "sha256_in_prefix": "a6ca00a2fe01858b916075894c2e593a8498e50a2274a498b968a525d9425c33",
+        "size_in_bytes": 12803
+      },
+      {
+        "_path": "man/man3/Exporter::Tiny::Manual::Importing.3",
+        "path_type": "hardlink",
+        "sha256": "4dc8a9f93d4c131da04d9a115536158f70932da3d7fcab34d678e0771b9b331d",
+        "sha256_in_prefix": "4dc8a9f93d4c131da04d9a115536158f70932da3d7fcab34d678e0771b9b331d",
+        "size_in_bytes": 11184
+      },
+      {
+        "_path": "man/man3/Exporter::Tiny::Manual::QuickStart.3",
+        "path_type": "hardlink",
+        "sha256": "b0cbe898bedaff153930a1f54801e16f46742f2300e0877eeb4951e0c27c1129",
+        "sha256_in_prefix": "b0cbe898bedaff153930a1f54801e16f46742f2300e0877eeb4951e0c27c1129",
+        "size_in_bytes": 7242
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-exporter-tiny==1.002002=pl5321hdfd78af_0",
+  "sha256": "dd691c5b078193c0ab38beec5cf67c2de6311a421d811e10cfd42bc7cce9e23e",
+  "size": 25350,
+  "subdir": "noarch",
+  "timestamp": 1644430893202,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/perl-exporter-tiny-1.002002-pl5321hdfd78af_0.tar.bz2",
+  "version": "1.002002"
+}

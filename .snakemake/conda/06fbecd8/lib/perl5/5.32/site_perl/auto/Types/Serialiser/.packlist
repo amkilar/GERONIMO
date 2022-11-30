@@ -1,0 +1,4 @@
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Types/Serialiser.pm relocate_as=../../../../../site_perl/Types/Serialiser.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Types/Serialiser/Error.pm relocate_as=../../../../../site_perl/Types/Serialiser/Error.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Types::Serialiser.3 relocate_as=../../../../../../../man/man3/Types::Serialiser.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Types::Serialiser::Error.3 relocate_as=../../../../../../../man/man3/Types::Serialiser::Error.3

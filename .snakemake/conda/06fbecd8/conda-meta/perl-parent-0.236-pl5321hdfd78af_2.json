@@ -1,0 +1,55 @@
+{
+  "build": "pl5321hdfd78af_2",
+  "build_number": 2,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "perl >=5.32.1,<6.0a0 *_perl5"
+  ],
+  "extracted_package_dir": "/home/kilar/anaconda2/pkgs/perl-parent-0.236-pl5321hdfd78af_2",
+  "features": "",
+  "files": [
+    "lib/perl5/5.32/site_perl/auto/parent/.packlist",
+    "lib/perl5/site_perl/parent.pm"
+  ],
+  "fn": "perl-parent-0.236-pl5321hdfd78af_2.tar.bz2",
+  "license": "perl_5",
+  "link": {
+    "source": "/home/kilar/anaconda2/pkgs/perl-parent-0.236-pl5321hdfd78af_2",
+    "type": 1
+  },
+  "md5": "39654d6adccb863ac8973da0f745dd52",
+  "name": "perl-parent",
+  "noarch": "generic",
+  "package_tarball_full_path": "/home/kilar/anaconda2/pkgs/perl-parent-0.236-pl5321hdfd78af_2.tar.bz2",
+  "package_type": "noarch_generic",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/perl5/5.32/site_perl/auto/parent/.packlist",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/perl-parent_1642459630747/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_p",
+        "sha256": "4b137d6d8a4c182edeecb2c3b20fb3824afb90340bc16fe9dd8c428c454e0578",
+        "sha256_in_prefix": "2d2d509cc7875b108c86c62241e32c052146ceaeaf1261167048d3810dedbcf1",
+        "size_in_bytes": 652
+      },
+      {
+        "_path": "lib/perl5/site_perl/parent.pm",
+        "path_type": "hardlink",
+        "sha256": "c9cc8bde36f5a6193ab97be2b5503082ed917ba425746523a9a08dc4d3a5b78c",
+        "sha256_in_prefix": "c9cc8bde36f5a6193ab97be2b5503082ed917ba425746523a9a08dc4d3a5b78c",
+        "size_in_bytes": 2591
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "perl-parent==0.236=pl5321hdfd78af_2",
+  "sha256": "5f297c11c073ba7884be0db5b2b890040850dfbf4dd3362542b2fa8db55a5f10",
+  "size": 7948,
+  "subdir": "noarch",
+  "timestamp": 1642459783486,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/perl-parent-0.236-pl5321hdfd78af_2.tar.bz2",
+  "version": "0.236"
+}

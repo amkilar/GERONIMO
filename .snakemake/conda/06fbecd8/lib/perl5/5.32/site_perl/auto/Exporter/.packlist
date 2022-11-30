@@ -1,0 +1,4 @@
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter.pm relocate_as=../../../../site_perl/Exporter.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/Exporter/Heavy.pm relocate_as=../../../../site_perl/Exporter/Heavy.pm
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter.3 relocate_as=../../../../../../man/man3/Exporter.3
+/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Exporter::Heavy.3 relocate_as=../../../../../../man/man3/Exporter::Heavy.3

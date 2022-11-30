@@ -2,13 +2,13 @@
 touchfile = '.downloaded_genomes'
 
 
-GENOMES=glob_wildcards("database/{GENOME}.fna")
-
 configfile: "config.yaml"
 print("Config is: ", config)
 
 DATABASE = config["database"]
 print(DATABASE)
+
+GENOMES = glob_wildcards("database/{genome}.fna").genome
 
 
 rule create_genome_list:
@@ -34,32 +34,44 @@ rule create_genome_list:
         """   
 
 rule download_genome:
+    output: directory("database/{GENOME}.fna.gz")
     input:  "temp/{GENOME}.fna.gz.temp"
-    output: "database/{GENOME}.fna"
+
     message: "Downloading genomes..."
     
     shell:
         r"""
-
         GENOME_LINK=$(cat {input})
 
         GENOME="${GENOME_LINK##*/}"
 
         wget -P ./database $GENOME_LINK 
-
-        gunzip ./database/$GENOME
-
         """
 
+rule unzip_genome:
+    output: "{database}/{GENOME}.fna",
+            "{database}/list_of_downloaded_genomes.txt"
 
-rule make_list_downloaded_genomes:
-    input:  expand("database/{GENOME}", GENOME = GENOMES)
-    output: "list_of_downloaded_genomes.txt"
+    input:  "{database}/{GENOME}.fna.gz"
 
+    message: "Unzipping genomes..."
+    
     shell:
         r"""
-        ls {input} > list_of_downloaded_genomes.txt
+        gunzip {input}
+
+        ls {input} > {output[1]}
 
         """        
+
+
+#rule make_list_downloaded_genomes:
+#    output: 
+#    input:  "database/{GENOME}.fna"
+#
+#    shell:
+#        r"""
+#        ls {input} > {output}
+#        """        
 
 

@@ -8,3 +8,7 @@
 #
 # Export the environment to .yaml file
 # conda env export > blast_env.yaml
+
+# OR: conda create -n search_taxonomy -c conda-forge -c bioconda -c r -c anaconda -c defaults r-tidyverse r-devtools r-rentrez r-openxlsx r-rvest
+
+# conda install -c r r-tidyverse r-devtools r-rentrez r-openxlsx r-rvest

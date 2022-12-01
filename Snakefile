@@ -48,6 +48,9 @@ rule download_genome:
 
 
 rule unzip_genome:
+# Whet if the .fna.gz is corrupted? 
+# Make it being removed from further steps
+# And skipped somehow to not ruin the whole run
     output: touch("database/{genome}/{genome}.fna")
 
     input:  "database/{genome}/{genome}.fna.gz"
@@ -80,14 +83,24 @@ rule infernal_search:
 
 rule makeblastdb:
     output: touch("database/{genome}/{genome}.fna.nhr")
-    
+
     input:  genome = "database/{genome}/{genome}.fna"
 
     conda:  "blast_env.yaml"
-    message:    "Preparing database..."
+    message: "Preparing database..."
 
     shell:
         r"""
         makeblastdb -in {input} -dbtype nucl -parse_seqids
         """
 
+rule search_taxonomy:
+    output: "taxonomy/{genome}.taxonomy.row.csv"
+
+    input:  script = "scripts/search_taxonomy.r",
+            genome = "database/{genome}/{genome}.fna"
+
+    conda:  "search_taxonomy_r_env.yaml"        
+
+    shell:
+        "Rscript {input.script} {input.genome} {output}"

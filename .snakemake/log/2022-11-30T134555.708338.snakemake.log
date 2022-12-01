@@ -1,3 +1,0 @@
-SyntaxError:
-Not all output, log and benchmark files of rule create_genome_list contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
-  File "/home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile", line 23, in <module>

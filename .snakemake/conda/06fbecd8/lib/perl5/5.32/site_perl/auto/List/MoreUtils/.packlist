@@ -1,6 +1,0 @@
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/List/MoreUtils.pm relocate_as=../../../../../site_perl/List/MoreUtils.pm
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/List/MoreUtils/Contributing.pod relocate_as=../../../../../site_perl/List/MoreUtils/Contributing.pod
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/site_perl/List/MoreUtils/PP.pm relocate_as=../../../../../site_perl/List/MoreUtils/PP.pm
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/List::MoreUtils.3 relocate_as=../../../../../../../man/man3/List::MoreUtils.3
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/List::MoreUtils::Contributing.3 relocate_as=../../../../../../../man/man3/List::MoreUtils::Contributing.3
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/List::MoreUtils::PP.3 relocate_as=../../../../../../../man/man3/List::MoreUtils::PP.3

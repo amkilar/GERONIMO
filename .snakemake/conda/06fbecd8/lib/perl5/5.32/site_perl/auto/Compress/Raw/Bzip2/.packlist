@@ -1,3 +1,0 @@
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/Compress/Raw/Bzip2.pm relocate_as=../../../../Compress/Raw/Bzip2.pm
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/auto/Compress/Raw/Bzip2/Bzip2.so relocate_as=Bzip2.so
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/Compress::Raw::Bzip2.3 relocate_as=../../../../../../../../man/man3/Compress::Raw::Bzip2.3

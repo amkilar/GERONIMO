@@ -1,7 +1,0 @@
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/bin/json_xs relocate_as=../../../../../../../bin/json_xs
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/JSON/XS.pm relocate_as=../../../JSON/XS.pm
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/JSON/XS/Boolean.pm relocate_as=../../../JSON/XS/Boolean.pm
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/lib/perl5/5.32/site_perl/auto/JSON/XS/XS.so relocate_as=XS.so
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man1/json_xs.1 relocate_as=../../../../../../../man/man1/json_xs.1
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/JSON::XS.3 relocate_as=../../../../../../../man/man3/JSON::XS.3
-/home/kilar/Desktop/GERONIMO/GERONIMO/.snakemake/conda/06fbecd8/man/man3/JSON::XS::Boolean.3 relocate_as=../../../../../../../man/man3/JSON::XS::Boolean.3

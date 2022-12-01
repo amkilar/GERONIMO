@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 34 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
-Missing input files for rule download_genome:
-temp/{wildcards.GENOME}.temp

@@ -1,3 +1,0 @@
-NameError in line 82 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
-name 'exapand' is not defined
-  File "/home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile", line 82, in <module>

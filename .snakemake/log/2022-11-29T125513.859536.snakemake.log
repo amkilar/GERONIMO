@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 11 of /home/kilar/Desktop/GERONIMO/GERONIMO/Snakefile:
-Missing input files for rule all:
-"Bombus"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]) AND ("chromosome level"[filter] AND "representative genome"[filter])

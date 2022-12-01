@@ -1,4 +1,4 @@
-# snakemake -j1 -F -p database/GCA_014905175.1_ASM1490517v1_genomic.fna --use-conda
+# snakemake -j1 -p taxonomy/GCA_022817605.1_ASM2281760v1_genomic.taxonomy.row.csv --use-conda
 
 
 configfile: "config.yaml"

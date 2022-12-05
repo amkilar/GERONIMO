@@ -9,7 +9,7 @@
 # MSA of significant hits saved to file: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
 # tabular output of hits:                results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv
 # max ASCII text line length:            unlimited
-# number of worker threads:              8
+# number of worker threads:              16
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Query:       insects  [CLEN=281]
@@ -688,7 +688,7 @@ Envelopes passing glocal HMM envelope defn filter:            2976  (0.00272); e
 Envelopes passing  local CM  CYK           filter:             860  (0.0004091); expected (0.0001)
 Total CM hits reported:                                         50  (1.685e-05); includes 7 truncated hit(s)
 
-# CPU time: 802.29u 21.52s 00:13:43.81 Elapsed: 00:01:51.30
+# CPU time: 1823.28u 60.23s 00:31:23.51 Elapsed: 00:02:02.00
 # Alignment of 2 hits satisfying inclusion thresholds saved to: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
 //
 [ok]

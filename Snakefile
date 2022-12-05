@@ -140,7 +140,7 @@ rule makeblastdb:
 
 
 rule blastcmd:
-    output: "results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt"
+    output: touch("results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt")
 
     input:  database = "database/{genome}/{genome}.fna.nhr",
             query = "results/BLAST/{genome}/filtered/{genome}_{model}_filtered.txt"
@@ -150,45 +150,58 @@ rule blastcmd:
     shell:
         r"""
 
-        chmod 744 {input.query}
+        VAR=$(echo {input.database})
 
-        touch {input.query}
+        DATABASE=$(echo ${{VAR%/*}})
 
-        # DATABASE = "${{input.query##*/}}"
+        echo "$DATABASE"
 
-        echo "${{input.query##*/}}"
 
         #to check whether the file is not empty
         if [ -s {input.query} ]
         then
             
-            cp {input.query} {input.database}
+            echo "I'm in!"
 
-            cd {input.database}
+            cp {input.query} $DATABASE
+
+
+            echo "Copied!"
+
+            cd $DATABASE
+
+            echo "In database dir"
+
+            QUERY=$(echo *_filtered.txt)
 
             while read line
             do
-                arr=($line)
+ 
+            
+            echo "ELO"
 
-                echo $arr
-                
-            #    #blastdcmd
-            #    seq=$((blastdbcmd -db {input.database} \
-            #    -entry "${{arr[2]}}" \
-            #    -strand "${{arr[3]}}" \
-            #    -range "${{arr[4]}}" \
-            #    -outfmt %s ))
-            #    
-            #    #extended file
-            #    echo ">""_""${{arr[0]}}""_""${{arr[1]}}" >> {output}
-            #    echo $seq >> {output}
-        
-            done < {input.query}
-        fi    
+            done < $QUERY
+        fi 
+
         """
 
 
+            #   arr=($line)
 
+             #   echo "$arr"
+                
+             #   #blastdcmd
+             #   seq=$((blastdbcmd -db $DATABASE \
+             #   -entry "${{arr[2]}}" \
+             #   -strand "${{arr[3]}}" \
+             #   -range "${{arr[4]}}" \
+             #   -outfmt %s ))
+             #   
+             #   echo "I did BLAST"
+#
+#             #   #extended file
+#             #   echo ">""_""${arr[0]}""_""${arr[1]}" >> {output}
+             #   echo $seq >> {output}
 
 
 

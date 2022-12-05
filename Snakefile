@@ -1,10 +1,11 @@
-# snakemake -j1 -F -p results/infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic.csv --use-conda
+# snakemake -j1 -p results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic_bombus_filtered.txt --use-conda
 
 
 configfile: "config.yaml"
 #print("Config is: ", config)
 
 DATABASE = config["database"]
+REGION_LENGTH = config["extract_genomic_region-length"]
 #print(DATABASE)
 
 #GENOMES = glob_wildcards("database/{genome}.fna").genome
@@ -114,14 +115,24 @@ rule read_infernal_results:
             file = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}.csv",
             taxonomy = "taxonomy/{genome}.taxonomy.row.csv"
 
-    conda:  "read_results_infernal_r_env.yaml"      
+    conda:  "r_tidyverse_env.yaml"      
 
     shell:
         "Rscript {input.script} {input.file} {input.taxonomy} {output}"
 
 
 
+rule prepare_for_genomic_region_extraction:
+    output: "results/BLAST/{genome}/{genome}_{model}_filtered.txt"
 
+    input:  script = "scripts/create_input_for_cmdBLAST.R",
+            infernal_result = "results/infernal/{model}/{genome}.csv"
+
+    conda:  "r_tidyverse_env.yaml"      
+
+    shell:
+        "Rscript {input.script} {input.infernal_result} {REGION_LENGTH} {output}"
+        
 
 
 

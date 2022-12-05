@@ -2,3 +2,4 @@ CPU:  "4"
 #database: '"Aphidius"[Organism] AND (latest[filter] AND ("chromosome level"[filter] OR "complete genome"[filter]) AND "representative genome"[filter] AND (all[filter] NOT anomalous[filter] AND all[filter] NOT partial[filter]))'
 
 database: '"Calotelea sp. ZL-2020"[Organism]'
+extract_genomic_region-length:  "200"

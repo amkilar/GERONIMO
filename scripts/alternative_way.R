@@ -1,18 +1,57 @@
-#####################################################################################################################################
-###################### H Y M E N O P T E R A   ######################################################################################                        
-#####################################################################################################################################
+#!/usr/bin/env Rscript
+#
+#
+################################################################################
+################################################################################
+################################################################################
+#
+#                         filter_infernal_results
+#
+################################################################################
 
-library(tidyverse)
-
-setwd("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/home/agata/infernal_insects/results/220817_optimisation/")
+################################################################################
 
 
-table <- read_csv("220817_output_table_formiceidea2.csv")
+#Author           : Agata Kilar                                                
+#Email            : 242679@muni.cz  
 
+#Lastly modified  : 5th December 2022
 
+################################################################################
+################# BEFORE RUNNING THE SCRIPT ####################################
+################################################################################
+
+# Install all required packages:
+suppressMessages(require(tidyverse))
+
+# For Rscript - passing arguments from bash to R
+args = commandArgs(trailingOnly=TRUE)
+
+if (length(args)==0) {
+  stop("Please provide the list of inputs!", call.=FALSE)
+}
+
+################################################################################
+##################### SETUP VARIABLES ##########################################
+################################################################################
+
+INFERNAL_RESULT = "results/infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic.csv"
 extract_length = 200
+OUTPUT <- args[3]
 
-filtered_table <- table %>% 
+################################################################################
+#######################   FUNCTIONS    #########################################
+################################################################################
+
+
+#FILE = "results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv"
+#TAXONOMY <- "taxonomy/GCA_022817605.1_ASM2281760v1_genomic.taxonomy.row.csv"
+#OUTPUT <- "results/infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic.csv"
+
+#setwd("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/home/agata/infernal_insects/results/220817_optimisation/")
+
+
+filtered_table <- suppressWarnings(read_csv(INFERNAL_RESULT, show_col_types = FALSE)) %>% 
   filter(!(is.na(align_seq))) %>%
   mutate(sstart = seq_from, 
          send = seq_to) %>%   

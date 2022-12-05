@@ -43,12 +43,6 @@ if (length(args)==0) {
 FILE = args[1]
 TAXONOMY <- args[2]
 OUTPUT <- args[3]
-# what about manual?
-
-
-#FILE = "results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv"
-#TAXONOMY <- "taxonomy/GCA_022817605.1_ASM2281760v1_genomic.taxonomy.row.csv"
-#OUTPUT <- "results/infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic.csv"
 
 ################################################################################
 #######################   FUNCTIONS    #########################################

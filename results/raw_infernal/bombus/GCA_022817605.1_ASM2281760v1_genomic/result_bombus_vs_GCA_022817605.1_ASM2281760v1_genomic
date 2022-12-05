@@ -688,7 +688,7 @@ Envelopes passing glocal HMM envelope defn filter:            2976  (0.00272); e
 Envelopes passing  local CM  CYK           filter:             860  (0.0004091); expected (0.0001)
 Total CM hits reported:                                         50  (1.685e-05); includes 7 truncated hit(s)
 
-# CPU time: 802.30u 20.86s 00:13:43.16 Elapsed: 00:01:48.82
+# CPU time: 802.29u 21.52s 00:13:43.81 Elapsed: 00:01:51.30
 # Alignment of 2 hits satisfying inclusion thresholds saved to: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
 //
 [ok]

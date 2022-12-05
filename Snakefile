@@ -1,5 +1,7 @@
 # snakemake -j1 -p results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic_bombus_filtered.txt --use-conda
 
+# to obtain dag:
+# snakemake -j1 -f -p --dag results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic_bombus3_filtered.txt --use-conda | dot -Tpng > dag.png
 
 configfile: "config.yaml"
 #print("Config is: ", config)
@@ -82,18 +84,6 @@ rule infernal_search:
 
         """      
 
-rule makeblastdb:
-    output: touch("database/{genome}/{genome}.fna.nhr")
-
-    input:  genome = "database/{genome}/{genome}.fna"
-
-    conda:  "blast_env.yaml"
-    message: "Preparing database..."
-
-    shell:
-        r"""
-        makeblastdb -in {input} -dbtype nucl -parse_seqids
-        """
 
 rule search_taxonomy:
     output: "taxonomy/{genome}.taxonomy.row.csv"
@@ -123,7 +113,7 @@ rule read_infernal_results:
 
 
 rule prepare_for_genomic_region_extraction:
-    output: "results/BLAST/{genome}/{genome}_{model}_filtered.txt"
+    output: "results/BLAST/{genome}/filtered/{genome}_{model}_filtered.txt"
 
     input:  script = "scripts/create_input_for_cmdBLAST.R",
             infernal_result = "results/infernal/{model}/{genome}.csv"
@@ -132,67 +122,77 @@ rule prepare_for_genomic_region_extraction:
 
     shell:
         "Rscript {input.script} {input.infernal_result} {REGION_LENGTH} {output}"
+ 
+
+rule makeblastdb:
+    output: touch("database/{genome}/{genome}.fna.nhr")
+
+    input:  genome = "database/{genome}/{genome}.fna"
+
+    conda:  "blast_env.yaml"
+    message: "Preparing database..."
+
+    shell:
+        r"""
+        makeblastdb -in {input} -dbtype nucl -parse_seqids
+        """
+
+
+
+rule blastcmd:
+    output: "results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt"
+
+    input:  database = "database/{genome}/{genome}.fna.nhr",
+            query = "results/BLAST/{genome}/filtered/{genome}_{model}_filtered.txt"
+
+    conda:  "blast_env.yaml"
+
+    shell:
+        r"""
+
+        chmod 744 {input.query}
+
+        touch {input.query}
+
+        # DATABASE = "${{input.query##*/}}"
+
+        echo "${{input.query##*/}}"
+
+        #to check whether the file is not empty
+        if [ -s {input.query} ]
+        then
+            
+            cp {input.query} {input.database}
+
+            cd {input.database}
+
+            while read line
+            do
+                arr=($line)
+
+                echo $arr
+                
+            #    #blastdcmd
+            #    seq=$((blastdbcmd -db {input.database} \
+            #    -entry "${{arr[2]}}" \
+            #    -strand "${{arr[3]}}" \
+            #    -range "${{arr[4]}}" \
+            #    -outfmt %s ))
+            #    
+            #    #extended file
+            #    echo ">""_""${{arr[0]}}""_""${{arr[1]}}" >> {output}
+            #    echo $seq >> {output}
+        
+            done < {input.query}
+        fi    
+        """
+
+
+
+
+
+
         
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#rule blastcmd:
-#    output: "{GCA}_extended_region.txt"
-#
-#    input:  database = "database/{genome}/{genome}.fna"
-#            query = "/BLAST/{GCA}/{GCA}_query.txt"
-#
-#    conda:  "blast_env.yaml"
-#
-#    shell:
-#        r"""
-#
-#        while read line; do
-#            arr=($line)
-#            
-#            #blastdcmd
-#            seq=$(blastdbcmd -db {input.genome} \
-#            -entry "${arr[2]}" \
-#            -strand "${arr[3]}" \
-#            -range "${arr[4]}" \
-#            -outfmt %s )
-#            
-#            #extended file
-#            echo ">""_""${arr[0]}""_""${arr[1]}" >> out_ext.txt
-#            echo $seq >> out_ext.txt
-#
-#            mv ./out_ext.txt ./${GCA}_ext.txt
-#        
-#        done < {input.query}
-#
 
 

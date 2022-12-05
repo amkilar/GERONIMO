@@ -1,16 +1,65 @@
+#!/usr/bin/env Rscript
+#
+#
+################################################################################
+################################################################################
+################################################################################
+#
+#                         read_results_infernal
+#
+################################################################################
+# The script reads the raw infernal output files and translates them to
+# summary table. The files reading bases on the space number specified by Infernal 
+# developers and mine experience. In the summary table you can find information 
+# regarding the number of significant hits, possible hit or no hits found by Infernal
+# in a particular genome. Possible significant hits are extracted from the alignment
+# file and present in the summary table. At the end the taxonomy information is added.
+################################################################################
 
-############################  LOADING PACKAGES  ############################ 
-library(tidyverse)
+
+#Author           : Agata Kilar                                                
+#Email            : 242679@muni.cz  
+
+#Lastly modified  : 5th December 2022
+
+################################################################################
+################# BEFORE RUNNING THE SCRIPT ####################################
+################################################################################
+
+# Install all required packages:
+suppressMessages(require(tidyverse))
+
+# For Rscript - passing arguments from bash to R
+args = commandArgs(trailingOnly=TRUE)
+
+if (length(args)==0) {
+  stop("Please provide the list of inputs!", call.=FALSE)
+}
+
+################################################################################
+##################### SETUP VARIABLES ##########################################
+################################################################################
+
+FILE = args[1]
+TAXONOMY <- args[2]
+OUTPUT <- args[3]
+# what about manual?
 
 
-###########################   FUNCTIONS   ###########################
+#FILE = "results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv"
+#TAXONOMY <- "taxonomy/GCA_022817605.1_ASM2281760v1_genomic.taxonomy.row.csv"
+#OUTPUT <- "results/infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic.csv"
+
+################################################################################
+#######################   FUNCTIONS    #########################################
+################################################################################
 
 extract_basics <- function(row) {
   
   ### Function is receiving a row of data and extracting columns: "ID", gc", "score", "evalue", "inc", "model", "GCA"
   dane <- row %>%                                                         
-    select(ID, gc, score, evalue, inc, mdl_from, mdl_to, strand, seq_from, seq_to) %>%  ##################### HERE I CHANGE -----> ADD strand, seq_from, seq_to #################################################
-  mutate(model = model, GCA = GCA)  %>%
+    select(ID, gc, score, evalue, inc, mdl_from, mdl_to, strand, seq_from, seq_to) %>%
+    mutate(model = model, GCA = GCA)  %>%
     mutate(number = seq(1:nrow(row)), 
            suma = rep(nrow(row), nrow(row)))
   
@@ -47,7 +96,8 @@ add_alignment <- function() {
                                     fwf_cols( ID = width_len[[1]],                                 
                                               alignment = width_len[[2]]),
                                     skip_empty_rows = TRUE,
-                                    skip = ile_hit))
+                                    skip = ile_hit,
+                                    show_col_types = FALSE) )
   
   ### Tibble with aligments and scores 
   alignment <- align %>% 
@@ -94,7 +144,7 @@ add_blank <- function(final_row) {
 read_input <- function(file) {
   
   
-  column_pattern = suppressWarnings(read_csv(file)) %>% 
+  column_pattern = suppressWarnings(read_csv(file, show_col_types = FALSE)) %>% 
     slice(1) %>% 
     pull()
   
@@ -108,6 +158,7 @@ read_input <- function(file) {
   column_pattern <- lapply(column_pattern, nchar)
   
   cp <- unlist(column_pattern)
+  
   
   input_file = suppressWarnings(read_fwf(file, 
                                          fwf_cols( "ID" = cp[1]+1,
@@ -150,71 +201,6 @@ read_input <- function(file) {
   
   return(input_file)
 }
-
-# read_input <- function(file) {
-#   
-#   input_file = read_fwf(file, 
-#                         fwf_cols( "ID" = 20,
-#                                   "accession" = 10,
-#                                   "query_name" = 21,
-#                                   "accession2" = 10,
-#                                   "mdl" = 5,
-#                                   "mdl_from" = 8,
-#                                   "mdl_to" = 9,
-#                                   "seq_from" = 9,
-#                                   "seq_to" = 9,
-#                                   "strand" = 8,
-#                                   "trunc" = 5,
-#                                   "pass" = 6,
-#                                   "gc" = 4,
-#                                   "bias" = 6,
-#                                   "score" = 7,
-#                                   "evalue" = 10,
-#                                   "inc" = 3,
-#                                   "descr" = 21),
-#                         col_types = cols(
-#                           "ID" = col_character(),
-#                           "accession" = col_character(),
-#                           "query_name" = col_character(),
-#                           "accession2" = col_character(),
-#                           "mdl" = col_character(),
-#                           "mdl_from" = col_integer(),
-#                           "mdl_to" = col_integer(),
-#                           "seq_from" = col_integer(),
-#                           "seq_to" = col_integer(),
-#                           "strand" = col_character(),
-#                           "trunc" = col_character(),
-#                           "pass" = col_integer(),
-#                           "gc" = col_double(),
-#                           "bias" = col_double(),
-#                           "score" = col_double(),
-#                           "evalue" = col_double(),
-#                           "inc" = col_character(),
-#                           "descr" = col_character()), skip = 2)
-#   
-#   return(input_file)
-# }
-
-# input_file = read_fwf(file, 
-#                       fwf_cols( "ID" = cp[1]+1,
-#                                 "accession" = cp[2]+1,
-#                                 "query_name" = cp[3]+1,
-#                                 "accession2" = cp[4]+1,
-#                                 "mdl" = cp[5]+1,
-#                                 "mdl_from" = cp[6]+1,
-#                                 "mdl_to" = cp[7]+1,
-#                                 "seq_from" = cp[8]+1,
-#                                 "seq_to" = cp[9]+1,
-#                                 "strand" = cp[10]+1,
-#                                 "trunc" = cp[11]+1,
-#                                 "pass" = cp[12]+1,
-#                                 "gc" = cp[13]+15,
-#                                 "bias" = cp[14]+1,
-#                                 "score" = cp[15]+1,
-#                                 "evalue" = cp[16]+1,
-#                                 "inc" = cp[17]+1,
-#                                 "descr" = cp[18]+1),
-
 
 determine_widith <- function(align_name) {
   con = file(align_name, "r")
@@ -271,65 +257,33 @@ determine_widith <- function(align_name) {
   return( width_len )
 }
 
-# do_manualnie <- function(file) {
-#   ### Saving problamatic alignment to the file
-#   manualnie <- append(manualnie, file)
-#   
-#   ### Copying files .csv and -alignment to folder manual_fill
-#   files_to_copy <- c(file, paste0(name, "-alignment"))
-#   file.copy(files_to_copy, manual_fill)
-# }
+################################################################################
+##############################   MAIN    #######################################
+################################################################################
 
-###########################   DIRECTORIES   ###########################
+file <- FILE
 
-### SERVER
-setwd("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/nfs4/home/agata/infernal_insects/results/221020/")
-
-manual_fill <- ("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/nfs4/home/agata/infernal_insects/results/manual_fill/")
-results <- ("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/nfs4/home/agata/infernal_insects/results/221020/")
-labels_dir <- ("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/nfs4/home/agata/infernal_insects/database/220801_Pucciniomycotina_tax.csv")
-
-###########################   VARIABLES   ###########################
+############################   VARIABLES   #####################################
 tabela <- tribble()   ### define the main output of the script (big table)
 manualnie <- vector()
 temp_tibble <- tribble()
 
-############################  LOOP OVER THE FOLDERS  ############################  
-dirs = list.dirs(path = ".", full.names = TRUE, recursive = FALSE)     ### make a list of available directories
+test <- tribble()
+entry <- tribble()
+files_to_copy <- vector()
+EXIT <- FALSE
 
+########################### INFERNAL READING  ##################################
+    
 
-### GO OVER THE FOLDERS 
-for (folder in dirs) {
-  
-  setwd(folder)     ### go inside the folder
-  
-  files <- list.files( pattern = ".csv")    ### make a list of files in the folder
-  
-  ############################  LOOP OVER THE .CSV FILES  ############################  
-  for (file in files) {
-    
-    
-    # file = "result_chalcidoidea3_vs_GCA_000503995.1_CerSol_1.0_genomic.csv"
-    
-    temp_tibble <- tribble()
-    test <- tribble()
-    entry <- tribble()
-    files_to_copy <- vector()
-    EXIT <- FALSE
-    
-    print(paste0("Entering loop for: ", file))
-    
     ### Extracting GCA and model from name of the current file
-    parts = unlist(strsplit(file, "_"))
-    name = str_remove(file, ".csv")      # allow read the alignment file 
+    file_name <- unlist(strsplit(file, "/")) %>% tail(1) 
+    model <- paste0("cov_model_", unlist(strsplit(file_name, "_"))[[2]])
+    GCA <- paste0("GCA_", unlist(strsplit(file_name, "_"))[[5]])
+      
+    name = str_remove(file, ".csv")
     align_name = paste0(name, "-alignment")
-    model = parts[2]
-    
-    GCA <- tail(parts, -3) 
-    GCA <- paste0(GCA[1], "_", GCA[2])
-    #GCA <- paste(GCA, collapse = "_")
-    #GCA <- gsub(".fasta.csv", "", GCA)
-    
+
     
     ############################  LOADING result_MODEL_vs_GCA.csv FILE ############################  
     
@@ -337,7 +291,7 @@ for (folder in dirs) {
     
     if (empty_csv > 0) {
       
-      input_file = read_input(file)
+      input_file = suppressWarnings(read_input(file))
       
       ########################  CHECK WHETHER ANY ALIGNMENT IN THE FILE & CHOOSE STRATEGY  ######################## 
       ### Check whether present significant hits ("!")
@@ -349,12 +303,10 @@ for (folder in dirs) {
       if ( "!" %in% entry ) {
         
         
-        ### Preparing row for HIT output; as result row contains: "gc", "score", "evalue", "inc", "model_seq", "sec_struct", "align_score", "align_seq", "model", "GCA", "label" - filled with values   
-        print(paste0("! - ", file))
-        
+        ### Preparing row for HIT output; as result row contains: "gc", "score", "evalue", "in c", "model_seq", "sec_struct", "align_score", "align_seq", "model", "GCA", "label" - filled with values   
         row <- filter(input_file, inc == "!" )
         
-        ### Detremining how with number of hits that dealing with
+        ### Determining how with number of hits that dealing with
         ile_hit = nrow(row)
         
         ### Extracting important columns
@@ -430,8 +382,7 @@ for (folder in dirs) {
       
       ### When entry vector do not contain "!" neither "?"
       if  ( !( "!" %in% entry | "?" %in% entry ) == TRUE ) { 
-        
-        print(paste0("NO HITS - ", file))
+      
         
         ### Fill the row with NA and mutate for model and GCA
         row <- input_file %>% 
@@ -490,110 +441,43 @@ for (folder in dirs) {
       
     } else { manualnie <<- append(manualnie, file) }
     
-  }   ### END OF THE FILES LOOP
-  
-  setwd("../")      ### go up to the main folder
-  
-  #model <- tabela %>% pull(model) %>% unique()
-  
-  #write_csv(tabela, paste0("../part_output_table_", model, ".csv"))
-  
-  #tabela <- tribble()
-  
-}   ### END OF THE FOLDERS LOOP
 
 
-############################  SAVE NAMES OF FILES THAT NEED TO BE FILLED MANUALLY ###########################
+############  SAVE NAMES OF FILES THAT NEED TO BE FILLED MANUALLY ##############
+
+#write_delim(as.data.frame(manualnie), paste0(manual_fill, "fill_manually.txt"), delim = "/n")
 
 
-write_delim(as.data.frame(manualnie), paste0(manual_fill, "fill_manually.txt"), delim = "/n")
-
-
-
-############################  READ BACK THE TABLES TO ADD TAXONOMY   ###########################
-
-#setwd("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/nfs4/home/agata/infernal_insects/results/")
-
-#parts <- list.files(path = ".", pattern = "part_output")
-
-
-#tabela <- tribble()
-
-#for (part in parts) {
-
-#  part <- read.csv(part) %>% filter(label == "HIT" & suma > 0)
-
-#  tabela <- rbind(tabela, part)
-
-#}
-
-#tabela <- as_tibble(tabela)
-
-############################  SAVE NAMES OF FILES THAT NEED TO BE FILLED MANUALLY ###########################
-labels <- read_csv(paste0(labels_dir, "220801_Hymenoptera_taxonomy_representatives.csv"))
-
-labels <- read_csv(labels_dir)
-
-############################  JOINING TABLE AND LABELS, ORDERING  #################### 
-### 
+###################  JOINING TABLE AND LABELS, ORDERING  #######################
+labels <- suppressMessages(read_csv(TAXONOMY, show_col_types = FALSE)) %>% select(-(...1))
+    
 wynik <- tabela %>% 
   left_join(labels, by = "GCA")
 
-###########################   SAVING RESULTS TO .CSV FILE #################
-write_csv(wynik, paste0(results, "/221020_output_table_pucci.csv"))
+######################   SAVING RESULTS TO .CSV FILE ###########################
 
-filtered <- wynik %>% 
-  filter(label == "HIT" & suma > 0 )
-
-write_csv(filtered, paste0(results, "/221020_output_table_pucci_filtered.csv"))
-
-setwd("/run/user/1000/gvfs/sftp:host=storage-brno1-cerit.metacentrum.cz/nfs4/home/agata/infernal_insects/results/220801_hymenoptera/")
-for_plot <- read_csv("220801_ output_table_Hymenoptera_filtered.csv")
-
-for_plot <- filtered
-
-models <- for_plot %>% pull(model) %>% unique()
+write_csv(wynik, OUTPUT)
 
 
-for (mod in models) {
-  
-  plot <- for_plot %>% 
-    filter(model == mod) %>% 
-    group_by(family) %>% 
-    summarise(sum_family = n()) %>% 
-    ungroup() %>% 
-    
-    ggplot(aes(x = family, y = sum_family, fill = family)) +
-    geom_col() + 
-    #facet_grid(model ~ ., scales = "free", space = "free") +
-    #ylim(c(0,100)) +
-    labs(y = "Number of hits in the family", title = paste0("Pucci representatives - 20/10/2022         for model: ", mod)) +
-    theme(axis.text.x = element_text(size = 10, angle = 45, vjust = 1, hjust=1))
-  
-  
-  ggsave(paste0("221020_", mod, "_pucci.png"), plot = plot, device = "png")
-  
-}
 
 
-###########################################################################################################################################
-
-for_plot <- filtered %>% filter(evalue < 1 )
-
-plot <- for_plot %>% 
-  filter(model == mod) %>% 
-  group_by(family) %>% 
-  summarise(sum_family = n()) %>% 
-  ungroup() %>% 
-  
-  ggplot(aes(x = family, y = sum_family, fill = family)) +
-  geom_col() + 
-  #facet_grid(model ~ ., scales = "free", space = "free") +
-  #ylim(c(0,100)) +
-  labs(y = "Number of hits in the family", title = paste0("Hymenoptera representatives - 17/08/2022         for model: ", mod)) +
-  theme(axis.text.x = element_text(size = 10, angle = 45, vjust = 1, hjust=1))
 
 
-ggsave(paste0("220817_", mod, "_hymenoptera_MAYBE_less_1.png"), plot = plot, device = "png")
 
-write_csv(for_plot, paste0(results, "/220817_ output_table_filtered_MAYBE_less_1.csv"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

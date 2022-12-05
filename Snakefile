@@ -1,4 +1,4 @@
-# snakemake -j1 -p taxonomy/GCA_022817605.1_ASM2281760v1_genomic.taxonomy.row.csv --use-conda
+# snakemake -j1 -F -p results/infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic.csv --use-conda
 
 
 configfile: "config.yaml"
@@ -65,9 +65,9 @@ rule unzip_genome:
 
 
 rule infernal_search:
-    output: result = "results/raw_infernal/{model}/result_{model}_vs_{genome}",
-            alingment = "results/raw_infernal/{model}/result_{model}_vs_{genome}-alignment",
-            table = "results/raw_infernal/{model}/result_{model}_vs_{genome}.csv",
+    output: result = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}",
+            alingment = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}-alignment",
+            table = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}.csv",
 
     input:  genome = "database/{genome}/{genome}.fna",
             model = "models_calibrated/cov_model_{model}"
@@ -104,3 +104,84 @@ rule search_taxonomy:
 
     shell:
         "Rscript {input.script} {input.genome} {output}"
+
+
+
+rule read_infernal_results:
+    output: "results/infernal/{model}/{genome}.csv"
+
+    input:  script = "scripts/read_results_infernal.R",
+            file = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}.csv",
+            taxonomy = "taxonomy/{genome}.taxonomy.row.csv"
+
+    conda:  "read_results_infernal_r_env.yaml"      
+
+    shell:
+        "Rscript {input.script} {input.file} {input.taxonomy} {output}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#rule blastcmd:
+#    output: "{GCA}_extended_region.txt"
+#
+#    input:  database = "database/{genome}/{genome}.fna"
+#            query = "/BLAST/{GCA}/{GCA}_query.txt"
+#
+#    conda:  "blast_env.yaml"
+#
+#    shell:
+#        r"""
+#
+#        while read line; do
+#            arr=($line)
+#            
+#            #blastdcmd
+#            seq=$(blastdbcmd -db {input.genome} \
+#            -entry "${arr[2]}" \
+#            -strand "${arr[3]}" \
+#            -range "${arr[4]}" \
+#            -outfmt %s )
+#            
+#            #extended file
+#            echo ">""_""${arr[0]}""_""${arr[1]}" >> out_ext.txt
+#            echo $seq >> out_ext.txt
+#
+#            mv ./out_ext.txt ./${GCA}_ext.txt
+#        
+#        done < {input.query}
+#
+
+

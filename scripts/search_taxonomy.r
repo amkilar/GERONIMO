@@ -62,7 +62,7 @@ tax_taxid <- function(id) {
 }
 
 taxonomy <- function(taxid) {
-  # Takes tax_id (char) and returns 8 columns row (tibble) - Let's say almost works... ;)
+  # Takes tax_id (char) and returns 8 columns row (tibble) 
   
   Tt <- entrez_search(db="taxonomy", term=paste0(taxid, "[uid]"))
   tax_rec <- entrez_fetch(db="taxonomy", id=Tt$ids, rettype="xml", parsed=TRUE)

@@ -1,0 +1,694 @@
+# cmsearch :: search CM(s) against a sequence database
+# INFERNAL 1.1.2 (July 2016)
+# Copyright (C) 2016 Howard Hughes Medical Institute.
+# Freely distributed under a BSD open source license.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query CM file:                         models_calibrated/cov_model_bombus
+# target sequence database:              database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna
+# output directed to file:               results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic
+# MSA of significant hits saved to file: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
+# tabular output of hits:                results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv
+# max ASCII text line length:            unlimited
+# number of worker threads:              8
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       insects  [CLEN=281]
+Hit scores:
+ rank     E-value  score  bias  sequence           start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  ----------------- ------ ------   --- ----- ----  -----------
+  (1) !   2.4e-05   30.5   4.2  JABFPA010060924.1    275     94 -  cm    no 0.31  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_61188_length_558_cov_1.712297, whole genome shotgun sequence
+  (2) !    0.0055   23.1   0.8  JABFPA010012992.1    774    619 -  cm    no 0.32  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_13021_length_957_cov_2.169675, whole genome shotgun sequence
+ ------ inclusion threshold ------
+  (3) ?     0.056   19.9   4.1  JABFPA010008882.1    352     59 -  cm    no 0.37  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_8903_length_1080_cov_1.503145, whole genome shotgun sequence
+  (4) ?     0.088   19.3   0.0  JABFPA010000004.1   1947   1885 -  cm    no 0.30  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_4_length_13364_cov_14.516809, whole genome shotgun sequence
+  (5) ?     0.095   19.2   0.0  JABFPA010002963.1   1279   1327 +  cm    no 0.43  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_2966_length_1531_cov_1.905271, whole genome shotgun sequence
+  (6) ?      0.29   17.7   1.0  JABFPA010080178.1    357    497 +  cm    3' 0.32  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_80756_length_497_cov_0.940860, whole genome shotgun sequence
+  (7) ?      0.46   17.1   0.1  JABFPA010095114.1    407    311 -  cm    no 0.30  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_96031_length_462_cov_1.459701, whole genome shotgun sequence
+  (8) ?      0.49   17.0   0.0  JABFPA010000099.1   2292   2326 +  cm    no 0.26  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_99_length_5641_cov_4.601197, whole genome shotgun sequence
+  (9) ?      0.49   17.0   0.2  JABFPA010089987.1    121    213 +  cm    no 0.40  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_90788_length_474_cov_0.844380, whole genome shotgun sequence
+ (10) ?      0.67   16.6   0.1  JABFPA010036756.1    387    292 -  cm    no 0.31  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_36868_length_677_cov_1.690909, whole genome shotgun sequence
+ (11) ?       0.7   16.5   0.0  JABFPA010005163.1    357    269 -  cm    no 0.38  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_5178_length_1277_cov_1.244348, whole genome shotgun sequence
+ (12) ?      0.76   16.4   0.7  JABFPA010001140.1    118     65 -  cm    no 0.20  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1142_length_2179_cov_2.237817, whole genome shotgun sequence
+ (13) ?      0.94   16.1   0.0  JABFPA010077784.1    259    212 -  cm    no 0.33  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_78318_length_505_cov_1.314815, whole genome shotgun sequence
+ (14) ?      0.96   16.1   0.0  JABFPA010017322.1    583    535 -  cm    no 0.51  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_17359_length_874_cov_2.303882, whole genome shotgun sequence
+ (15) ?       1.1   15.9   0.2  JABFPA010001775.1    532    487 -  cm    no 0.24  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1777_length_1828_cov_2.731492, whole genome shotgun sequence
+ (16) ?       1.1   15.9   3.1  JABFPA010093208.1    402    452 +  cm    no 0.20  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_94088_length_466_cov_2.132743, whole genome shotgun sequence
+ (17) ?       1.2   15.8   0.5  JABFPA010067212.1    387    434 +  cm    no 0.19  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_67559_length_536_cov_2.325183, whole genome shotgun sequence
+ (18) ?       1.3   15.7   0.7  JABFPA010076340.1    326    231 -  cm    no 0.30  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_76835_length_509_cov_1.269634, whole genome shotgun sequence
+ (19) ?       1.5   15.5   0.0  JABFPA010069480.1    338    381 +  cm    no 0.30  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_69864_length_529_cov_1.487562, whole genome shotgun sequence
+ (20) ?       1.6   15.4   0.0  JABFPA010111503.1    149    264 +  cm    no 0.35  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_112787_length_429_cov_1.695364, whole genome shotgun sequence
+ (21) ?       1.6   15.4   0.0  JABFPA010087217.1    164    245 +  cm    no 0.30  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_87945_length_480_cov_2.419263, whole genome shotgun sequence
+ (22) ?       1.7   15.3   0.1  JABFPA010028704.1    321    385 +  cm    no 0.29  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_28786_length_738_cov_2.234043, whole genome shotgun sequence
+ (23) ?       1.9   15.2   0.0  JABFPA010038422.1    666    633 -  cm    5' 0.29  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_38539_length_666_cov_1.844156, whole genome shotgun sequence
+ (24) ?         2   15.1   0.0  JABFPA010057727.1      1     92 +  cm    5' 0.33  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_57952_length_571_cov_0.409910, whole genome shotgun sequence
+ (25) ?       2.1   15.0   0.0  JABFPA010095441.1    282    229 -  cm    no 0.31  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_96368_length_461_cov_2.035928, whole genome shotgun sequence
+ (26) ?       2.2   15.0   6.4  JABFPA010058464.1    397    475 +  cm    no 0.22  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_58696_length_567_cov_2.372727, whole genome shotgun sequence
+ (27) ?       2.3   14.9   0.8  JABFPA010071333.1    309    217 -  cm    no 0.27  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_71750_length_523_cov_2.623737, whole genome shotgun sequence
+ (28) ?       2.8   14.6   0.0  JABFPA010036547.1    310    379 +  cm    no 0.40  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_36656_length_678_cov_2.515426, whole genome shotgun sequence
+ (29) ?       3.3   14.4   4.4  JABFPA010018721.1    243    294 +  cm    no 0.25  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_18764_length_852_cov_2.015172, whole genome shotgun sequence
+ (30) ?       3.4   14.4   0.0  JABFPA010100640.1    158    250 +  cm    no 0.41  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_101689_length_450_cov_1.755418, whole genome shotgun sequence
+ (31) ?       3.5   14.4   0.0  JABFPA010001860.1   1204   1309 +  cm    no 0.32  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1862_length_1793_cov_2.337732, whole genome shotgun sequence
+ (32) ?       3.8   14.2   0.0  JABFPA010001474.1    276    329 +  cm    no 0.39  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1476_length_1959_cov_1.591380, whole genome shotgun sequence
+ (33) ?       3.9   14.2   0.0  JABFPA010099050.1    340    405 +  cm    no 0.32  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_100070_length_453_cov_2.855828, whole genome shotgun sequence
+ (34) ?       3.9   14.2   0.2  JABFPA010088011.1    114     50 -  cm    no 0.25  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_88760_length_478_cov_88.592593, whole genome shotgun sequence
+ (35) ?       4.1   14.1   0.0  JABFPA010007324.1      1    109 +  cm    5' 0.34  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_7342_length_1149_cov_1.765166, whole genome shotgun sequence
+ (36) ?       4.2   14.1   0.0  JABFPA010042017.1    374    439 +  cm    no 0.30  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_42143_length_644_cov_1.812379, whole genome shotgun sequence
+ (37) ?       4.2   14.1   4.8  JABFPA010093208.1    266    313 +  cm    no 0.17  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_94088_length_466_cov_2.132743, whole genome shotgun sequence
+ (38) ?       4.4   14.0   0.1  JABFPA010082640.1      1    149 +  cm    5' 0.36  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_83277_length_492_cov_1.736986, whole genome shotgun sequence
+ (39) ?         5   13.9   1.4  JABFPA010101104.1    448    319 -  cm    5' 0.33  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_102164_length_448_cov_1.925466, whole genome shotgun sequence
+ (40) ?       5.1   13.8   0.0  JABFPA010050008.1    144    222 +  cm    no 0.39  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_50183_length_604_cov_1.090147, whole genome shotgun sequence
+ (41) ?       5.2   13.8   1.0  JABFPA010000141.1    426    269 -  cm    no 0.32  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_141_length_4921_cov_5.374479, whole genome shotgun sequence
+ (42) ?       6.4   13.5   0.0  JABFPA010066549.1    181    114 -  cm    no 0.31  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_66883_length_539_cov_0.975728, whole genome shotgun sequence
+ (43) ?       7.4   13.3   5.3  JABFPA010026078.1    437    553 +  cm    no 0.27  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_26149_length_764_cov_1.025118, whole genome shotgun sequence
+ (44) ?       7.4   13.3   0.1  JABFPA010091724.1     18    205 +  cm    no 0.36  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_92567_length_470_cov_0.839650, whole genome shotgun sequence
+ (45) ?       7.6   13.3   3.7  JABFPA010095718.1    298    358 +  cm    no 0.25  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_96651_length_461_cov_0.970060, whole genome shotgun sequence
+ (46) ?       8.4   13.2   0.0  JABFPA010110069.1     13    130 +  cm    5' 0.34  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_111321_length_432_cov_1.091803, whole genome shotgun sequence
+ (47) ?       8.6   13.1   0.2  JABFPA010015133.1    735    807 +  cm    no 0.27  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_15164_length_913_cov_0.826972, whole genome shotgun sequence
+ (48) ?       8.6   13.1   1.4  JABFPA010032262.1    376    489 +  cm    no 0.28  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_32357_length_708_cov_2.693632, whole genome shotgun sequence
+ (49) ?       8.8   13.1   3.5  JABFPA010013242.1    190     47 -  cm    no 0.29  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_13272_length_953_cov_1.478208, whole genome shotgun sequence
+ (50) ?       9.2   13.0   0.0  JABFPA010046719.1    303    238 -  cm    no 0.39  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_46874_length_619_cov_1.739837, whole genome shotgun sequence
+
+
+Hit alignments:
+>> JABFPA010060924.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_61188_length_558_cov_1.712297, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (1) !   2.4e-05   30.5   4.2  cm        1      281 []         275          94 - .. 0.89    no 0.31
+
+                          vvv v                  vv     vv                          v v              v v        v v                                                                 v v           v vvv                                        NC
+                        {{{{{{{{{{{{{,<<-<<<<<<-<<<_____>>>--->>>>>>->><<<<_____>>>>[[[,,,,,,,,,,,,,,<<<<<____>>>>>,,,,,.,((((((,~~~~~~~~~~~~~~~~~~,))))))<<<<<<<____>>>>>>>,,,,,,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGUGGcGaaGauCGCuGCUAAgGCCAAauCuuCACCGuugAAACCuaaCCCcAAUCUAGUUUuuAcguucuUuUAagaacUuUgu.Ugcauuua*[29]**[21]**[36]*AaaaugcucguCuucaUUaaGacgaGGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                         C+++: :: GA  :: GA: ::CG        +C AA:: :UC ::G ::AAACC:: C C AAU U GUU   A  U CUU U AG A U U+U  ::::UU                    AA::::U:GUC::+ UU::GAC:AG  A AA  G+ AUU UC G:: :   G    UUUU C            A:GU  C:UGA UUUU
+  JABFPA010060924.1 275 UCUAUUUCCGGAUACA-GACUUCCG-------CACAAAGAAGUC-UGGGCAAAACCUGUC-CAAAUUUUGUUCAAAUUUCCUUAUUAGAAUUAUUUuAAAUAUUC*[ 2]**[ 3]**[ 5]*-AAUAUUUGGUCAGU-UUCUGACCAGUUACAAGAGAGAUUAUCUGGGCA---GGAAAUUUUACC---------AUAAGUUGCUUGAAUUUU 94 
+                        **************99.*******8.......23789*******.99*************.99*****************************9965268888885...9.....*.....9...888899*******6.67*********999999999********99977...444444444444.........3699************** PP
+
+>> JABFPA010012992.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_13021_length_957_cov_2.169675, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (2) !    0.0055   23.1   0.8  cm        6      239 ..         774         619 - .. 0.89    no 0.32
+
+                          v                                                       v v              v v        v v                                                                 v v          v   NC
+                        {{{{{{{{,<<-<<<<<<-<<<_____..>>>--->.>>>>>->><<<<_____>>>>[[[,,,,,,,,,,,,,,<<<<<____>>>>>,,,,,.,((((((,~~~~~~~~~~~~~~~~~~,))))))<<<<<<<____>>>>>>>,,,,,,,,]]],,,,}}}}-}}}} CS
+            insects   6 uuuaCGaGUGGcGaaGauCGCuGCUAA..gGCCAAa.uCuuCACCGuugAAACCuaaCCCcAAUCUAGUUUuuAcguucuUuUAagaacUuUgu.Ugcauuua*[29]**[21]**[36]*AaaaugcucguCuucaUUaaGacgaGGaaaAAagGGUAUUCuCGGuaag 239
+                        UU : GA   : GA: :UCGC:   A   :GCCAAA : :UC : G:::AAACC:::C C AAU U GUU U A  U CUU U AG A U U+U  ::::UU                    AA::::U:GUC::+ UU::GAC:AG  A AA  G+ AUU UC G: AG
+  JABFPA010012992.1 774 UUCCGGAUAUA-GACUUUCGCACAAA-guUGCCAAAgAAGUC-UGGACAAAACCUGUC-CAAAUUUUGUUCUAAUUUCCUUAUUAGAAUUAUUUuAAAUAUUC*[ 2]**[ 4]**[ 4]*-AAUAUUUGGUCAGU-UUCUGACCAGUUACAAGAGAGAUUAUCUGGCAG 619
+                        *********99.77778***985444.358999987256777.99*************.99*****************************9965268888885...9.....*.....9...888899*******6.67*********999999999************* PP
+
+>> JABFPA010008882.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_8903_length_1080_cov_1.503145, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (3) ?     0.056   19.9   4.1  cm        1      281 []         352          59 - .. 0.84    no 0.37
+
+                        v       v v              v           v v                  v      v              v   v v v                v v v                           v                    v  v         v        v              v       v  v       v                     vv     vv        NC
+                        {{{{{{{{{{{{{,<<-~~~~~~>><<<<~~~~~>>>>[[[,,,,,,,,,,,,,,<<<<<____>>>>>,,,,,,((((((,<<<<<<<<<<<<_.____>>>>>>>>>>>>,,<<<<<<<<___>>>>>>>>,,,<<<-<<<<<~~~~~~>>>>>->>>,))))))<<<<<<<____>>>>>>>,,,,,.,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGUGGc*[28]*CCGuug*[5]*uaaCCCcAAUCUAGUUUuuAcguucuUuUAagaacUuUguUgcauuuagucauugugaugu.UAUAcaucacaaugacGAaGaaaauuUGUaauuuuCuAUGuuCUuCuGG*[15]*CCaGaUGaaAaaaugcucguCuucaUUaaGacgaGGaaa.AAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                         CG:: :U C A  GG       CC ::       :: C :AAU UA UU   A ::: UUU AA ::: +          A:: A : UG: :  UAU : :CA : U :: A::::AAU U   AUU::::A  : :UU:UGG      CCA:A : :A      U::U :: A U:: A::A G AA AAA: GU UU U GG A: ::CG  U  UUU C G  AUUUU  A  :U A:  GA UUUU
+  JABFPA010008882.1 352 UCGGGGAUUCUAGGGGG*[22]*CCCCCU*[2]*GGGUCCAAAUAUAUUUCCAA-AAACUUUAAAAUUUCCAAA-------AAAAAUGUUGUUGGcUAUUUGACAUCUUAUUUACAGGAAUUUUGGAUUUUUGAGUGAAUUUUGG*[48]*CCAAAAUACAC-----UUUUAAAAAAUUUAAAAAUGCAAaAAAUAGUUUUUUUGGCAUUCUCGUAUUGUUUACAGGAAUUUUGGAUUUUUAAUUGAAUUUU 59 
+                        *************9774...6..443333..3..5556999***9987776665.5555666666666655544.......477788888888845999999999999************************************9...9..9******9982.....88888888888888888877776479*********************************************************** PP
+
+>> JABFPA010000004.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_4_length_13364_cov_14.516809, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (4) ?     0.088   19.3   0.0  cm        1      281 []        1947        1885 - .. 0.98    no 0.30
+
+                                                                      v     v         NC
+                         {{{{{{{{~~~~~~~}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects    1 aCGGauuu*[228]*aaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281 
+                         ACG:AUUU       AAGU:CGUUU UUUUU U AUAU UU CA:  U    : A UUU 
+  JABFPA010000004.1 1947 ACGGAUUU*[ 10]*AAGUUCGUUUUUUUUUGUUAUAUCUUUCAGAGUUUUGUAACUUUC 1885
+                         *******9....9..9******************************************** PP
+
+>> JABFPA010002963.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_2966_length_1531_cov_1.905271, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (5) ?     0.095   19.2   0.0  cm        1      281 []        1279        1327 + .. 0.98    no 0.43
+
+                                                                              NC
+                         {{{{~~~~~~~}}}}---------------------<<<___>>>::::::: CS
+            insects    1 aCGG*[236]*CCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281 
+                         :CG:       :CG:U  UU U  UGA  UUU  CAAGGUAACCUG  UU  
+  JABFPA010002963.1 1279 CCGA*[  4]*UCGGUCAUUCUAAUGACCUUUAUCAAGGUAACCUGCAUUAC 1327
+                         ***7....9..7**************************************** PP
+
+>> JABFPA010080178.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_80756_length_497_cov_0.940860, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (6) ?      0.29   17.7   1.0  cm        1      218 [~         357         497 + .~ 0.82    3' 0.32
+
+                        ????????????? v                                  v             ? ?              v v        v v         v                          v                              NC
+                        {{{{{{{{{{{{{,<<-<<<<<<-<<<_____..>>>--.->>>>>>->><<<<_____>>>>[[[,,,,,,,,,,,,,,<<<<<____>>>>>,,,,,,.((((((,~~~~~~~~~~~~~~~~~~,))))))<<<<<<<____>>>>>>>,,,~~~~~~ CS
+            insects   1 aCGGauuuaCGaGUGGcGaaGauCGCuGCUAA..gGCCA.AauCuuCACCGuugAAACCuaaCCCcAAUCUAGUUUuuAcguucuUuUAagaacUuUguU.gcauuua*[29]**[21]**[36]*AaaaugcucguCuucaUUaaGacgaGGa*[63]> 281
+                         C  AUUU CG  U+: GA: ::CGC:   A   :GCCA A:: :UC : G:::AAACC:::CC  AAU U GUU   A  U CUU U AG A U U+UU :: :UU                    AA: ::U:GUC::+ UU::GAC:AG        
+  JABFPA010080178.1 357 UCUUAUUUCCGGAUACAGACUUCCGCACAAA-guUGCCAaAGAAGUCUG-GACAAAACCUGUCC-AAAUUUUGUUCAAAUUUCCUUAUUAGAAUUAUUUUaAACAUU-*[ 4]**[ 6]**[ 1]*-AAUAUUUGGUCAGU-UUCUGACCAGUU*[ 0]> 497
+                        *************************974443.357887526******99.78899****98875.678888899999999**************9986651555555....8.....9.....7...55567899999996.569999999987...... PP
+
+>> JABFPA010095114.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_96031_length_462_cov_1.459701, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (7) ?      0.46   17.1   0.1  cm        1      281 []         407         311 - .. 0.95    no 0.30
+
+                                                                                                 v     v         NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        ACG:::UU::                              : :AA:::CGUUU U U U U  U U  U  AA GUAAC U A UU  
+  JABFPA010095114.1 407 ACGACGUUUU----*[11]**[ 9]**[ 19]*-------AAAAACGUCGUUUUUCUGUAUUUUUUCAUGUAAAGUAACAUAACUUAA 311
+                        ********97.......9.....*......9.........689********************************************* PP
+
+>> JABFPA010000099.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_99_length_5641_cov_4.601197, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (8) ?      0.49   17.0   0.0  cm       15       60 ..        2292        2326 + .. 0.98    no 0.26
+
+                                                                        NC
+                         <<-<<<<<<-<<<_____>>>--->>>>>>->><<<<_____>>>> CS
+            insects   15 GGcGaaGauCGCuGCUAAgGCCAAauCuuCACCGuugAAACCuaaC 60  
+                         G:+GAAGAU            CAAAUCUUCA:C UUGAAAC UAA 
+  JABFPA010000099.1 2292 GAUGAAGAUU-----------CAAAUCUUCAUCUUUGAAACUUAAA 2326
+                         *********9...........789********************** PP
+
+>> JABFPA010089987.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_90788_length_474_cov_0.844380, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (9) ?      0.49   17.0   0.2  cm        1      281 []         121         213 + .. 0.93    no 0.40
+
+                              v           v                                             NC
+                        {{{{{{{{{~~~~~~~}}}}}}}}}---------------------.<<<___>>>::::::: CS
+            insects   1 aCGGauuua*[226]*uaaguCCGuUUCUUUUucuGAuaUUuUACA.aGGUAACCuGAuUUUU 281
+                        : ::A: :A       U: :U:: :UUCUUUUU+UGAU UUUUA A :G: AA:C:  UUUUU
+  JABFPA010089987.1 121 GGAAACUGA*[ 37]*UCCGUUUUCUUCUUUUUUUGAUUUUUUAAAaGGCCAAGCUUUUUUUU 213
+                        *****9766....*..6679*****************99998887615799************ PP
+
+>> JABFPA010036756.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_36868_length_677_cov_1.690909, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (10) ?      0.67   16.6   0.1  cm        1      281 []         387         292 - .. 0.97    no 0.31
+
+                                                                                                                 NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :CG:::U                                     A:::CG:UU  UUU  UG  AUUU ACAA:G AAC:U   U UU
+  JABFPA010036756.1 387 GCGCGUU-------*[13]**[11]**[ 21]*-----------AAUGCGUUUUCUUUAAUGCCAUUUCACAAAGCAACUUUUGUAUU 292
+                        *****98..........9.....*......9.............89****************************************** PP
+
+>> JABFPA010005163.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_5178_length_1277_cov_1.244348, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (11) ?       0.7   16.5   0.0  cm        1      281 []         357         269 - .. 0.95    no 0.38
+
+                        v       v                                 v       v                                      NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                         CG:A:UU :  GU                     UUC  :  AA:U:CG U CUUUUU+          CAAG UA  CUGA  UUU
+  JABFPA010005163.1 357 UCGGAGUUUUUUGU*[ 9]**[ 8]**[ 14]*--UUCGAACUAACUUCGUUGCUUUUUU---------CCAAGGUACUCUGAGGUUU 269
+                        *************9...*.....*......9....89***************99998765.........59***************** PP
+
+>> JABFPA010001140.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1142_length_2179_cov_2.237817, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (12) ?      0.76   16.4   0.7  cm        1      281 []         118          65 - .. 0.90    no 0.20
+
+                                                                     v     v         NC
+                        {{{{{{{~~~~~~~}}}}}}}--------..-------------<<<___>>>::::::: CS
+            insects   1 aCGGauu*[230]*aguCCGuUUCUUUUu..cuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :C::AUU       AGU::G:  CUUUUU   UGAU UUUUA AA :UAA: UGAUU  U
+  JABFPA010001140.1 118 GCAAAUU*[  1]*AGUUUGCAGCUUUUUaaAUGAUUUUUUAAAAGUUAAAAUGAUUAAU 65 
+                        ******8....*..8******99966665226899************************* PP
+
+>> JABFPA010077784.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_78318_length_505_cov_1.314815, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (13) ?      0.94   16.1   0.0  cm        1      281 []         259         212 - .. 0.95    no 0.33
+
+                          v         v                                        NC
+                        {{{{~~~~~~~}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGG*[236]*CCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        AC G       C GUU   UUUUCU A A U    AAGGUA CCUGA UUU 
+  JABFPA010077784.1 259 ACUG*[  3]*CUGUUAUGUUUUCUCAAACUCAUAAAGGUAUCCUGAAUUUC 212
+                        **88....7..88*************************************** PP
+
+>> JABFPA010017322.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_17359_length_874_cov_2.303882, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (14) ?      0.96   16.1   0.0  cm        1      281 []         583         535 - .. 0.97    no 0.51
+
+                                                                               NC
+                        {{{{{~~~~~~~}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGa*[234]*uCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :CG::       ::CG:U  U  U CUGA   UUU CAAGG AACCUG  UU  
+  JABFPA010017322.1 583 CCGAC*[  2]*GUCGGUCAUGAUACUGACCCUUUUCAAGGCAACCUGCAUUAC 535
+                        ***96....9..69**************************************** PP
+
+>> JABFPA010001775.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1777_length_1828_cov_2.731492, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (15) ?       1.1   15.9   0.2  cm        1      281 []         532         487 - .. 0.94    no 0.24
+
+                                                                         NC
+                        {{~~~~~~~}}---------------------<<<___>>>::::::: CS
+            insects   1 aC*[240]*GuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A         UUU UUUUU U A     UACAA GUA C UGA UUUU
+  JABFPA010001775.1 532 AU*[  5]*GUUUUUUUUUGUCAAUGAAUACAAGGUAUCUUGACUUUU 487
+                        *7....8..79999999999999************************* PP
+
+>> JABFPA010093208.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_94088_length_466_cov_2.132743, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (16) ?       1.1   15.9   3.1  cm        1      281 []         402         452 + .. 0.86    no 0.20
+
+                                                                  vv     vv        NC
+                        {{{{{{{~~~~~~~}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauu*[230]*aguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        AC:G::U       A::C:GUUU UUU U+U  U UUUUA    GUAAC + A UUUU
+  JABFPA010093208.1 402 ACAGGUU*[  2]*AACCUGUUUUUUUAUUUUUUUUUUUAA--UGUAACUACAAUUUU 452
+                        ******9....9..9********999888886666666654..4************** PP
+
+>> JABFPA010067212.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_67559_length_536_cov_2.325183, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (17) ?       1.2   15.8   0.5  cm        1      281 []         387         434 + .. 0.85    no 0.19
+
+                                                                                     NC
+                        {{{{{{{{~~~~~~~}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuu*[228]*aaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A: :A::U       A::U: :UUU    UU+U           AGGUAACCU AUUUUU
+  JABFPA010067212.1 387 AAUAACCU*[  4]*AGGUUAUUUUUAACUUUU---------AUAGGUAACCUAAUUUUU 434
+                        ******98....9..89**99999875444433.........46**************** PP
+
+>> JABFPA010076340.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_76835_length_509_cov_1.269634, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (18) ?       1.3   15.7   0.7  cm        1      281 []         326         231 - .. 0.98    no 0.30
+
+                        v                                                 v                       v   v          NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                         : G::: :: :GU                       C: :G: :::C :  U  UUUU   AUAUUUUA AAG UAA CU   UUUU
+  JABFPA010076340.1 326 UUUGUUAUGUUCGU*[ 7]**[ 9]**[ 18]*----CGGAGCGUAACAAUAUUAUUUUACUAUAUUUUAAAAGAUAACCU---UUUU 231
+                        ************98...*.....*......9......9*******************************************...**** PP
+
+>> JABFPA010069480.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_69864_length_529_cov_1.487562, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (19) ?       1.5   15.5   0.0  cm        1      281 []         338         381 + .. 0.97    no 0.30
+
+                                                          v   v          NC
+                        {{~~~~~~~}}---------------------<<<___>>>::::::: CS
+            insects   1 aC*[240]*GuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        ::       ::UU UUU U+U AUA UUU CAAG UAA CUGAU  UU
+  JABFPA010069480.1 338 GU*[  3]*ACUUUUUUGUUUAAUACUUUGCAAGGUAAACUGAUACUU 381
+                        97....9..79************************************* PP
+
+>> JABFPA010111503.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_112787_length_429_cov_1.695364, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (20) ?       1.6   15.4   0.0  cm      102      193 ..         149         264 + .. 0.95    no 0.35
+
+                                  v             v                                                                NC
+                        ((,<<<<<<<<<<<<_____>>>>>>>>>>>>,,<<<<<<<<..___>>>>>>>>,,,<<<-<<<<<---~~~~~~>>>>>->>>,)) CS
+            insects 102 uuagucauugugauguUAUAcaucacaaugacGAaGaaaauu..UGUaauuuuCuAUGuuCUuCuGGUUU*[12]*CCaGaUGaaAaa 193
+                        UU+ U::  G :AU   A A AU: C  ::A   :GAAAAUU  UG AAUUUUC:A  UU U C:G:  U      :C:G   AAAAA
+  JABFPA010111503.1 149 UUUUUUUUUGAAAUUCGAAAGAUUGCGGAAAGAUUGAAAAUUucUGAAAUUUUCAAACUUUUUCAGCACU*[34]*GCUGGGGAAAAA 264
+                        ******************************************44477*******************9766...9..9*********** PP
+
+>> JABFPA010087217.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_87945_length_480_cov_2.419263, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (21) ?       1.6   15.4   0.0  cm        1      281 []         164         245 + .. 0.90    no 0.30
+
+                                v              v                               v   v          NC
+                        {{{{{{{{{{{{~~~~~~~}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGa*[219]*uCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        ACG:A::U  :A       U: G A::U:CGU   UUU U        U ACAAG UAA CUGA UUUU
+  JABFPA010087217.1 164 ACGAAAUUAGAA*[ 20]*UUUGAAGUUUCGUGGUUUUGUAGCCAGCCUAACAAGCUAAACUGAAUUUU 245
+                        ******996555....9..677889********999999999999999********************* PP
+
+>> JABFPA010028704.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_28786_length_738_cov_2.234043, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (22) ?       1.7   15.3   0.1  cm        1      281 []         321         385 + .. 0.84    no 0.29
+
+                          v    v                v    v                                        NC
+                        {{{{{{{{{{{{~~~~~~~}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGa*[219]*uCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        ::+::U   CGA       UCGG   G:: ::U   UUUU UG UAUUUU  AAG: AA:CUG UUUUU
+  JABFPA010028704.1 321 UUAUCUGAUCGA*[  4]*UCGGGCUGGA-AAUAUAUUUUGUGGUAUUUUGAAAGUAAAACUGUUUUUU 385
+                        986666666665....9..5666666665.7788899999***************************** PP
+
+>> JABFPA010038422.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_38539_length_666_cov_1.844156, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (23) ?       1.9   15.2   0.0  cm      245      281 ~]         666         633 - ~. 0.83    5' 0.29
+
+                                                                     NC
+                        ~~~~~~~---------------------<<<___>>>::::::: CS
+            insects   1 <[244]*UUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                                   UUU     U  UUUACA:GG AACC:GAUU UU
+  JABFPA010038422.1 666 <[  0]*---GUUUGAAUUUUAUUUACACGGAAACCGGAUUAUU 633
+                        ..........555555556667899******************* PP
+
+>> JABFPA010057727.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_57952_length_571_cov_0.409910, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (24) ?         2   15.1   0.0  cm       56      281 ~]           1          92 + ~. 0.92    5' 0.33
+
+                               ???? v                       v     ???? ?????????                                      NC
+                        ~~~~~~_>>>>[[[,,,,,,,,,,,,,,~~~~~~~]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 <[55]*CuaaCCCcAAUCUAGUUUuuAc*[146]*gGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                              C AACC CAA C AG UUU A        G G A UCU  GUAA UCC UUUCUU   +U  UA UU  CA::: AA:::G  UUUU
+  JABFPA010057727.1   1 <[ 0]*CCAACCGCAAGCCAGCUUUGAA*[ 13]*GAGAAGUCUAAGUAAAUCCAUUUCUUAAAUU-UUAAUUCUCAUUUAAAAAAGUGUUUU 92 
+                        ......****************999876....9..************************9887766.677778889***************** PP
+
+>> JABFPA010095441.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_96368_length_461_cov_2.035928, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (25) ?       2.1   15.0   0.0  cm        1      281 []         282         229 - .. 0.90    no 0.31
+
+                                                                                          NC
+                        {{{{{{{{{{~~~~~~~}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaC*[223]*GGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A:G::UUU::       : :AAG::C:UU   UUU           ACAAG UAA CUGA  UU 
+  JABFPA010095441.1 282 AAGGGUUUUU*[  5]*AAAAAGUUCUUUAUGUUUG---------CACAAGGUAAUCUGAAAUUC 229
+                        ********97....8..789********98877655.........579***************** PP
+
+>> JABFPA010058464.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_58696_length_567_cov_2.372727, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (26) ?       2.2   15.0   6.4  cm        1      281 []         397         475 + .. 0.84    no 0.22
+
+                                                                            v   v          NC
+                        {{{{{{{{{{~~~~~~~}-}}}}}}}}}---.------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaC*[223]*GGuaaguCCGuUUC.UUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A :GA::U::       : :A::UC: UUU  UUUUU+ GA  U U A AAGGUAA CUGAUUUUU
+  JABFPA010058464.1 397 AGAGAAAUGU*[ 21]*AUCAUUUCUUUUUUgUUUUUUAGAAUUAUAAAAAGGUAA-CUGAUUUUU 475
+                        ********95....9..579********9995566666666666666777899999.58******* PP
+
+>> JABFPA010071333.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_71750_length_523_cov_2.623737, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (27) ?       2.3   14.9   0.8  cm       92      197 ..         309         217 - .. 0.72    no 0.27
+
+                                               vv     vv            v   vv v   v vv   v     v v                     v v          NC
+                        ,,,,,,((((((,<<<<<<<<<<<<_____>>>>>>>>>>>>,,<<<<<<<<___>>>>>>>>,,,<<<-<<<<<----<~~~~~>-->>>>>->>>,)))))) CS
+            insects  92 UuUguUgcauuuagucauugugauguUAUAcaucacaaugacGAaGaaaauuUGUaauuuuCuAUGuuCUuCuGGUUUUC*[7]*GUcCCaGaUGaaAaaaugc 197
+                        U+UG U::::  +::CAUU:U:A GUUA A  U:A:AAUG::GA :AA  U    AAUUUU: AU UU  U:U:G UU C     G CC:A:  +AA   ::::
+  JABFPA010071333.1 309 UCUGAUCUGGUUUGCCAUUUUUAGGUUAAA--UAAAAAUGGUGAAAAA--U-GAAAAUUUUUCAUUUU--UUUAGAUUAC*[3]*GACCUAA--AAAUGGCCAG 217
+                        ***********************9988877..8*********765444..2.2223444444455544..6667766665..4..6667665..5789****** PP
+
+>> JABFPA010036547.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_36656_length_678_cov_2.515426, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (28) ?       2.8   14.6   0.0  cm        1      281 []         310         379 + .. 0.92    no 0.40
+
+                                                                                        NC
+                        {{{{{{{{{~~~~~~~}}}}}}}}}---------------------<<~~~~~~>>::::::: CS
+            insects   1 aCGGauuua*[226]*uaaguCCGuUUCUUUUucuGAuaUUuUACAaG*[ 5]*CuGAuUUUU 281
+                        :CG:AUUU:       :AAGU:CG: U UUUUUCUG U UU   CAAG      CUGAU  U 
+  JABFPA010036547.1 310 GCGAAUUUU*[ 10]*AAAGUUCGUCUUUUUUUCUGCUCUUCCGCAAG*[10]*CUGAUAAUA 379
+                        ********8....8..89*****************************9...8..9******** PP
+
+>> JABFPA010018721.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_18764_length_852_cov_2.015172, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (29) ?       3.3   14.4   4.4  cm        1      281 []         243         294 + .. 0.86    no 0.25
+
+                                                                     v     v         NC
+                        {{{{{{{{~~~~~~~}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuu*[228]*aaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :CG:A:U:       :A:U:CG:UU UUUUU+   U UUUU   A GU ACCUG  UUUU
+  JABFPA010018721.1 243 UCGAAUUC*[  0]*GAAUUCGAUUUUUUUUUGUUUUUUUUUUCA-GUCACCUGUAUUUU 294
+                        *******8.......8*********98888887777777777777.78889********* PP
+
+>> JABFPA010100640.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_101689_length_450_cov_1.755418, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (30) ?       3.4   14.4   0.0  cm        1      281 []         158         250 + .. 0.91    no 0.41
+
+                              v                                     v                                            NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :CG:AU  :                                 :  GU:CG:UU UUUUU+  A      A AA GUA C UGAUUU  
+  JABFPA010100640.1 158 GCGAAUUUG-----*[15]**[13]**[ 15]*---------CGCGUUCGCUUUUUUUUUAAAC-----AAAAGGUAUCUUGAUUUGA 250
+                        *****9666........9.....*......9...........6669********9999998765.....679**************** PP
+
+>> JABFPA010001860.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1862_length_1793_cov_2.337732, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (31) ?       3.5   14.4   0.0  cm        1      281 []        1204        1309 + .. 0.88    no 0.32
+
+                         v    v   v                                                                v    v    v                                       NC
+                         {{{{{{{{{{{{{,~~~~~~[[[,,,,,,,,,,,,,,~~~~~~~~~~~~~~~~~~~,,,,,,,,]]],,,,}}}}-}}}}}}}}}------------------.---<<<___>>>::::::: CS
+            insects    1 aCGGauuuaCGaGU*[46]*CCcAAUCUAGUUUuuAc*[14]**[106]**[18]*GGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuU.ACAaGGUAACCuGAuUUUU 281 
+                          CGGA UU: GA:U                                                      AUU:UC+G:AA UCCG   CUUUUUC GAU UUUU   A:::U A::: AUU U 
+  JABFPA010001860.1 1204 UCGGAGUUU-GAAU*[ 1]*-----------------*[10]**[  8]**[18]*-----------AAUUUUCUGAAAAUCCGUCGCUUUUUCAGAUGUUUUcGGAUUUUGAAAAAAUUAUA 1309
+                         ********8.9999...8......................9......7.....8.............5899**************************9887662689**************** PP
+
+>> JABFPA010001474.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_1476_length_1959_cov_1.591380, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (32) ?       3.8   14.2   0.0  cm        1      281 []         276         329 + .. 0.99    no 0.39
+
+                          v                 v                         v   v          NC
+                        {{{{{{{{~~~~~~~}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuu*[228]*aaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :C :AUU:       :AGU: G:  CUUUUUC  A  UUUU   AG UAA CU  UUUU 
+  JABFPA010001474.1 276 GCCGAUUC*[  1]*GAGUUAGCCCCUUUUUCAUACUUUUUCUGAGAUAACCUCUUUUUC 329
+                        *******8....*..8******************************************** PP
+
+>> JABFPA010099050.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_100070_length_453_cov_2.855828, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (33) ?       3.9   14.2   0.0  cm        1      281 []         340         405 + .. 0.91    no 0.32
+
+                        v v                    v v                     v       v        NC
+                        {{{{{{{{{~~~~~~~-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuua*[225]*GuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                         C GAUUU:       G:AAGUC G UU UUUUUCU A AUUU     G:   :C GAUUUU 
+  JABFPA010099050.1 340 CCAGAUUUG*[ 13]*GCAAGUCAGUUUUUUUUUCUUAAAUUUAGUUUGA---UCUGAUUUUA 405
+                        ********9....8..79************************98888777...999******* PP
+
+>> JABFPA010088011.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_88760_length_478_cov_88.592593, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (34) ?       3.9   14.2   0.2  cm        1      281 []         114          50 - .. 0.96    no 0.25
+
+                                                                 vv   vv         NC
+                        {{{{{{~~~~~~~}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGau*[232]*guCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A:G:AU       GU:C:UUUCUUU U U AU UUUU  AA  UAA  U A U UU
+  JABFPA010088011.1 114 AGGGAU*[ 16]*GUUCCUUUCUUUGUAUAAUGUUUUCAAAAAUAACAUCAAUAUU 50 
+                        *****8....9..89***************************************** PP
+
+>> JABFPA010007324.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_7342_length_1149_cov_1.765166, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (35) ?       4.1   14.1   0.0  cm       75      281 ~]           1         109 + ~. 0.57    5' 0.34
+
+                                    v      v                                              v      v             ???         ?????????                                      NC
+                        ~~~~~~,,,<<<<<____>>>>>,,,,,,((((((,~~~~~~~~~~~~~~~~~~,))))))<<<<<<<____>>>>>>>,,,,,,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 <[74]*uAcguucuUuUAagaacUuUguUgcauuua*[29]**[21]**[36]*AaaaugcucguCuucaUUaaGacgaGGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                               ACG:U : U  : A:C  U                                   U::U:  CAUU  :A::A     AA  G UA U     U   UCC   UCUUUUU+U  U UU  ACAAGG AACCUG UU U 
+  JABFPA010007324.1   1 <[ 0]*CACGAUCCGUCUGAAUCAAU----------*[ 7]**[ 5]**[ 4]*-------UUGUG-UCAUUGCCAUAAA----AA-AGAUAAU-----UUUUUCCUGCUCUUUUUUUUUUGUUCAACAAGGAAACCUGUUUAUG 109
+                        ......34444444444444444333.............3.....5.....5.........44443.3355555555552....12.3344444.....223356666888888888888999********************** PP
+
+>> JABFPA010042017.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_42143_length_644_cov_1.812379, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (36) ?       4.2   14.1   0.0  cm        1      281 []         374         439 + .. 0.92    no 0.30
+
+                          v                          v                         v   v          NC
+                        {{{{{{{{{{{{~~~~~~~}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGa*[219]*uCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        AC G::::A: :       : : U::::C GUUUCUUU U+U A A UUU CAAG     CU A U UU
+  JABFPA010042017.1 374 ACCGGCAAAUUU*[  7]*AAAAUUUGUCCGUUUCUUUGUUUAACAAUUUUCAAGG---GCUUACUAUU 439
+                        *********875....8..5789********************************6...6899****** PP
+
+>> JABFPA010093208.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_94088_length_466_cov_2.132743, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (37) ?       4.2   14.1   4.8  cm        1      281 []         266         313 + .. 0.90    no 0.17
+
+                                                                     v     v         NC
+                        {{{{{{{{~~~~~~~}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuu*[228]*aaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        AC:G:::U       A:::C:GUUU UUUU +U     UUU  AA  UAA  U A UUUU
+  JABFPA010093208.1 266 ACAGGUUU*[  0]*AGACCUGUUUUUUUUAUU-----UUUUAAAUGUAAUUUAAAUUUU 313
+                        ******98.......89*******999998776.....67777999************** PP
+
+>> JABFPA010082640.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_83277_length_492_cov_1.736986, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (38) ?       4.4   14.0   0.1  cm      148      281 ~]           1         149 + ~. 0.94    5' 0.36
+
+                               ???????           v    v       v  v         ??????                          ???    ???? ?????????                                 NC
+                        ~~~~~~~>>>>>>>,,,<<<-<<<<<----<<_____>>-->>>>>->>>,))))))<<<<<<<____>>>>>>>,,,,,,,,]]],,,,}}}}-}}}}}}}}}-------------------~~~~~~::::::: CS
+            insects   1 <[147]*auuuuCuAUGuuCUuCuGGUUUUCuCGCCCaGUcCCaGaUGaaAaaaugcucguCuucaUUaaGacgaGGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUA*[11]*GAuUUUU 281
+                                    CUA  :U: ::::      UCG  CA U+ :::: :A:AAAA   U:::C::+AUU::G:::A  AAAA       UU  CG U AGU CGU   UUUUU  GA  UUUU       GAUUUU 
+  JABFPA010082640.1   1 <[  0]*CACAACUACACUGAGAAACCGAAAUCGUACAAUUUUUUCGCAGAAAAAAAUUCGCAGUAUUCUGCGAAAAAAAACGUAAAGUUUACGAUGAGUUCGUAAGUUUUUACGAAUUUUUU*[26]*GAUUUUC 149
+                        .......7788899***********************99999*********************************99999877888889999********************99999998875...9..******* PP
+
+>> JABFPA010101104.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_102164_length_448_cov_1.925466, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (39) ?         5   13.9   1.4  cm       62      281 ~]         448         319 - ~. 0.71    5' 0.33
+
+                              v                  v      v                                          v  v        v  v          v?    ???? ?????????                                      NC
+                        ~~~~~~[[,,,,,,,,,,,,,,<<<<<____>>>>>,,,,,,((((((,~~~~~~~~~~~~~~~~~~,))))))<<<<<<<____>>>>>>>,,,,,,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 <[61]*CcAAUCUAGUUUuuAcguucuUuUAagaacUuUguUgcauuua*[29]**[21]**[36]*AaaaugcucguCuucaUUaaGacgaGGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                                A  CUA UUU  A :UU :UU  : AA: +UGUU                                : GU ::+  U:: AC :      AA  G AUUCUC G    UCCGUU C  UUUC      UUU   :GGU ACC: A UUUU
+  JABFPA010101104.1 448 <[ 0]*CUAUACUAAUUUAGAAAUUAAUUAUUGAAUACUGUU-------*[ 4]**[ 3]**[ 9]*-------AUGUUAGUU-UCUUACUUUUGCGCAAGAGAAUUCUCUGCUGAUCCGUUGCCCUUUCG-----UUUCUUGGGUUACCUUAAUUUU 319
+                        ......444456666666666666666666666666666555..........6.....9.....8.........555555543.34445555544555774279********************9999987.....455556**************** PP
+
+>> JABFPA010050008.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_50183_length_604_cov_1.090147, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (40) ?       5.1   13.8   0.0  cm        1      281 []         144         222 + .. 0.95    no 0.39
+
+                                                                                                                  NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---.------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUC.UUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        ::::::U::CG:GU                    AU C:CG ::A::::::U C      + GA AUU UA  A:: AA::U A  UUU
+  JABFPA010050008.1 144 GUAUCGUAGCGCGU*[ 2]**[ 4]**[  5]*-AUACGCG-CUACGAUACUCCaGAAAAUCGAAAUUCUAAGACAAAAUGUAAAGUUU 222
+                        *************9...*.....*......9...789****.************556677889************************** PP
+
+>> JABFPA010000141.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_141_length_4921_cov_5.374479, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (41) ?       5.2   13.8   1.0  cm       66      223 ..         426         269 - .. 0.66    no 0.32
+
+                                                               v v  vvvvv   vvvvvv       vvvvvvvvvvv    v                 v                                   v v   v              v          NC
+                        ,,,,,,,,,,,,<<<<<____>>>>>,,,...,,..,((((((,<<<<<...<<<<<<<_____>>>>>>>>>>>>,,<<<<<<<<_~~~~~~>>>>>>>>,,,<<<-<<<<<--~~~~~~>>>>>->>>..,))))))<<<<<<<____>>>>>>>,,,,,,,, CS
+            insects  66 UCUAGUUUuuAcguucuUuUAagaacUuU...gu..Ugcauuuagucau...ugugauguUAUAcaucacaaugacGAaGaaaauuU*[ 2]*aauuuuCuAUGuuCUuCuGGUU*[13]*CCaGaUGaa..AaaaugcucguCuucaUUaaGacgaGGaaaAAa 223
+                        UCUA UUUU   GUUCUUUUAAGAAC +U        :: : :+GU++U    G++A                   GA:  AAA::U      ::UUU  :AUGU:C ::U::UU      ::A:: G:A  A: : ::: GU:UUC  UAA:AC :   AA  A
+  JABFPA010000141.1 426 UCUAAUUUUAGUGUUCUUUUAAGAACACUugg--aaAUUCAAGUGUUUUugaCGAAAC------------------GAUUCAAACGU*[17]*CGUUUUAAAUGUCCCAAUUUUU*[ 8]*AAAUUAGGAacACAUAAAGCGUUUUCUAUAAAACACUUGAAGCA 269
+                        ****************************9655..344555545444432011444444..................44444444443...5..4555556666666666665433...5..456666777455666667*******************99999** PP
+
+>> JABFPA010066549.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_66883_length_539_cov_0.975728, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (42) ?       6.4   13.5   0.0  cm        1      281 []         181         114 - .. 0.94    no 0.31
+
+                              v vv                 v v v                            v     v         NC
+                        {{{{{{{{{{{{{,~~~~~~~,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[213]*AUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A:GGA: U  GAGU       AUUCUC   A :UCC:UUUC  UUU   A   U  A  : : AA: : AUUU  
+  JABFPA010066549.1 181 AUGGAAAUAUGAGU*[  0]*AUUCUCUCCAGUUCCAUUUCCGUUUAAAAAUAUAGAAGCCUGAAAUGAAUUUCA 114
+                        **************.......689*****************999999988888888889999999999******* PP
+
+>> JABFPA010026078.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_26149_length_764_cov_1.025118, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (43) ?       7.4   13.3   5.3  cm        1      281 []         437         553 + .. 0.81    no 0.27
+
+                                                                                                                                                    v         v        NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~[[[,,,,,,,,,,,,,,~~~~~~~~~~~~~<<<<<<<____>>>>>>>,,,,,,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___..>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]*CCcAAUCUAGUUUuuAc*[14]**[106]*ucguCuucaUUaaGacgaGGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAA..CCuGAuUUUU 281
+                        A:::A::::CGA U            CC:AA CUA  U UU                                         :GGU    UCG ::::U:::UUU UUUUU+U  U UUUUA A GG AA  CC  A  UUU
+  JABFPA010026078.1 437 AAAAAAAAUCGAUU*[12]**[14]*CCUAACCUAAAUAUU--*[ 2]**[  1]*--------------------------AGGUCAAAUCGUAUUUUUUUUUUUUUUUUUU-UUUUUUUAAAUGGCAAgaCCCCACCUUU 553
+                        **************...9.....8..777777777766665.....6......7............................999999********99999999988877777.55566666677776644589999***** PP
+
+>> JABFPA010091724.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_92567_length_470_cov_0.839650, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (44) ?       7.4   13.3   0.1  cm        1      281 []          18         205 + .. 0.90    no 0.36
+
+                            vv                           v                                             v            vv                                          NC
+                        {{{{{{{{{{{{{,~~~~~~<<<<_____>>>>[[[,,,,,,,,,,,,,,~~~~~~~~~~~~~~~~~~~,,,,,,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]*GuugAAACCuaaCCCcAAUCUAGUUUuuAc*[14]**[106]**[18]*GGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :: GA :: :G:G       GUU:AAA C:AAC C:AAU U  UUUUUA                           A:G     C:C:  ::  C :: U UUUUU+U A AU UUA AA:: A ::U  UUUUU
+  JABFPA010091724.1  18 GUUGAGGAGAGGG-*[54]*GUUAAAAUCUAACACGAAUAUUUUUUUUAA*[17]**[ 18]**[ 2]*------CACGA----CCCUCUUC--CAAUCUAUUUUUUUUAAAUCUUAAAAAAAAUUUUUUUUUUU 205
+                        *999866555555....9..*********************999999987...*......*.....4........45776....44443333..8899999999999999************************* PP
+
+>> JABFPA010095718.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_96651_length_461_cov_0.970060, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (45) ?       7.6   13.3   3.7  cm        1      281 []         298         358 + .. 0.93    no 0.25
+
+                          v   v           v   v                                        NC
+                        {{{{{{{{{~~~~~~~}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuua*[226]*uaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        AC :A:  A       U  :U: GUUU UUUUU U AUAUUU A A: :UAA: :GA UU  
+  JABFPA010095718.1 298 ACUAAAUUA*[  6]*UGUUUUUGUUUUUUUUUGUUAUAUUUCAGAGGCUAAGUUGAGUUAC 358
+                        **9998665....9..5668999*************************************** PP
+
+>> JABFPA010110069.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_111321_length_432_cov_1.091803, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (46) ?       8.4   13.2   0.0  cm      167      281 ~]          13         130 + ~. 0.77    5' 0.34
+
+                                               ????? ???  ??????v     v    v     v              ???    ???? ?????????                                      NC
+                        ~~~~~~~----<<_____>>--.>>>>>->>>.,))))))<<<<<<<____>>>>>>>,,,,,.,.....,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 <[166]*UUUUCuCGCCCaGUc.CCaGaUGaa.AaaaugcucguCuucaUUaaGacgaGGaaa.A.....AagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                               UUUU:U GCC A:U+ CCAGA   A AAAAU   CG:::  AUU :::CG GG AA       AAGG UAU C  G  AA  C GUUUC  U  CUGAUAUU     :G: A :C:   UUU 
+  JABFPA010110069.1  13 <[  0]*UUUUUUAGCCGAAUUaCCAGAAAGAcAAAAUUUACGAAAA-AUUAUUUCGAGGGAAc-gguuaAAGGAUAUGCCAGUAAAUCCGGUUUCCAUAACUGAUAUUA---CGGAAAUUCCAGCUUUA 130
+                        .......***********99653888887777577777777777764.5655667777755553.35565888888888877777777777788889999***9999987...4**************** PP
+
+>> JABFPA010015133.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_15164_length_913_cov_0.826972, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (47) ?       8.6   13.1   0.2  cm        1      281 []         735         807 + .. 0.98    no 0.27
+
+                                                                v   v          NC
+                        {{{{{~~~~~~~}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGa*[234]*uCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        AC::A       U::GUUUC UUUU+UGA A    A A:G  AA C:GA  UUU
+  JABFPA010015133.1 735 ACAAA*[ 26]*UUUGUUUCCUUUUUUGAAAAGAAAAAGGGAAAACUGACCUUU 807
+                        ***98....9..89**************************************** PP
+
+>> JABFPA010032262.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_32357_length_708_cov_2.693632, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (48) ?       8.6   13.1   1.4  cm        1      281 []         376         489 + .. 0.77    no 0.28
+
+                           v       v            vvv     vvv             vvv     vvv                                                                                            v        v                                         NC
+                        {{{{{{{{{{{{{,<<-<<<<<<-<<<_____>>>--->>>>>>->><<<<_____>>>>[[[,,,,,,,,,,,,,,<<<<<____>>>>>,,,,,,((((((,~~~~~~~~~~~~~~~~~~,))))))~~~~~~,,,,,,,,]]],,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGUGGcGaaGauCGCuGCUAAgGCCAAauCuuCACCGuugAAACCuaaCCCcAAUCUAGUUUuuAcguucuUuUAagaacUuUguUgcauuua*[29]**[21]**[36]*Aaaaugc*[18]*GGaaaAAagGGUAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        ACG ::UU:::   ::+:AAG:: +CU   AA    AA::CUU:A::G  +AAA     C                                                                                        UU  :: :AA:: CGUUU U    C GAU UU U  A:: U A :: A UUUU
+  JABFPA010032262.1 376 ACGCUUUUUUA--CCAUAAAGUGUUCUUUCAA---AAACACUUUAUGGCGAAAAAA---C--------------------------------------------*[ 4]**[ 1]**[ 3]*-------*[ 2]*-------------UU-CUAUAAAAAACGUUUUUGAAGCCGAUUUUGUUUAGUGUGAUACCAAUUUU 489
+                        ****9999975..5888888888765555555...577888888888755544444...3...............................................4.....6.....6............4...............33.2456899999**************************************** PP
+
+>> JABFPA010013242.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_13272_length_953_cov_1.478208, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (49) ?       8.8   13.1   3.5  cm        1      281 []         190          47 - .. 0.96    no 0.29
+
+                                v                                 v                                              NC
+                        {{{{{{{{{{{{{,~~~~~~~~~~~~~~~~~~~,,,,}}}}-}}}}}}}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCGGauuuaCGaGU*[33]**[13]**[166]*UAUUCuCGGuaaguCCGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        A:GGA::U                                   A::UCC:UUUCUUUUUCUGA  UU  A AA:G AAC:U  U  UU
+  JABFPA010013242.1 190 AUGGAAAUU-----*[25]**[23]**[ 42]*---------UAUUUCCAUUUCUUUUUCUGAAUUUAAAAAAAG-AACUUCUUCAUU 47 
+                        ******996........9.....*......9...........599***********************9999999.78********** PP
+
+>> JABFPA010046719.1  Calotelea sp. ZL-2020 isolate N192_OSUC 510629 NODE_46874_length_619_cov_1.739837, whole genome shotgun sequence
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+ (50) ?       9.2   13.0   0.0  cm        1      281 []         303         238 - .. 0.94    no 0.39
+
+                                                                           NC
+                        {{{~~~~~~~}}}---------------------<<<___>>>::::::: CS
+            insects   1 aCG*[238]*CGuUUCUUUUucuGAuaUUuUACAaGGUAACCuGAuUUUU 281
+                        :::       ::: U U  U CU AUAUU  ACAA GUAAC UGA U UU
+  JABFPA010046719.1 303 GUC*[ 23]*GACCUAUCCUGCUCAUAUUCAACAAGGUAACUUGAAUAUU 238
+                        986....9..689************************************* PP
+
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (281 consensus positions)
+Target sequences:                                           113933  (154997144 residues searched)
+Target sequences re-searched for truncated hits:            113933  (160339326 residues re-searched)
+Windows   passing  local HMM SSV           filter:          297966  (0.3582); expected (0.35)
+Windows   passing  local HMM Viterbi       filter:          133756  (0.1658); expected (0.15)
+Windows   passing  local HMM Viterbi  bias filter:           27790  (0.02881); expected (0.15)
+Windows   passing  local HMM Forward       filter:           11452  (0.01367); expected (0.003)
+Windows   passing  local HMM Forward  bias filter:            7169  (0.008535); expected (0.003)
+Windows   passing glocal HMM Forward       filter:            3549  (0.004826); expected (0.003)
+Windows   passing glocal HMM Forward  bias filter:            3027  (0.004008); expected (0.003)
+Envelopes passing glocal HMM envelope defn filter:            2976  (0.00272); expected (0.003)
+Envelopes passing  local CM  CYK           filter:             860  (0.0004091); expected (0.0001)
+Total CM hits reported:                                         50  (1.685e-05); includes 7 truncated hit(s)
+
+# CPU time: 802.30u 20.86s 00:13:43.16 Elapsed: 00:01:48.82
+# Alignment of 2 hits satisfying inclusion thresholds saved to: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
+//
+[ok]

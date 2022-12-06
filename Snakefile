@@ -138,7 +138,6 @@ rule makeblastdb:
         """
 
 
-
 rule blastcmd:
     output: touch("results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt")
 
@@ -153,22 +152,44 @@ rule blastcmd:
         VAR=$(echo {input.database})
         DATABASE=$(echo ${{VAR%/*}})
 
-        #to check whether the file is not empty
+        #if filtered file is empty the empty _extended_region will be created
         if [ -s {input.query} ]
         then
             
             cp {input.query} $DATABASE
 
-            chmod 774 scripts/cmdBLAST.sh
-
             ./scripts/cmdBLAST.sh $DATABASE
 
             mv $DATABASE/out_ext.txt {output}
-
                     
         fi 
 
         """
+
+rule extended_genomic_region_to_table:
+    output: touch("results/BLAST/{genome}/extended/{genome}_{model}_extended_region.csv")
+
+    input:  script = "scripts/transform_cmdBLAST_output.R",
+            blastcmd_result = "results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt"
+
+    conda:  "cmdBLAST_to_R_env.yaml"
+
+    shell: 
+        r"""       
+        if [ -s {input.blastcmd_result} ]
+        then
+
+            Rscript {input.script} {input.blastcmd_result} {output}
+
+        fi
+        """      
+
+
+
+# rule assembe_summary_table:
+#     output: "results/summary_table.xlsx"
+# 
+#     input:  
 
 
              

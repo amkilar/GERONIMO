@@ -19,7 +19,7 @@
     -outfmt %s )
     
     #extended file
-    echo ">""_""${arr[0]}""_""${arr[1]}" >> out_ext.txt
+    echo ">""${arr[0]}""_""${arr[1]}" >> out_ext.txt
     echo $seq >> out_ext.txt
 
  

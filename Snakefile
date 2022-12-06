@@ -1,4 +1,4 @@
-# snakemake -j1 -p results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic_bombus_filtered.txt --use-conda
+# snakemake -j1 -p results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/extended/GCA_022817605.1_ASM2281760v1_genomic_bombus_extended_region.txt --use-conda
 
 # to obtain dag:
 # snakemake -j1 -f -p --dag results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic_bombus3_filtered.txt --use-conda | dot -Tpng > dag.png
@@ -151,57 +151,27 @@ rule blastcmd:
         r"""
 
         VAR=$(echo {input.database})
-
         DATABASE=$(echo ${{VAR%/*}})
-
-        echo "$DATABASE"
-
 
         #to check whether the file is not empty
         if [ -s {input.query} ]
         then
             
-            echo "I'm in!"
-
             cp {input.query} $DATABASE
 
+            chmod 774 scripts/cmdBLAST.sh
 
-            echo "Copied!"
+            ./scripts/cmdBLAST.sh $DATABASE
 
-            cd $DATABASE
+            mv $DATABASE/out_ext.txt {output}
 
-            echo "In database dir"
-
-            QUERY=$(echo *_filtered.txt)
-
-            while read line
-            do
- 
-            
-            echo "ELO"
-
-            done < $QUERY
+                    
         fi 
 
         """
 
 
-            #   arr=($line)
-
-             #   echo "$arr"
-                
-             #   #blastdcmd
-             #   seq=$((blastdbcmd -db $DATABASE \
-             #   -entry "${{arr[2]}}" \
-             #   -strand "${{arr[3]}}" \
-             #   -range "${{arr[4]}}" \
-             #   -outfmt %s ))
-             #   
-             #   echo "I did BLAST"
-#
-#             #   #extended file
-#             #   echo ">""_""${arr[0]}""_""${arr[1]}" >> {output}
-             #   echo $seq >> {output}
+             
 
 
 

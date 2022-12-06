@@ -5,10 +5,12 @@
 ################################################################################
 ################################################################################
 #
-#                      transform_cmdBLAST_output
+#                  join_infernal_and_BLASTcmd_results
 #
 ################################################################################
-# 
+# The script joins outputs coming from infernal search and searching for extended
+# genomic region (BLASTcmd). In case the second file is empty the empty column is
+# added to join all results at the end into one table.
 ################################################################################
 
 
@@ -23,7 +25,6 @@
 
 # Install all required packages:
 suppressMessages(require(tidyverse))
-suppressMessages(require(phylotools))
 
 # For Rscript - passing arguments from bash to R
 args = commandArgs(trailingOnly=TRUE)
@@ -36,21 +37,46 @@ if (length(args)==0) {
 ##################### SETUP VARIABLES ##########################################
 ################################################################################
 
-cmdBLAST_output = args[1]
-cmdBLAST_table = args[2]
+INFERNAL_part = args[1]
+BLASTcmd_part = args[2]
+PART_TABLE = args[3]
 
 ################################################################################
 #######################   MAIN    ##############################################
 ################################################################################
 
-extended_genomic_region <- as_tibble(read.fasta(cmdBLAST_output)) %>%
-  separate(seq.name, c("GCA", "model_number"), sep = "#") %>%
-  mutate(number = str_extract(model_number, "(?<=_)[^_]*$"),
-         model = sapply(strsplit(model_number, "_", fixed = TRUE),
-                        function(i) paste(head(i, -1), collapse = "_")) ) %>% 
-  rename(extended_genomic_region = seq.text) %>%
-  select(model, GCA, number, extended_genomic_region)
 
-write.csv(extended_genomic_region, cmdBLAST_table, row.names = FALSE)  
+if (file.size(BLASTcmd_part) == 0L) {
   
+  table_temp <- read_csv(INFERNAL_part, show_col_types = FALSE) %>%
+    mutate(extended_genomic_region = "NA")
+  
+} else {
+  
+  table_temp <- read_csv(INFERNAL_part, show_col_types = FALSE) %>%
+    left_join(read_csv(BLASTcmd_part, show_col_types = FALSE), by = c("GCA", "number", "model"))
+    
+}
+ 
+table <- table_temp %>% 
+  rename(infernal_seq = align_seq) %>% 
+  rename(name = ScientificName) %>% 
+  select(model, GCA, name, family, label, number, evalue, extended_genomic_region, infernal_seq, sec_struct, ID, phylum, class, order)
+
+write_csv(table, PART_TABLE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

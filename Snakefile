@@ -64,7 +64,12 @@ rule unzip_genome:
         r"""
         gunzip {input}
 
+        echo
+
         """        
+
+        # tutaj pierwszy checkup żeby sprawdzić ile tych plików się ściągnęło (i poprawnie rozpakowało)
+        # można dodać jakiś extra output na te, które się nie rozpakowały do manualnego ściągnięcia i wrzucenia w pipeline
 
 
 rule infernal_search:
@@ -99,7 +104,7 @@ rule search_taxonomy:
 
 
 rule read_infernal_results:
-    output: "results/infernal/{model}/{genome}.csv"
+    output: "results/infernal/{genome}/{genome}_{model}.csv"
 
     input:  script = "scripts/read_results_infernal.R",
             file = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}.csv",
@@ -116,7 +121,7 @@ rule prepare_for_genomic_region_extraction:
     output: "results/BLAST/{genome}/filtered/{genome}_{model}_filtered.txt"
 
     input:  script = "scripts/create_input_for_cmdBLAST.R",
-            infernal_result = "results/infernal/{model}/{genome}.csv"
+            infernal_result = "results/infernal/{genome}/{genome}_{model}.csv"
 
     conda:  "r_tidyverse_env.yaml"      
 
@@ -130,7 +135,6 @@ rule makeblastdb:
     input:  genome = "database/{genome}/{genome}.fna"
 
     conda:  "blast_env.yaml"
-    message: "Preparing database..."
 
     shell:
         r"""
@@ -182,21 +186,44 @@ rule extended_genomic_region_to_table:
             Rscript {input.script} {input.blastcmd_result} {output}
 
         fi
+
+        rm {input.blastcmd_result}
         """      
 
 
+rule prepare_part_results:
+    output: touch("results/summary/{genome}/{genome}_{model}_summary.csv")
 
-# rule assembe_summary_table:
-#     output: "results/summary_table.xlsx"
-# 
-#     input:  
+    input:  script = "scripts/join_infernal_and_BLASTcmd_results.R",
+            infernal = "results/infernal/{genome}/{genome}_{model}.csv",
+            blastcmd = "results/BLAST/{genome}/extended/{genome}_{model}_extended_region.csv"
+    
+    conda:  "r_tidyverse_env.yaml" 
+
+    shell:
+        "Rscript {input.script} {input.infernal} {input.blastcmd} {output}"
 
 
-             
+rule make_summary_table_for_genome:
+    output: touch("results/ready/{genome}.csv")
+
+    input:  "results/summary/{genome}/"
+
+    shell:
+        "cat {input}/*_summary.csv >> {output}"
+
+        # tutaj drugi checkpoint: czy są wszystkie part pliki dla danego genomu (dla modelu)
 
 
-
-        
+#rule make_summary_table:
+#    output: touch("results/summary_table.csv")
+#
+#    input:  directory("results/ready")
+#
+#    #input:  expand("results/ready/{genomes}.csv", genomes = GENOMES)
+#
+#    shell:
+#        "cat {input}/*.csv >> {output}"
 
 
 

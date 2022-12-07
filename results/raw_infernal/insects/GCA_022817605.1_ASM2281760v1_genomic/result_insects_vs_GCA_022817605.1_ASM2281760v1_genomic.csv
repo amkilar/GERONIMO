@@ -54,9 +54,9 @@ JABFPA010046719.1    -         insects              -          cm        1      
 # Program:         cmsearch
 # Version:         1.1.2 (July 2016)
 # Pipeline mode:   SEARCH
-# Query file:      models_calibrated/cov_model_bombus
+# Query file:      models_calibrated/cov_model_insects
 # Target file:     database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna
-# Option settings: cmsearch -o results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic -A results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment --tblout results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv --notextw models_calibrated/cov_model_bombus database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna 
+# Option settings: cmsearch -o results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic -A results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment --tblout results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic.csv --notextw models_calibrated/cov_model_insects database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna 
 # Current dir:     /home/kilar/Desktop/GERONIMO/GERONIMO
-# Date:            Wed Dec  7 14:58:03 2022
+# Date:            Wed Dec  7 16:50:52 2022
 # [ok]

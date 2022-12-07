@@ -3,11 +3,11 @@
 # Copyright (C) 2016 Howard Hughes Medical Institute.
 # Freely distributed under a BSD open source license.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# query CM file:                         models_calibrated/cov_model_bombus
+# query CM file:                         models_calibrated/cov_model_insects
 # target sequence database:              database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna
-# output directed to file:               results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic
-# MSA of significant hits saved to file: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
-# tabular output of hits:                results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic.csv
+# output directed to file:               results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic
+# MSA of significant hits saved to file: results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
+# tabular output of hits:                results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic.csv
 # max ASCII text line length:            unlimited
 # number of worker threads:              8
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -688,7 +688,7 @@ Envelopes passing glocal HMM envelope defn filter:            2976  (0.00272); e
 Envelopes passing  local CM  CYK           filter:             860  (0.0004091); expected (0.0001)
 Total CM hits reported:                                         50  (1.685e-05); includes 7 truncated hit(s)
 
-# CPU time: 805.40u 20.69s 00:13:46.09 Elapsed: 00:01:48.07
-# Alignment of 2 hits satisfying inclusion thresholds saved to: results/raw_infernal/bombus/GCA_022817605.1_ASM2281760v1_genomic/result_bombus_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
+# CPU time: 793.39u 20.22s 00:13:33.61 Elapsed: 00:01:44.38
+# Alignment of 2 hits satisfying inclusion thresholds saved to: results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment
 //
 [ok]

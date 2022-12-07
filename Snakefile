@@ -6,11 +6,38 @@
 configfile: "config.yaml"
 #print("Config is: ", config)
 
+MODEL_TO_BUILD=config["models_to_build"]
 DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 #print(DATABASE)
 
 #GENOMES = glob_wildcards("database/{genome}.fna").genome
+
+
+rule stk_to_model:
+    output: "models/cov_model_{model}"
+    
+    input: "model_to_build/{model}.stk"
+
+    conda: "infernal_env.yaml"
+    shell:
+        r"""
+            cmbuild {output} {input}
+         """
+
+
+rule calibrate_model:
+    output: "models_calibrated/cov_model_{model}"
+    
+    input:  "models/cov_model_{model}"
+
+    conda:  "infernal_env.yaml"
+
+    shell:
+        r"""
+            cmcalibrate {input}
+            cp {input} {output}
+         """
 
 
 rule create_genome_list:
@@ -204,15 +231,15 @@ rule prepare_part_results:
         "Rscript {input.script} {input.infernal} {input.blastcmd} {output}"
 
 
-rule make_summary_table_for_genome:
-    output: touch("results/ready/{genome}.csv")
-
-    input:  "results/summary/{genome}/"
-
-    shell:
-        "cat {input}/*_summary.csv >> {output}"
-
-        # tutaj drugi checkpoint: czy są wszystkie part pliki dla danego genomu (dla modelu)
+#rule make_summary_table_for_genome:
+#    output: touch("results/ready/{genome}.csv")
+#
+#    input:  "results/summary/{genome}/"
+#
+#    shell:
+#        "cat {input}/*_summary.csv >> {output}"
+#
+#        # tutaj drugi checkpoint: czy są wszystkie part pliki dla danego genomu (dla modelu)
 
 
 #rule make_summary_table:

@@ -1,2 +1,0 @@
-GCA_022817605.1#cov_model_bombus	1	JABFPA010060924.1	minus	1-475
-GCA_022817605.1#cov_model_bombus	2	JABFPA010012992.1	minus	419-974

@@ -12,7 +12,13 @@ DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 #print(DATABASE)
 
+
+#onstart: create_genome_list
+
 #GENOMES = glob_wildcards("database/{genome}.fna").genome
+
+rule all:
+    output: "results/summary_table.csv"
 
 
 rule stk_to_model:
@@ -56,10 +62,20 @@ rule create_genome_list:
         do
             fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/');
             wildcard=$(echo $fname | sed -e 's!.fna.gz!!');
-            echo "$line/$fname" > temp/$wildcard
+            echo "$line/$fname" > {output}
+            echo ""
+            echo ""
+            echo ""
+            echo ""
+            echo ${wildcard}
+            echo ""
+            echo ""
+            echo ""
+            echo ""
         done
        
-        """   
+        """  
+
 GENOMES = os.listdir("temp/")
 
 rule download_genome:
@@ -92,8 +108,6 @@ rule unzip_genome:
     shell:
         r"""
         gunzip {input}
-
-        echo
 
         """        
 

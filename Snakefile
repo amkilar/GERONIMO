@@ -7,6 +7,7 @@ configfile: "config.yaml"
 #print("Config is: ", config)
 
 MODEL_TO_BUILD=config["models_to_build"]
+MODELS=config["models"]
 DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 #print(DATABASE)
@@ -41,7 +42,7 @@ rule calibrate_model:
 
 
 rule create_genome_list:
-    output: touch("temp/{genome}.fna.gz.temp")
+    output: touch("temp/{genome}")
 
     conda:  "entrez_env.yaml"
     message: "Creating the genomes list..."
@@ -53,17 +54,18 @@ rule create_genome_list:
         | xtract -pattern DocumentSummary -element FtpPath_GenBank \
         | while read -r line ; 
         do
-            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/') ;
-            echo "$line/$fname" > temp/$fname.temp;
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/');
+            wildcard=$(echo $fname | sed -e 's!.fna.gz!!');
+            echo "$line/$fname" > temp/$wildcard
         done
        
         """   
-
+GENOMES = os.listdir("temp/")
 
 rule download_genome:
     output: touch("database/{genome}/{genome}.fna.gz")
     
-    input:  "temp/{genome}.fna.gz.temp"
+    input:  "temp/{genome}"
 
     message: "Downloading genomes..."
     
@@ -231,26 +233,13 @@ rule prepare_part_results:
         "Rscript {input.script} {input.infernal} {input.blastcmd} {output}"
 
 
-#rule make_summary_table_for_genome:
-#    output: touch("results/ready/{genome}.csv")
-#
-#    input:  "results/summary/{genome}/"
-#
-#    shell:
-#        "cat {input}/*_summary.csv >> {output}"
-#
-#        # tutaj drugi checkpoint: czy są wszystkie part pliki dla danego genomu (dla modelu)
+rule make_summary_table:
+    output: "results/summary_table.csv"
 
+    input:  expand("results/summary/{genome}/{genome}_{model}_summary.csv", model = MODELS, genome = GENOMES)
 
-#rule make_summary_table:
-#    output: touch("results/summary_table.csv")
-#
-#    input:  directory("results/ready")
-#
-#    #input:  expand("results/ready/{genomes}.csv", genomes = GENOMES)
-#
-#    shell:
-#        "cat {input}/*.csv >> {output}"
+    shell:
+        "cat {input} >> {output}"
 
 
 

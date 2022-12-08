@@ -57,6 +57,6 @@ JABFPA010046719.1    -         insects              -          cm        1      
 # Query file:      models_calibrated/cov_model_insects
 # Target file:     database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna
 # Option settings: cmsearch -o results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic -A results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic-alignment --tblout results/raw_infernal/insects/GCA_022817605.1_ASM2281760v1_genomic/result_insects_vs_GCA_022817605.1_ASM2281760v1_genomic.csv --notextw models_calibrated/cov_model_insects database/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic.fna 
-# Current dir:     /home/kilar/Desktop/GERONIMO/GERONIMO
-# Date:            Wed Dec  7 16:50:52 2022
+# Current dir:     /home/amk/Desktop/snakefile_test/GERONIMO
+# Date:            Thu Dec  8 15:13:42 2022
 # [ok]

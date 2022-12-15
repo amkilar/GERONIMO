@@ -10,15 +10,6 @@ MODEL_TO_BUILD=config["models_to_build"]
 MODELS=config["models"]
 DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
-#print(DATABASE)
-
-
-#onstart: create_genome_list
-
-#GENOMES = glob_wildcards("database/{genome}.fna").genome
-
-rule all:
-    output: "results/summary_table.csv"
 
 
 rule stk_to_model:
@@ -48,13 +39,13 @@ rule calibrate_model:
 
 
 rule create_genome_list:
-    output: touch("temp/{genome}")
-
+    output: "list_of_genomes.txt"
     conda:  "entrez_env.yaml"
-    message: "Creating the genomes list..."
     
     shell:
         r"""
+        mkdir -p temp/
+
         esearch -db assembly -query '{DATABASE}' \
         | esummary \
         | xtract -pattern DocumentSummary -element FtpPath_GenBank \
@@ -62,57 +53,75 @@ rule create_genome_list:
         do
             fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/');
             wildcard=$(echo $fname | sed -e 's!.fna.gz!!');
-            echo "$line/$fname" > {output}
-            echo ""
-            echo ""
-            echo ""
-            echo ""
-            echo ${wildcard}
-            echo ""
-            echo ""
-            echo ""
-            echo ""
-        done
-       
-        """  
 
-GENOMES = os.listdir("temp/")
+            echo "$line/$fname" > temp/$wildcard;
+            echo $wildcard >> list_of_genomes.txt
+
+        done
+        """
+
+checkpoint check_genome_list:
+    output: touch(".create_genome_list.touch")
+
+    input: "list_of_genomes.txt"
+
+
+
+# checkpoint code to read the genome list and specify all wildcards for genomes
+class Checkpoint_MakePattern:
+    def __init__(self, pattern):
+        self.pattern = pattern
+
+    def get_names(self):
+        with open('list_of_genomes.txt', 'rt') as fp:
+            names = [ x.rstrip() for x in fp ]
+        return names
+
+    def __call__(self, w):
+        global checkpoints
+
+        # wait for the results of 'list_of_genomes.txt'; this will trigger an
+        # exception until that rule has been run.
+        checkpoints.check_genome_list.get(**w)
+
+        # information used to expand the pattern, using arbitrary Python code
+        names = self.get_names()
+
+        pattern = expand(self.pattern, name=names, model=MODELS, **w)
+
+        print(pattern)
+
+        return pattern
+
 
 rule download_genome:
     output: touch("database/{genome}/{genome}.fna.gz")
     
     input:  "temp/{genome}"
 
-    message: "Downloading genomes..."
-    
     shell:
         r"""
         GENOME_LINK=$(cat {input})
-
         GENOME="${{GENOME_LINK##*/}}"
-
         wget -P ./database/{wildcards.genome}/ $GENOME_LINK 
         """
 
 
-rule unzip_genome:
 # Whet if the .fna.gz is corrupted? 
 # Make it being removed from further steps
 # And skipped somehow to not ruin the whole run
-    output: touch("database/{genome}/{genome}.fna")
+rule unzip_genome:
+    output: "database/{genome}/{genome}.fna"
 
     input:  "database/{genome}/{genome}.fna.gz"
-
-    message: "Unzipping genomes..."
     
     shell:
         r"""
         gunzip {input}
-
         """        
 
-        # tutaj pierwszy checkup żeby sprawdzić ile tych plików się ściągnęło (i poprawnie rozpakowało)
-        # można dodać jakiś extra output na te, które się nie rozpakowały do manualnego ściągnięcia i wrzucenia w pipeline
+    # tutaj pierwszy checkup żeby sprawdzić ile tych plików się ściągnęło (i poprawnie rozpakowało)
+    # można dodać jakiś extra output na te, które się nie rozpakowały do manualnego ściągnięcia i wrzucenia w pipeline
 
 
 rule infernal_search:
@@ -126,11 +135,7 @@ rule infernal_search:
     conda:  "infernal_env.yaml"
     message: "Run Infernal search"
     
-    shell:
-        r"""
-       cmsearch --notextw -A {output.alingment} -o {output.result} --tblout {output.table} {input.model} {input.genome}
-
-        """      
+    shell:  "cmsearch --notextw -A {output.alingment} -o {output.result} --tblout {output.table} {input.model} {input.genome}"      
 
 
 rule search_taxonomy:
@@ -141,8 +146,7 @@ rule search_taxonomy:
 
     conda:  "search_taxonomy_r_env.yaml"        
 
-    shell:
-        "Rscript {input.script} {input.genome} {output}"
+    shell:  "Rscript {input.script} {input.genome} {output}"
 
 
 
@@ -155,8 +159,7 @@ rule read_infernal_results:
 
     conda:  "r_tidyverse_env.yaml"      
 
-    shell:
-        "Rscript {input.script} {input.file} {input.taxonomy} {output}"
+    shell:  "Rscript {input.script} {input.file} {input.taxonomy} {output}"
 
 
 
@@ -168,8 +171,7 @@ rule prepare_for_genomic_region_extraction:
 
     conda:  "r_tidyverse_env.yaml"      
 
-    shell:
-        "Rscript {input.script} {input.infernal_result} {REGION_LENGTH} {output}"
+    shell:  "Rscript {input.script} {input.infernal_result} {REGION_LENGTH} {output}"
  
 
 rule makeblastdb:
@@ -179,10 +181,7 @@ rule makeblastdb:
 
     conda:  "blast_env.yaml"
 
-    shell:
-        r"""
-        makeblastdb -in {input} -dbtype nucl -parse_seqids
-        """
+    shell:  "makeblastdb -in {input} -dbtype nucl -parse_seqids"
 
 
 rule blastcmd:
@@ -202,13 +201,9 @@ rule blastcmd:
         #if filtered file is empty the empty _extended_region will be created
         if [ -s {input.query} ]
         then
-            
             cp {input.query} $DATABASE
-
             ./scripts/cmdBLAST.sh $DATABASE
-
-            mv $DATABASE/out_ext.txt {output}
-                    
+            mv $DATABASE/out_ext.txt {output}          
         fi 
 
         """
@@ -225,11 +220,8 @@ rule extended_genomic_region_to_table:
         r"""       
         if [ -s {input.blastcmd_result} ]
         then
-
             Rscript {input.script} {input.blastcmd_result} {output}
-
         fi
-
         rm {input.blastcmd_result}
         """      
 
@@ -243,17 +235,14 @@ rule prepare_part_results:
     
     conda:  "r_tidyverse_env.yaml" 
 
-    shell:
-        "Rscript {input.script} {input.infernal} {input.blastcmd} {output}"
+    shell:  "Rscript {input.script} {input.infernal} {input.blastcmd} {output}"
 
 
 rule make_summary_table:
     output: "results/summary_table.csv"
 
-    input:  expand("results/summary/{genome}/{genome}_{model}_summary.csv", model = MODELS, genome = GENOMES)
+    input:  Checkpoint_MakePattern("results/summary/{name}/{name}_{model}_summary.csv")
+    #here wildcard has to be named "name", as it must match checkpoint
 
-    shell:
-        "cat {input} >> {output}"
-
-
+    shell:   "cat {input} >> {output}"
 

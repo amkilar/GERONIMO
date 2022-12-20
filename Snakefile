@@ -17,25 +17,31 @@ rule stk_to_model:
     
     input: "model_to_build/{model}.stk"
 
+    threads: 8
     conda: "infernal_env.yaml"
     shell:
         r"""
             cmbuild {output} {input}
+
+            cmcalibrate {output} 
+
          """
 
 
-rule calibrate_model:
-    output: "models_calibrated/cov_model_{model}"
-    
-    input:  "models/cov_model_{model}"
-
-    conda:  "infernal_env.yaml"
-
-    shell:
-        r"""
-            cmcalibrate {input}
-            cp {input} {output}
-         """
+#rule calibrate_model:
+#    output: directory("models_calibrated/")
+#    
+#    input:  "models/cov_model_{model}"
+#
+#    threads: 8
+#
+#    conda:  "infernal_env.yaml"
+#
+#    shell:
+#        r"""
+#            cmcalibrate {input}
+#            cp {input} models_calibrated/
+#         """
 
 
 rule create_genome_list:
@@ -89,8 +95,6 @@ class Checkpoint_MakePattern:
 
         pattern = expand(self.pattern, name=names, model=MODELS, **w)
 
-        print(pattern)
-
         return pattern
 
 
@@ -130,7 +134,7 @@ rule infernal_search:
             table = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}.csv",
 
     input:  genome = "database/{genome}/{genome}.fna",
-            model = "models_calibrated/cov_model_{model}"
+            model = "models/cov_model_{model}"
 
     conda:  "infernal_env.yaml"
     message: "Run Infernal search"
@@ -244,5 +248,11 @@ rule make_summary_table:
     input:  Checkpoint_MakePattern("results/summary/{name}/{name}_{model}_summary.csv")
     #here wildcard has to be named "name", as it must match checkpoint
 
-    shell:   "cat {input} >> {output}"
+    shell:   
+        """
+        tail -q -n +2 {input} > {input}
+
+        cat {input} >> {output}
+
+        """
 

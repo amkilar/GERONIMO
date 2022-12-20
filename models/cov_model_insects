@@ -8,7 +8,7 @@ ALPH     RNA
 RF       no
 CONS     yes
 MAP      yes
-DATE     Wed Dec  7 16:37:58 2022
+DATE     Tue Dec 20 13:53:19 2022
 COM      [1] cmbuild models/cov_model_insects model_to_build/insects.stk
 COM      [2] cmcalibrate models/cov_model_insects
 PBEGIN   0.05
@@ -1151,7 +1151,7 @@ MM    no
 CONS  yes
 CS    yes
 MAP   yes
-DATE  Wed Dec  7 16:37:58 2022
+DATE  Tue Dec 20 13:53:19 2022
 COM   [1] cmbuild models/cov_model_insects model_to_build/insects.stk
 NSEQ  27
 EFFN  1.156860

@@ -63,7 +63,8 @@ table <- table_temp %>%
   rename(name = ScientificName) %>% 
   select(model, GCA, name, family, label, number, evalue, extended_genomic_region, infernal_seq, sec_struct, ID, phylum, class, order)
 
-write_csv(table, PART_TABLE)
+write_csv(table, PART_TABLE, col_names = FALSE)
+
 
 
 

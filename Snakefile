@@ -12,6 +12,30 @@ DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 
 
+rule create_genome_list:
+    output: list = "list_of_genomes.txt",
+            dir = directory("temp")
+
+    conda:  "entrez_env.yaml"
+    
+    shell:
+        r"""
+        mkdir -p {output.dir}
+
+        esearch -db assembly -query '{DATABASE}' \
+        | esummary \
+        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
+        | while read -r line ; 
+        do
+            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/');
+            wildcard=$(echo $fname | sed -e 's!.fna.gz!!');
+
+            echo "$line/$fname" > temp/$wildcard;
+            echo $wildcard >> {output.list}
+
+        done
+        """
+
 rule stk_to_model:
     output: "models/cov_model_{model}"
     
@@ -24,54 +48,14 @@ rule stk_to_model:
             cmbuild {output} {input}
 
             cmcalibrate {output} 
-
          """
 
 
-#rule calibrate_model:
-#    output: directory("models_calibrated/")
-#    
-#    input:  "models/cov_model_{model}"
-#
-#    threads: 8
-#
-#    conda:  "infernal_env.yaml"
-#
-#    shell:
-#        r"""
-#            cmcalibrate {input}
-#            cp {input} models_calibrated/
-#         """
-
-
-rule create_genome_list:
-    output: "list_of_genomes.txt"
-    conda:  "entrez_env.yaml"
-    
-    shell:
-        r"""
-        mkdir -p temp/
-
-        esearch -db assembly -query '{DATABASE}' \
-        | esummary \
-        | xtract -pattern DocumentSummary -element FtpPath_GenBank \
-        | while read -r line ; 
-        do
-            fname=$(echo $line | grep -o 'GCA_.*' | sed 's/$/_genomic.fna.gz/');
-            wildcard=$(echo $fname | sed -e 's!.fna.gz!!');
-
-            echo "$line/$fname" > temp/$wildcard;
-            echo $wildcard >> list_of_genomes.txt
-
-        done
-        """
 
 checkpoint check_genome_list:
     output: touch(".create_genome_list.touch")
 
     input: "list_of_genomes.txt"
-
-
 
 # checkpoint code to read the genome list and specify all wildcards for genomes
 class Checkpoint_MakePattern:
@@ -243,16 +227,22 @@ rule prepare_part_results:
 
 
 rule make_summary_table:
-    output: "results/summary_table.csv"
+    output: "results/part_summary_table.csv"
 
     input:  Checkpoint_MakePattern("results/summary/{name}/{name}_{model}_summary.csv")
     #here wildcard has to be named "name", as it must match checkpoint
 
     shell:   
         """
-        tail -q -n +2 {input} > {input}
-
         cat {input} >> {output}
-
         """
 
+rule produce_results:
+  output:   table = touch("results/summary_table.xlsx")
+
+    input:  script = "scripts/make_table_plots.R",
+            raw_table = "results/part_summary_table.csv"
+
+    conda:  "r_tidyverse_env.yaml"        
+
+    shell:  "mkdir results/plots; Rscript {input.script} {input.raw_table}"

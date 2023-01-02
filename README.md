@@ -1,6 +1,6 @@
-<img src="https://github.com/amkilar/TRFiReader/blob/main/images/TRFiReader_logo.png" align="right">
+<img src="https://github.com/amkilar/Geronimo/blob/main/Geronimo_logo.png" align="right" width=350 >
 
-# Geronimo!
+# Geronimo
 bla bla
 
 ## Background

@@ -13,14 +13,12 @@ REGION_LENGTH = config["extract_genomic_region-length"]
 
 
 rule create_genome_list:
-    output: list = "list_of_genomes.txt",
-            dir = directory("temp")
-
+    output: "list_of_genomes.txt"
     conda:  "entrez_env.yaml"
     
     shell:
         r"""
-        mkdir -p {output.dir}
+        mkdir -p temp/
 
         esearch -db assembly -query '{DATABASE}' \
         | esummary \
@@ -31,26 +29,10 @@ rule create_genome_list:
             wildcard=$(echo $fname | sed -e 's!.fna.gz!!');
 
             echo "$line/$fname" > temp/$wildcard;
-            echo $wildcard >> {output.list}
+            echo $wildcard >> {output}
 
         done
         """
-
-rule stk_to_model:
-    output: "models/cov_model_{model}"
-    
-    input: "model_to_build/{model}.stk"
-
-    threads: 8
-    conda: "infernal_env.yaml"
-    shell:
-        r"""
-            cmbuild {output} {input}
-
-            cmcalibrate {output} 
-         """
-
-
 
 checkpoint check_genome_list:
     output: touch(".create_genome_list.touch")
@@ -79,8 +61,9 @@ class Checkpoint_MakePattern:
 
         pattern = expand(self.pattern, name=names, model=MODELS, **w)
 
-        return pattern
+        print(pattern)
 
+        return pattern
 
 rule download_genome:
     output: touch("database/{genome}/{genome}.fna.gz")
@@ -110,6 +93,20 @@ rule unzip_genome:
 
     # tutaj pierwszy checkup żeby sprawdzić ile tych plików się ściągnęło (i poprawnie rozpakowało)
     # można dodać jakiś extra output na te, które się nie rozpakowały do manualnego ściągnięcia i wrzucenia w pipeline
+
+rule stk_to_model:
+    output: "models/cov_model_{model}"
+    
+    input: "model_to_build/{model}.stk"
+
+    threads: 8
+    conda: "infernal_env.yaml"
+    shell:
+        r"""
+            cmbuild {output} {input}
+
+            cmcalibrate {output} 
+         """
 
 
 rule infernal_search:
@@ -196,6 +193,8 @@ rule blastcmd:
 
         """
 
+
+
 rule extended_genomic_region_to_table:
     output: touch("results/BLAST/{genome}/extended/{genome}_{model}_extended_region.csv")
 
@@ -238,7 +237,7 @@ rule make_summary_table:
         """
 
 rule produce_results:
-  output:   table = touch("results/summary_table.xlsx")
+    output: table = touch("results/summary_table.xlsx")
 
     input:  script = "scripts/make_table_plots.R",
             raw_table = "results/part_summary_table.csv"

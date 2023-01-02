@@ -1,4 +1,4 @@
-<img src="https://github.com/amkilar/Geronimo/blob/main/Geronimo_logo.png" align="right" width=350 >
+<img src="https://github.com/amkilar/Geronimo/blob/main/Geronimo_logo.png" align="right" width=300 >
 
 # Geronimo
 bla bla

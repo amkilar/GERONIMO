@@ -1,6 +1,4 @@
-CPU:  "4"
 database: '"Aphidius"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter])'
 models_to_build: "insects"
 models: ["insects", "bombus"]
-#database: '"Calotelea sp. ZL-2020"[Organism]'
 extract_genomic_region-length:  "200"

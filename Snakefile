@@ -6,7 +6,7 @@
 configfile: "config.yaml"
 #print("Config is: ", config)
 
-MODEL_TO_BUILD=config["models_to_build"]
+#MODEL_TO_BUILD=config["models_to_build"]
 MODELS=config["models"]
 DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
@@ -60,8 +60,6 @@ class Checkpoint_MakePattern:
         names = self.get_names()
 
         pattern = expand(self.pattern, name=names, model=MODELS, **w)
-
-        print(pattern)
 
         return pattern
 
@@ -136,7 +134,7 @@ rule search_taxonomy:
 
 
 rule read_infernal_results:
-    output: "results/infernal/{genome}/{genome}_{model}.csv"
+    output: "results/infernal/{model}/{genome}/{genome}_{model}.csv"
 
     input:  script = "scripts/read_results_infernal.R",
             file = "results/raw_infernal/{model}/{genome}/result_{model}_vs_{genome}.csv",
@@ -149,10 +147,10 @@ rule read_infernal_results:
 
 
 rule prepare_for_genomic_region_extraction:
-    output: "results/BLAST/{genome}/filtered/{genome}_{model}_filtered.txt"
+    output: "results/BLAST/{model}/{genome}/filtered/{genome}_{model}_filtered.txt"
 
     input:  script = "scripts/create_input_for_cmdBLAST.R",
-            infernal_result = "results/infernal/{genome}/{genome}_{model}.csv"
+            infernal_result = "results/infernal/{model}/{genome}/{genome}_{model}.csv"
 
     conda:  "r_tidyverse_env.yaml"      
 
@@ -170,25 +168,21 @@ rule makeblastdb:
 
 
 rule blastcmd:
-    output: touch("results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt")
+    output: touch("results/BLAST/{model}/{genome}/extended/{genome}_{model}_extended_region.txt")
 
-    input:  database = "database/{genome}/{genome}.fna.nhr",
-            query = "results/BLAST/{genome}/filtered/{genome}_{model}_filtered.txt"
+    input:  database_ready = "database/{genome}/{genome}.fna.nhr",
+            database = "database/{genome}/{genome}.fna",
+            query = "results/BLAST/{model}/{genome}/filtered/{genome}_{model}_filtered.txt"
 
     conda:  "blast_env.yaml"
 
     shell:
         r"""
 
-        VAR=$(echo {input.database})
-        DATABASE=$(echo ${{VAR%/*}})
-
         #if filtered file is empty the empty _extended_region will be created
         if [ -s {input.query} ]
         then
-            cp {input.query} $DATABASE
-            ./scripts/cmdBLAST.sh $DATABASE
-            mv $DATABASE/out_ext.txt {output}          
+            ./scripts/cmdBLAST.sh {input.database} {input.query} {output}         
         fi 
 
         """
@@ -196,10 +190,10 @@ rule blastcmd:
 
 
 rule extended_genomic_region_to_table:
-    output: touch("results/BLAST/{genome}/extended/{genome}_{model}_extended_region.csv")
+    output: touch("results/BLAST/{model}/{genome}/extended/{genome}_{model}_extended_region.csv")
 
     input:  script = "scripts/transform_cmdBLAST_output.R",
-            blastcmd_result = "results/BLAST/{genome}/extended/{genome}_{model}_extended_region.txt"
+            blastcmd_result = "results/BLAST/{model}/{genome}/extended/{genome}_{model}_extended_region.txt"
 
     conda:  "cmdBLAST_to_R_env.yaml"
 
@@ -217,8 +211,8 @@ rule prepare_part_results:
     output: touch("results/summary/{genome}/{genome}_{model}_summary.csv")
 
     input:  script = "scripts/join_infernal_and_BLASTcmd_results.R",
-            infernal = "results/infernal/{genome}/{genome}_{model}.csv",
-            blastcmd = "results/BLAST/{genome}/extended/{genome}_{model}_extended_region.csv"
+            infernal = "results/infernal/{model}/{genome}/{genome}_{model}.csv",
+            blastcmd = "results/BLAST/{model}/{genome}/extended/{genome}_{model}_extended_region.csv"
     
     conda:  "r_tidyverse_env.yaml" 
 
@@ -242,6 +236,6 @@ rule produce_results:
     input:  script = "scripts/make_table_plots.R",
             raw_table = "results/part_summary_table.csv"
 
-    conda:  "r_tidyverse_env.yaml"        
+    conda:  "make_summary_R.yaml"        
 
-    shell:  "mkdir results/plots; Rscript {input.script} {input.raw_table}"
+    shell:  "mkdir -p results/plots; Rscript {input.script} {input.raw_table}"

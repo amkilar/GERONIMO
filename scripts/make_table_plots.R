@@ -8,9 +8,9 @@
 #                       make_table_plots
 #
 ################################################################################
-# The script modifies the summary table by adding columns names and exportx it
-# in excel-friendly format. Additionally plots visualising hits distribution across
-# taxonomy families and heatmap with specific results are created.
+# The script modifies the summary table by adding columns names and export it
+# in excel-friendly format. Additionally plots visualizing hits distribution across
+# taxonomy families and heat map with specific results are created.
 ################################################################################
 
 
@@ -40,7 +40,7 @@ if (length(args)==0) {
 
 RAW_TABLE = args[1]
 
-setwd("~/Desktop/GERONIMO/GERONIMO/")
+options(dplyr.summarise.inform = FALSE)
 
 ################################################################################
 #######################   MAIN    ##############################################
@@ -69,7 +69,7 @@ for (model in model_list){
   
 }
 
-saveWorkbook(wb, file = "./results/summary_table_models.xlsx", overwrite = TRUE)
+suppressMessages(saveWorkbook(wb, file = "./results/summary_table_models.xlsx", overwrite = TRUE))
 
 
 ###########    MAKE PLOT WITH HITS DISTRIBUTION   ##############################
@@ -89,7 +89,7 @@ raw_table %>%
         plot.title=element_text(face = "bold", size = 12)) +
   scale_fill_discrete(name="Models:")
 
-ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white")
+suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white"))
 
 
 
@@ -109,20 +109,23 @@ raw_table %>%
     facet_grid(cols = vars(model), rows = vars(family), scale = "free", space = "free") +
     
     theme_minimal() +
-      theme(axis.text.y = element_text(size = 10),
+      theme(axis.ticks.x=element_blank(),
+            axis.title.y = element_blank(),
+            axis.title.x = element_blank(),
+            axis.text.y = element_text(size = 10),
             strip.text.y = element_text(angle=0, size = 12),
-            strip.text.x = element_text(size = 12),
-            legend.text = element_text(size = 12),
+            strip.text.x = element_blank(),
+            legend.text = element_text(size = 10),
             legend.title = element_text(size = 12),
-            plot.title=element_text(face = "bold", size = 12)) +
+            plot.title=element_text(face = "bold", size = 12) ) +
       
     labs(title = "Hits distribution in genomes",
          caption = "Obtained with Geronimo") +
     
-    scale_fill_gradient(low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D")
+    scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D")
   
   
-ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white")  
+suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white"))
 
 
 

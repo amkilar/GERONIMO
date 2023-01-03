@@ -61,13 +61,13 @@ suppressMessages(write.xlsx(raw_table, file = "./results/summary_table.xlsx", ov
 wb <- createWorkbook()
 model_list <- raw_table %>% pull(model) %>% unique()
 
-for (model in model_list){
+for (model_it in model_list){
   
   model_file <- raw_table %>% 
-    filter(model == model)
+    filter(model == model_it)
   
-  addWorksheet(wb, model)
-  writeData(wb, model, model_file, startRow = 1, startCol = 1)
+  addWorksheet(wb, model_it)
+  writeData(wb, model_it, model_file, startRow = 1, startCol = 1)
   
 }
 

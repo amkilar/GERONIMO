@@ -12,7 +12,7 @@
     arr=($line)
     
     #blastdcmd
-    seq=$(blastdbcmd -db $DATABASE/*.fna \
+    seq=$(blastdbcmd -db $DATABASE \
     -entry "${arr[2]}" \
     -strand "${arr[3]}" \
     -range "${arr[4]}" \

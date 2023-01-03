@@ -52,6 +52,8 @@ raw_table <- read_csv(RAW_TABLE,
   arrange(model, GCA_id, e_value)
 
 
+suppressMessages(write.xlsx(raw_table, file = "./results/summary_table.xlsx", overwrite = TRUE))
+
 
 ###########    WRITE RESULTS TO XLSX FILE   ####################################
 

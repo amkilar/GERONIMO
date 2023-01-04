@@ -46,10 +46,11 @@ cmdBLAST_table = args[2]
 extended_genomic_region <- as_tibble(read.fasta(cmdBLAST_output)) %>%
   separate(seq.name, c("GCA", "model_number"), sep = "#") %>%
   mutate(number = str_extract(model_number, "(?<=_)[^_]*$"),
+         label = "HIT",
          model = sapply(strsplit(model_number, "_", fixed = TRUE),
                         function(i) paste(head(i, -1), collapse = "_")) ) %>% 
   rename(extended_genomic_region = seq.text) %>%
-  select(model, GCA, number, extended_genomic_region)
+  select(model, GCA, number, label, extended_genomic_region)
 
 write.csv(extended_genomic_region, cmdBLAST_table, row.names = FALSE)  
   

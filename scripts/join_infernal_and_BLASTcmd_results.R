@@ -54,7 +54,7 @@ if (file.size(BLASTcmd_part) == 0L) {
 } else {
   
   table_temp <- read_csv(INFERNAL_part, show_col_types = FALSE) %>%
-    left_join(read_csv(BLASTcmd_part, show_col_types = FALSE), by = c("GCA", "number", "model"))
+    left_join(read_csv(BLASTcmd_part, show_col_types = FALSE), by = c("GCA", "number", "model", "label"))
     
 }
  

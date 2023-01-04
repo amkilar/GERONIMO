@@ -1,7 +1,10 @@
-<img src="https://github.com/amkilar/TRFiReader/blob/main/images/TRFiReader_logo.png" align="right">
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_logo.png" width=35% align="right">
 
 # Geronimo!
 bla bla
+
+Examples of performance might be seen in <articles>
+Geronimo made possible discovery of hundreds Telomerase RNA sequences across Plant kingdome!
 
 ## Background
 

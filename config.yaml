@@ -1,4 +1,3 @@
-database: '"Aphidius"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter])'
-models_to_build: "insects"
-models: ["insects", "bombus"]
+database: '"Vespidae"[Organism] AND (latest[filter] AND "representative genome"[filter] AND all[filter] NOT anomalous[filter])'
+models: ["insects", "bombus3"]
 extract_genomic_region-length:  "200"

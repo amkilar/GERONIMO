@@ -82,7 +82,7 @@ raw_table %>%
   group_by(family, model) %>% 
   summarize(sum = n(), na.rm=T) %>% 
   ggplot(aes(x = family, y = sum, fill = model)) +
-  geom_bar(stat="identity") +
+  geom_bar(stat = "identity", position = "dodge2") +
   labs(y = "Number of hits in the family", x = "",
        title = "Hits distribution across taxonomy families",
        caption = "Obtained with Geronimo") +
@@ -99,13 +99,24 @@ suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png",
 
 evalue_treshold <- 0.05
 
-raw_table %>% 
+for_plot <- raw_table %>% 
   select(model, GCA_id, organism_name, family, e_value) %>% 
   mutate(label = paste0(organism_name, " (", GCA_id, ")")) %>% 
   group_by(model, GCA_id, label, family) %>% 
-  summarise(fill = min(e_value, na.rm = TRUE)) %>% 
-  
-  ggplot(aes(x = model, y = label, fill = fill)) +
+  summarise(fill = suppressWarnings(min(e_value, na.rm = TRUE))) 
+
+
+# extracting minimum and maximal e-value for scale adjustment
+eval <- for_plot %>% pull(fill)
+eval <- eval[!is.na(eval) & !is.infinite(eval)]
+
+min <- min(eval, na.rm = TRUE)
+max <- max(eval, na.rm = TRUE)
+
+breaks_scale <- c(signif(min, digits = 3), signif(max, digits = 2))
+
+
+for_plot %>% ggplot(aes(x = model, y = label, fill = fill )) +
     geom_tile() +
   
     facet_grid(cols = vars(model), rows = vars(family), scale = "free", space = "free") +
@@ -124,7 +135,8 @@ raw_table %>%
     labs(title = "Hits distribution in genomes",
          caption = "Obtained with Geronimo") +
     
-    scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D")
+    scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D",
+                        limits = c(min, max), breaks = breaks_scale ) 
   
   
 suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white"))

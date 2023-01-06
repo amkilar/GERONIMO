@@ -67,6 +67,7 @@ class Checkpoint_MakePattern:
 
         return pattern
 
+
 rule download_genome:
     output: touch("database/{genome}/{genome}.fna.gz")
     
@@ -75,14 +76,19 @@ rule download_genome:
     shell:
         r"""
         GENOME_LINK=$(cat {input})
-        GENOME="${{GENOME_LINK##*/}}"
-        wget -P ./database/{wildcards.genome}/ $GENOME_LINK 
+
+        echo "GENOME_LINK is: $GENOME_LINK"
+
+        ADAPTED_LINK=$(echo $GENOME_LINK | sed 's/ftp:\/\/ftp.ncbi.nlm.nih.gov\/genomes\//ftp.ncbi.nlm.nih.gov::genomes\//' )
+
+        echo "ADAPTED_LINK is: $ADAPTED_LINK"
+
+        rsync --partial --progress -av --checksum \
+        $ADAPTED_LINK \
+        ./database/{wildcards.genome}
+
         """
 
-
-# Whet if the .fna.gz is corrupted? 
-# Make it being removed from further steps
-# And skipped somehow to not ruin the whole run
 rule unzip_genome:
     output: "database/{genome}/{genome}.fna"
 
@@ -93,8 +99,6 @@ rule unzip_genome:
         gunzip {input}
         """        
 
-    # tutaj pierwszy checkup żeby sprawdzić ile tych plików się ściągnęło (i poprawnie rozpakowało)
-    # można dodać jakiś extra output na te, które się nie rozpakowały do manualnego ściągnięcia i wrzucenia w pipeline
 
 rule stk_to_model:
     output: "models/cov_model_{model}"

@@ -62,8 +62,12 @@ b) using locally downloaded package:
 (trfireader_env) conda install --use-local trfireader
 ```
 
+#### Obtain NCBI API Key
 
+An API key is necessary if you are downloading a large number of genomes from NCBI.
+To get an API key, register for an NCBI account here. Go to the "Settings" page in your account, then click "Create an API Key" under "API Key Management".
 
+put to config? NCBI_API_KEY={your key}
 
 ## Usage
 #### After sucessfull instalation of `trfireader` conda package:

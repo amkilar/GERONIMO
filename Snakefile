@@ -11,6 +11,8 @@ configfile: "config.yaml"
 #print("Config is: ", config)
 
 #MODEL_TO_BUILD=config["models_to_build"]
+CPU=config["CPU"]
+
 MODELS=config["models"]
 DATABASE = config["database"]
 REGION_LENGTH = config["extract_genomic_region-length"]
@@ -77,13 +79,9 @@ rule download_genome:
         r"""
         GENOME_LINK=$(cat {input})
 
-        echo "GENOME_LINK is: $GENOME_LINK"
-
         ADAPTED_LINK=$(echo $GENOME_LINK | sed 's/ftp:\/\/ftp.ncbi.nlm.nih.gov\/genomes\//ftp.ncbi.nlm.nih.gov::genomes\//' )
 
-        echo "ADAPTED_LINK is: $ADAPTED_LINK"
-
-        rsync --partial --progress -av --checksum \
+        rsync -q --partial -av --checksum \
         $ADAPTED_LINK \
         ./database/{wildcards.genome}
 
@@ -96,7 +94,7 @@ rule unzip_genome:
     
     shell:
         r"""
-        gunzip {input}
+        gunzip -q {input}
         """        
 
 
@@ -105,13 +103,17 @@ rule stk_to_model:
     
     input: "model_to_build/{model}.stk"
 
-    threads: 8
     conda: "env/infernal_env.yaml"
+
+    threads: 1/2 * CPU
+
     shell:
         r"""
+            echo {threads}
+
             cmbuild {output} {input}
 
-            cmcalibrate {output} 
+            cmcalibrate --cpu {threads} {output} 
          """
 
 

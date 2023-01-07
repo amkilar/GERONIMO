@@ -1,7 +1,9 @@
 <img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_logo.png" width=35% align="right">
 
-# Geronimo!
-bla bla
+# GERONIMO
+
+## Introduction
+GERONIMO is a bioinformatics pipeline for high-throughput searching of unknown genetic sequences based on their sequence and secondary structure consensus. The pipeline is built using Snakemake, a workflow managment tool to run analyses in reproducible manner on a variety of computational platforms. 
 
 Examples of performance might be seen in <articles>
 Geronimo made possible discovery of hundreds Telomerase RNA sequences across Plant kingdome!

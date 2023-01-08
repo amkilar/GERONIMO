@@ -43,16 +43,16 @@ Then restart the machine and follow the instructions for setting up the Linux en
 [instructions]: https://learn.microsoft.com/en-us/windows/wsl/install
 
 ### Linux:
-#### Install `miniconda`
+#### 1) Install `miniconda`
 Please follow the instructions for installing [miniconda]
 
 [miniconda]: https://conda.io/projects/conda/en/stable/user-guide/install/linux.html
 
-#### Continue with installing `mamba` (recommended but optional)
+#### 2) Continue with installing `mamba` (recommended but optional)
 ```shell
 conda install -n base -c conda-forge mamba
 ```
-#### Install `snakemake`
+#### 3) Install `snakemake`
 ```shell
 conda activate base
 mamba create -c conda-forge -c bioconda -n snakemake snakemake

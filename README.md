@@ -70,11 +70,9 @@ cd <PATH>
 git clone https://github.com/amkilar/GERONIMO.git
 ```
 
-#### **Before running the analysis please ensure you have enough storage capacity to download all the requested genomes**
-
 ## Setup the inputs
 
-### Prepare the `covariance models`:
+### 1) Prepare the `covariance models`:
 
 #### Browse the collection of available `covariance models` at [Rfam] (*You can find the covariance model in a tab `Curation`.*)  
 Paste the covariance model to the folder `GERONIMO/models` and ensure it's name follows the convention: `cov_model_<NAME>`
@@ -86,14 +84,14 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure it's name 
 #### Prepare your own `covariance model` using [RNAalifold]
 1. Paste or upload your sequences to the web server and download `.stk` file with the result of alignment.  
   
-*Please note, the `.stk` file format is crucial for the analysis, as it cointains sequence alignment and secondary structure consensus.*  
+    > *Please note, the `.stk` file format is crucial for the analysis, as it cointains sequence alignment and secondary structure consensus.*  
   
 2. Paste the `.stk` alignemnt file to the folder `GERONIMO/model_to_build` and ensure it's name follows the convention: `<NAME>.stk`
 
 [RNAalifold]: http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAalifold.cgi
 
 
-### Adjust `config.yaml` file
+### 2) Adjust `config.yaml` file
 Please adjust the analysis specifications, as on the following example:
 
 > - CPU: 8 (specify the number of available CPUs (half of them will be used for covariance model building)
@@ -102,77 +100,30 @@ Please adjust the analysis specifications, as on the following example:
 > - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
 > - extract_genomic_region-length:  "200" (here you can specify how long the upstream genomic region should be extracted)
 
-*Keep in mind, that the covariance models and alignments must be present in the respective GERONIMO folders.*  
+  > *Keep in mind, that the covariance models and alignments must be present in the respective GERONIMO folders.*  
   
-#### Database query
+### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in `GERONIMO/` directory)**
 
-
-#### 2. Create and activate an conda environment:
+### 4) Run GERONIMO
 ```shell
-conda create -n trfireader_env -c conda-forge -c bioconda -c r -c anaconda -c defaults r-tidyverse r-devtools r-rentrez r-openxlsx r-rvest
-conda activate trfireader_env
-```
-#### 3. Install the TRFiReader:
-a) using the channel `amkilar`
-```shell
-(trfireader_env) conda install --channel amkilar trfireader
-```
-b) using locally downloaded package:
-```shell
-(trfireader_env) conda install --use-local trfireader
+conda activate snakemake
+cd ~/GERONIMO
+snakemake -s GERONMIO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx
 ```
 
-#### Obtain NCBI API Key
+## Questions & ansewrs
 
-An API key is necessary if you are downloading a large number of genomes from NCBI.
-To get an API key, register for an NCBI account here. Go to the "Settings" page in your account, then click "Create an API Key" under "API Key Management".
+#### How to specify the database query?
+- Visit the [NCBI Assemblies] website.  
+- Follow the instruction on the graphic below:
+<img src="https://github.com/amkilar/GERONIMO/blob/main/database_query.png" width=100%>
 
-put to config? NCBI_API_KEY={your key}
-
-## Usage
-#### After sucessfull instalation of `trfireader` conda package:
-Stay in already created environment (here `trfireader_env`) and simply execute:
-```shell
-(trfireader_env) TRFiReader <list of TRF outputs>
-```
-
-#### It is also possible to run TRFiReader as a stand-alone R script: 
-Execute directly from the shell command line:
-```shell
-Rscript --vanilla TRFiReader.R list_of_files.txt
-```
+[NCBI Assemblies]: https://www.ncbi.nlm.nih.gov/assembly/?term=
 
 
-### Tutorial on test data:
+## License
+The GERONIMO is freerly available for academic users. Usage for commercial purposes is not allowed.
 
-#### 1. Download `test_data` from this repository containing an example outputs of TRF tool. (will work after publication)
-```shell
-git clone https://github.com/amkilar/TRFiReader.git/
-```
-
-#### 2. Navigate to the `test_data` folder:
-```shell
-cd <your path>/TRFiReader/test_data
-```
-
-
-#### 3. Run the TRFiReader:
-```shell
-(trfireader_env) TRFiReader list_of_inputs.txt
-```
-
-#### 4. Find results for individual files processed in `/results` subfolder and summary tables in `/results/tables`.
-
-
-## Tool overview
-
-#### 1. The TRFiReader transform a single Tandem Repeat Finder output (tab-delimited .txt file) to excel table format. It automatically adds taxonomy information from the NCBI database based on the file's name, which contains the genome id and sorts results in descending order.
-<img src="https://github.com/amkilar/TRFiReader/blob/main/images/Image.jpeg">
-
-#### 2. The tool can accept more files simultaneously, providing a table with summarised results per taxonomic family.
-<img src="https://github.com/amkilar/TRFiReader/blob/main/images/Image%20(2).jpeg">
-
-#### 3. It also produces separate tables per taxonomic families or one table with summarised results divided into spreadsheets.
-<img src="https://github.com/amkilar/TRFiReader/blob/main/images/Image%20(1).jpeg">
-
+## Contact
+mgr inż. Agata Magdalena Kilar (agata.kilar@ceitec.muni.cz)
 

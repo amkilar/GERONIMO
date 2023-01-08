@@ -13,7 +13,7 @@ The idea of Geronimo development emerged during an extensive search of [Telomera
 
 ## Pipeline overview
 
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=20% align="right">
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=23% align="right">
 
 By default, the pipeline performs high-throughput genetic sequence searches on downloaded genomes using covariance models. If a significant similarity between the model and genome sequence is found, the GERONIMO extracts the upstream region, which makes it easy to identify the promoter of the discovered gene. In short, the pipeline:
 - creates the list of genomes using [Entrez] (NCBI) based on the specified query, *i.e. "Chlorophyta"[Organism]*

@@ -91,7 +91,9 @@ raw_table %>%
         plot.title=element_text(face = "bold", size = 12)) +
   scale_fill_discrete(name="Models:")
 
-suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white"))
+suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white",  width = 15, height = 10, dpi = 400, units = "in", device = "png"))
+
+
 
 
 
@@ -117,29 +119,32 @@ breaks_scale <- c(signif(min, digits = 3), signif(max, digits = 2))
 
 
 for_plot %>% ggplot(aes(x = model, y = label, fill = fill )) +
-    geom_tile() +
+  geom_tile() +
   
-    facet_grid(cols = vars(model), rows = vars(family), scale = "free", space = "free") +
-    
-    theme_minimal() +
-      theme(axis.ticks.x=element_blank(),
-            axis.title.y = element_blank(),
-            axis.title.x = element_blank(),
-            axis.text.y = element_text(size = 10),
-            strip.text.y = element_text(angle=0, size = 12),
-            strip.text.x = element_blank(),
-            legend.text = element_text(size = 10),
-            legend.title = element_text(size = 12),
-            plot.title=element_text(face = "bold", size = 12) ) +
-      
-    labs(title = "Hits distribution in genomes",
-         caption = "Obtained with Geronimo") +
-    
-    scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D",
-                        limits = c(min, max), breaks = breaks_scale ) 
+  facet_grid(cols = vars(model), rows = vars(family), scale = "free", space = "free") +
   
+  theme_minimal() +
+  theme(axis.ticks.x=element_blank(),
+        axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.text.y = element_text(size = 10),
+        strip.text.y = element_text(angle=0, size = 12),
+        strip.text.x = element_blank(),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 12),
+        plot.title=element_text(face = "bold", size = 12) ) +
   
-suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white"))
+  labs(title = "Hits distribution in genomes",
+       caption = "Obtained with Geronimo") +
+  
+  scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D",
+                      limits = c(min, max), breaks = breaks_scale ) 
+
+
+suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white", width = 10, height = 20, dpi = 300, units = "in", device = "png"))
+
+
+
 
 
 

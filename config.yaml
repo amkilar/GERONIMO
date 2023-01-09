@@ -1,5 +1,5 @@
-CPU: <number>
-database: <DATABASE_QUERY>
-models_to_build: <.STK_LIST>
-models: <MODELS_LIST>
-extract_genomic_region-length: <NUMBER>
+CPU: 8
+database: '"Rhodophyta"[Organism] OR "Haptophyta"[Organism] AND (latest[filter] AND "representative genome"[filter] AND all[filter] NOT anomalous[filter])'
+models_to_build: ""
+models: ["TRciliates", "TRtracheophyta", "TRvertabrates", "U3", "U6"]
+extract_genomic_region-length:  "200"

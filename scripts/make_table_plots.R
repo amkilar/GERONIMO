@@ -77,24 +77,30 @@ suppressMessages(saveWorkbook(wb, file = "./results/summary_table_models.xlsx", 
 ###########    MAKE PLOT WITH HITS DISTRIBUTION   ##############################
 
 raw_table %>% 
-  filter(label == "HIT" & number == 1) %>% 
-  select(model, GCA_id, family) %>% 
-  group_by(family, model) %>% 
-  summarize(sum = n(), na.rm=T) %>% 
-  ggplot(aes(x = family, y = sum, fill = model)) +
-  geom_bar(stat = "identity", position = "dodge2") +
-  labs(y = "Number of hits in the family", x = "",
-       title = "Hits distribution across taxonomy families",
+  select(model, GCA_id, family, label, number) %>% 
+  filter(number == 1)  %>% 
+  pivot_wider(names_from = label, values_from = number) %>% 
+  mutate_at(c("MAYBE", "HIT", "NO HIT"),  ~coalesce(.,0)) %>% 
+  mutate(`NO HIT` = ifelse(MAYBE == 1, 1, `NO HIT`),
+         `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 
+  select(-MAYBE) %>% distinct() %>% group_by(model, family) %>% summarise(model, family, n = sum(HIT), m = sum(`NO HIT`)) %>% 
+  select(-m) %>% distinct() %>% 
+  ggplot(aes(x = family, y = n, fill = model)) +
+  geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0) ) +
+  
+  facet_grid(cols = vars(family), scale = "free", space = "free") +
+  
+  labs(y = "Number of significant hits in the family", x = "",
+       title = "Significant hits distribution across taxonomy families",
        caption = "Obtained with Geronimo") +
   theme_minimal() +
   theme(axis.text.x = element_text(size = 11, angle = -30, vjust = 1, hjust=0),
-        plot.title=element_text(face = "bold", size = 12)) +
+        plot.title=element_text(face = "bold", size = 16), 
+        strip.text.x = element_blank()) +
   scale_fill_discrete(name="Models:")
 
+
 suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white",  width = 15, height = 10, dpi = 400, units = "in", device = "png"))
-
-
-
 
 
 ###########    MAKE HEATMAP PLOT WITH HITS DISTRIBUTION   ######################
@@ -128,13 +134,14 @@ for_plot %>% ggplot(aes(x = model, y = label, fill = fill )) +
         axis.title.y = element_blank(),
         axis.title.x = element_blank(),
         axis.text.y = element_text(size = 10),
+        axis.text.x = element_text(size = 11, angle = -30, vjust = 1, hjust=0),
         strip.text.y = element_text(angle=0, size = 12),
         strip.text.x = element_blank(),
         legend.text = element_text(size = 10),
         legend.title = element_text(size = 12),
-        plot.title=element_text(face = "bold", size = 12) ) +
+        plot.title=element_text(face = "bold", size = 16) ) +
   
-  labs(title = "Hits distribution in genomes",
+  labs(title = "Hits distribution in genomes across families",
        caption = "Obtained with Geronimo") +
   
   scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D",

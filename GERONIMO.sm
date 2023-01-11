@@ -1,20 +1,9 @@
-# snakemake -j1 -p results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/extended/GCA_022817605.1_ASM2281760v1_genomic_bombus_extended_region.txt --use-conda
-
-# to obtain dag:
-# snakemake -j1 -f -p --dag results/BLAST/GCA_022817605.1_ASM2281760v1_genomic/GCA_022817605.1_ASM2281760v1_genomic_bombus3_filtered.txt --use-conda | dot -Tpng > dag.png
-
-
-# module add  conda-modules-py37
-# module add python36-modules-gcc
-
 configfile: "config.yaml"
-#print("Config is: ", config)
 
-#MODEL_TO_BUILD=config["models_to_build"]
 CPU=config["CPU"]
-
-MODELS=config["models"]
 DATABASE = config["database"]
+MODEL_TO_BUILD=config["models_to_build"]
+MODELS=config["models"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 
 
@@ -109,10 +98,7 @@ rule stk_to_model:
 
     shell:
         r"""
-            echo {threads}
-
             cmbuild {output} {input}
-
             cmcalibrate --cpu {threads} {output} 
          """
 
@@ -126,7 +112,6 @@ rule infernal_search:
             model = "models/cov_model_{model}"
 
     conda:  "env/infernal_env.yaml"
-    message: "Run Infernal search"
     
     shell:  "cmsearch --notextw -A {output.alingment} -o {output.result} --tblout {output.table} {input.model} {input.genome}"      
 
@@ -196,7 +181,6 @@ rule blastcmd:
         fi 
 
         """
-
 
 
 rule extended_genomic_region_to_table:

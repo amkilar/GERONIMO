@@ -3,26 +3,38 @@
 # GERONIMO
 
 ## Introduction
-GERONIMO is a bioinformatics pipeline for high-throughput searching unknown genetic sequences using covariance models, which are calculated based on the alignment sequence and secondary structure consensus. The pipeline is built using Snakemake, a workflow management tool to run analyses in a reproducible manner on a variety of computational platforms.
+GERONIMO is a bioinformatics pipeline designed to conduct high-throughput homology searches of structural genes using covariance models. These models are based on the alignment of sequences and the consensus of secondary structures. The pipeline is built using Snakemake, a workflow management tool that allows for the reproducible execution of analyses on various computational platforms.  
 
-The idea of Geronimo development emerged during an extensive search of [Telomerase RNA in lower plants] and was further polished in an [expanded search of Telomerase RNA across Insecta]. GERONIMO tests over thousands of genomes and ensures the stability and reproducibility of performed analyses.
+The idea for developing GERONIMO emerged from a comprehensive search for [Telomerase RNA in lower plants] and was subsequently refined through an [expanded search of Telomerase RNA across Insecta]. GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
+
 
 [Telomerase RNA in lower plants]: https://doi.org/10.1093/nar/gkab545
 [expanded search of Telomerase RNA across Insecta]: https://doi.org/10.1093/nar/gkac1202
 
+## Scope
+The GERONIMO tool utilises covariance models (CMs) to conduct homology searches of RNA sequences across a wide range of gene families in a broad evolutionary context. Specifically, it can be utilised to:
+
+* Detect RNA sequences that share a common evolutionary ancestor
+* Identify and align orthologous RNA sequences among closely related species, as well as paralogous sequences within a single species
+* Identify conserved non-coding RNAs in a genome, and extract upstream genomic regions to characterise potential promoter regions.  
+It is important to note that GERONIMO is a computational tool, and as such, it is intended to be run on a computer with a small amount of data. Appropriate computational infrastructure is necessary for analysing hundreds of genomes.
+
+Although GERONIMO was primarily designed for Telomerase RNA identification, its functionality extends to include the detection and alignment of other RNA gene families, including **rRNA**, **tRNA**, **snRNA**, **miRNA**, and **lncRNA**. This can aid in identifying paralogs and orthologs across different species that may carry specific functions, making it useful for phylogenetic analyses.  
+
+It is crucial to remember that some gene families may exhibit similar characteristics but different functions. Therefore, analysing the data and functional annotation after conducting the search is essential to characterise the sequences properly.
 
 ## Pipeline overview
 
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=23% align="right">
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=30% align="right">
 
-By default, the pipeline performs high-throughput genetic sequence searches on downloaded genomes using covariance models. If a significant similarity between the model and genome sequence is found, the GERONIMO extracts the upstream region, which makes it easy to identify the promoter of the discovered gene. In short, the pipeline:
-- creates the list of genomes using [Entrez] (NCBI) based on the specified query, *i.e. "Chlorophyta"[Organism]*
-- downloads and unzips the requested genomes with *rsync* and *gunzip*, respectively
-- *optionally*, builds the covariance model based on provided alignment with [Infernal] 
-- performs the search among the genomes using the covariance model ([Infernal])
-- supplements the taxonomy information about the genome with [rentrez]
-- extends the significant hits with upstream genomic region using [*blastcmd*]
-- collects the results and arranges them into table format and produces a visual summary of the performed analysis
+By default, the GERONIMO pipeline conducts high-throughput searches of homology sequences in downloaded genomes utilizing covariance models. If a significant similarity is detected between the model and genome sequence, the pipeline extracts the upstream region, making it convenient to identify the promoter of the discovered gene. In brief, the pipeline:
+- Compiles a list of genomes using the NCBI's [Entrez] database based on a specified query, *e.g. "Rhodophyta"[Organism]*
+- Downloads and decompresses the requested genomes using *rsync* and *gunzip*, respectively
+- *Optionally*, generates a covariance model based on a provided alignment using [Infernal]
+- Conducts searches among the genomes using the covariance model [Infernal]
+- Supplements genome information with taxonomy data using [rentrez]
+- Expands the significant hits sequence by extracting upstream genomic regions using [*blastcmd*]
+- Compiles the results and organizes them into a tabular format and generates a visual summary of the performed analysis.
 
 
 [Entrez]: https://www.ncbi.nlm.nih.gov/books/NBK179288/
@@ -56,8 +68,8 @@ conda install -n base -c conda-forge mamba
 #### 3) Install `snakemake`
 ```shell
 conda activate base
-mamba create -c conda-forge -c bioconda -n snakemake snakemake
-conda activate snakemake
+mamba create -p env_snakemake -c conda-forge -c bioconda snakemake
+mamba activate env_snakemake
 snakemake --help
 ```
 In case of complications please follow the [official documentation].
@@ -95,11 +107,11 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure it's name 
 ### 2) Adjust `config.yaml` file
 Please adjust the analysis specifications, as on the following example:
 
-> - CPU: 8 (specify the number of available CPUs (half of them will be used for covariance model building)
+> - CPU: <number> (specify the number of available CPUs (half of them will be used for covariance model building)
 > - database: '<DATABASE_QUERY> [Organism]' (in case of difficulities with defining the database query please follow instructions below)
 > - models_to_build: ["<NAME>"] (here specify the names of alignment/s in `.stk` format that you want to build)
 > - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
-> - extract_genomic_region-length:  "200" (here you can specify how long the upstream genomic region should be extracted)
+> - extract_genomic_region-length:  <number> (here you can specify how long the upstream genomic region should be extracted; tested for 200)
 
   > *Keep in mind, that the covariance models and alignments must be present in the respective GERONIMO folders.*  
   
@@ -107,9 +119,9 @@ Please adjust the analysis specifications, as on the following example:
 
 ### 4) Run GERONIMO
 ```shell
-conda activate snakemake
+mamba activate env_snakemake
 cd ~/GERONIMO
-snakemake -s GERONMIO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx
+snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx
 ```
 
 ## Questions & ansewrs

@@ -75,6 +75,7 @@ suppressMessages(saveWorkbook(wb, file = "./results/summary_table_models.xlsx", 
 
 
 ###########    MAKE PLOT WITH HITS DISTRIBUTION   ##############################
+total_genomes <- raw_table %>% select(family, GCA_id) %>% distinct() %>% group_by(family) %>% count(family)
 
 raw_table %>% 
   select(model, GCA_id, family, label, number) %>% 
@@ -89,6 +90,8 @@ raw_table %>%
   geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0) ) +
   
   facet_grid(cols = vars(family), scale = "free", space = "free") +
+  
+  geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", size = 1 ) +
   
   labs(y = "Number of significant hits in the family", x = "",
        title = "Significant hits distribution across taxonomy families",

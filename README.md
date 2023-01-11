@@ -5,7 +5,8 @@
 ## Introduction
 GERONIMO is a bioinformatics pipeline designed to conduct high-throughput homology searches of structural genes using covariance models. These models are based on the alignment of sequences and the consensus of secondary structures. The pipeline is built using Snakemake, a workflow management tool that allows for the reproducible execution of analyses on various computational platforms.  
 
-The idea for developing GERONIMO emerged from a comprehensive search for [Telomerase RNA in lower plants] and was subsequently refined through an [expanded search of Telomerase RNA across Insecta]. GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
+The idea for developing GERONIMO emerged from a comprehensive search for [Telomerase RNA in lower plants] and was subsequently refined through an [expanded search of Telomerase RNA across Insecta].  
+GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
 
 
 [Telomerase RNA in lower plants]: https://doi.org/10.1093/nar/gkab545
@@ -25,7 +26,7 @@ It is crucial to remember that some gene families may exhibit similar characteri
 
 ## Pipeline overview
 
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=30% align="right">
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=40% align="right">
 
 By default, the GERONIMO pipeline conducts high-throughput searches of homology sequences in downloaded genomes utilizing covariance models. If a significant similarity is detected between the model and genome sequence, the pipeline extracts the upstream region, making it convenient to identify the promoter of the discovered gene. In brief, the pipeline:
 - Compiles a list of genomes using the NCBI's [Entrez] database based on a specified query, *e.g. "Rhodophyta"[Organism]*

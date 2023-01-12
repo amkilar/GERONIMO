@@ -34,14 +34,12 @@ By default, the GERONIMO pipeline conducts high-throughput searches of homology 
 - Conducts searches among the genomes using the covariance model [Infernal]
 - Supplements genome information with taxonomy data using [rentrez]
 - Expands the significant hits sequence by extracting upstream genomic regions using [*blastcmd*]
-- Compiles the results and organizes them into a tabular format and generates a visual summary of the performed analysis.
-
+- Compiles the results, organizes them into a tabular format, and generates a visual summary of the performed analysis.
 
 [Entrez]: https://www.ncbi.nlm.nih.gov/books/NBK179288/
 [Infernal]: http://eddylab.org/infernal/
 [rentrez]: https://github.com/ropensci/rentrez
 [*blastcmd*]: https://www.ncbi.nlm.nih.gov/books/NBK569853/
-
 
 ## Quick start
 The Geronimo is available as a `snakemake pipeline` running on Linux and Windows operating systems.
@@ -72,7 +70,7 @@ mamba create -p env_snakemake -c conda-forge -c bioconda snakemake
 mamba activate env_snakemake
 snakemake --help
 ```
-In case of complications please follow the [official documentation].
+In case of complications, please follow the [official documentation].
 
 [official documentation]: https://snakemake.readthedocs.io/en/stable/getting_started/installation.html
 
@@ -87,35 +85,36 @@ git clone https://github.com/amkilar/GERONIMO.git
 
 ### 1) Prepare the `covariance models`:
 
-#### Browse the collection of available `covariance models` at [Rfam] (*You can find the covariance model in a tab `Curation`.*)  
-Paste the covariance model to the folder `GERONIMO/models` and ensure it's name follows the convention: `cov_model_<NAME>`
+#### Browse the collection of available `covariance models` at [Rfam] (*You can find the covariance model in the tab `Curation`.*)  
+Paste the covariance model to the folder `GERONIMO/models` and ensure its name follows the convention: `cov_model_<NAME>`
 
 [Rfam]: https://rfam.org/
 
 #### **OR**
 
 #### Prepare your own `covariance model` using [RNAalifold]
-1. Paste or upload your sequences to the web server and download `.stk` file with the result of alignment.  
+1. Paste or upload your sequences to the web server and download the `.stk` file with the alignment result.  
   
-    > *Please note, the `.stk` file format is crucial for the analysis, as it cointains sequence alignment and secondary structure consensus.*  
+    > *Please note that the `.stk` file format is crucial for the analysis, as it contains sequence alignment and secondary structure consensus.*  
   
-2. Paste the `.stk` alignemnt file to the folder `GERONIMO/model_to_build` and ensure it's name follows the convention: `<NAME>.stk`
+2. Paste the `.stk` alignment file to the folder `GERONIMO/model_to_build` and ensure its name follows the convention: `<NAME>.stk`
 
 [RNAalifold]: http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAalifold.cgi
 
 
-### 2) Adjust `config.yaml` file
-Please adjust the analysis specifications, as on the following example:
+### 2) Adjust the `config.yaml` file
+Please adjust the analysis specifications, as in the following example:
 
 > - CPU: <number> (specify the number of available CPUs (half of them will be used for covariance model building)
-> - database: '<DATABASE_QUERY> [Organism]' (in case of difficulities with defining the database query please follow instructions below)
-> - models_to_build: ["<NAME>"] (here specify the names of alignment/s in `.stk` format that you want to build)
+> - database: '<DATABASE_QUERY> [Organism]' (in case of difficulties with defining the database query, please follow the instructions below)
+> - models_to_build: ["<NAME>"] (here specify the names of alignment/s in the `.stk` format that you want to build)
 > - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
-> - extract_genomic_region-length:  <number> (here you can specify how long the upstream genomic region should be extracted; tested for 200)
+> - extract_genomic_region-length:  <number> (here you can determine how long the upstream genomic region should be extracted; tested for 200)
 
-  > *Keep in mind, that the covariance models and alignments must be present in the respective GERONIMO folders.*  
+  > *Keep in mind that the covariance models and alignments must be present in the respective GERONIMO folders.*  
+ 
   
-### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in `GERONIMO/` directory)**
+### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in the `GERONIMO/` directory)**
 
 ## Run GERONIMO
 ```shell
@@ -123,7 +122,7 @@ mamba activate env_snakemake
 cd ~/GERONIMO
 snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx
 ```
-
+  
 ## Example results
 
 ### Outputs characterisation
@@ -137,15 +136,15 @@ The Excel table contains the results arranged by taxonomy information and hit si
 * number - the counter of the result
 * e_value - indicates the significance level of the hit
 * HIT_sequence - the exact HIT sequence found by *Infernal*, which corresponds to the covariance model
-* HIT_ID - describes in which part of the genome assembly the hit was found, which may be useful for publishing novel sequences
+* HIT_ID - describes in which part of the genome assembly the hit was found, which may help publish novel sequences
 * extended_genomic_region - upstream sequence, which may contain a possible promoter sequence
 * secondary_structure - the secondary structure consensus of the covariance model
 
 #### B) Significant Hits Distribution Across Taxonomy Families
-The plot provides an overview of the number of genomes in which at least one significant hit was identified, grouped by family. The bold black line corresponds to the number of genomes present in each family, helping to minimize bias regarding unequal data representation across taxonomy.
+The plot provides an overview of the number of genomes in which at least one significant hit was identified, grouped by family. The bold black line corresponds to the number of genomes present in each family, helping to minimize bias regarding unequal data representation across the taxonomy.
 
 #### C) Hits Distribution in Genomes Across Families
-The heatmap informs about the most significant hit from the genome found by a particular covariance model. Genomes are grouped by families (on the right). The darkest color of the tile represents the most significant hit. If grey, it means that no hit was identified.
+The heatmap informs about the most significant hit from the genome found by a particular covariance model. Genomes are grouped by families (on the right). The darkest colour of the tile represents the most significant hit. If grey, it means that no hit was identified.
 
 <img src="https://github.com/amkilar/GERONIMO/blob/main/Output_results.png" width=100% align="center">
 
@@ -169,7 +168,6 @@ The GERONIMO directory structure is designed to produce files in a highly struct
 * `/scripts` - contains developed scripts that perform results structurization
 
 #### The example GERONIMO directory structure:
-
 
 ```shell
 GERONIMO
@@ -239,7 +237,7 @@ GERONIMO
 └── temp
 ```
 
-## Questions & ansewrs
+## Questions & Answers
 
 #### How to specify the database query?
 - Visit the [NCBI Assemblies] website.  
@@ -250,7 +248,7 @@ GERONIMO
 
 
 ## License
-The GERONIMO is freerly available for academic users. Usage for commercial purposes is not allowed.
+The GERONIMO is freely available for academic users. Usage for commercial purposes is not allowed.
 
 ## Contact
 mgr inż. Agata Magdalena Kilar (agata.kilar@ceitec.muni.cz)

@@ -127,7 +127,7 @@ snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/su
 ## Example results
 
 ### Outputs characterisation
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_logo.png" width=100% align="center">
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Output_results.png" width=100% align="center">
 
 #### A) Summary table
 The Excel table contains the results arranged by taxonomy information and hit significance. The specific columns include:

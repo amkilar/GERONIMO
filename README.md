@@ -127,7 +127,6 @@ snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/su
 ## Example results
 
 ### Outputs characterisation
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Output_results.png" width=100% align="center">
 
 #### A) Summary table
 The Excel table contains the results arranged by taxonomy information and hit significance. The specific columns include:
@@ -147,6 +146,8 @@ The plot provides an overview of the number of genomes in which at least one sig
 
 #### C) Hits Distribution in Genomes Across Families
 The heatmap informs about the most significant hit from the genome found by a particular covariance model. Genomes are grouped by families (on the right). The darkest color of the tile represents the most significant hit. If grey, it means that no hit was identified.
+
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Output_results.png" width=100% align="center">
 
 
 ### GERONIMO directory structure

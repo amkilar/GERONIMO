@@ -49,7 +49,7 @@ options(dplyr.summarise.inform = FALSE)
 raw_table <- read_csv(RAW_TABLE,
                       col_names = c("model","GCA_id","organism_name","family","label","number","e_value","extended_genomic_region","infernal_hit","seondary_structure","HIT_ID","phylum","class","order"),
                       show_col_types = FALSE) %>% 
-  arrange(model, GCA_id, e_value)
+  arrange(model, family, GCA_id, e_value)
 
 
 suppressMessages(write.xlsx(raw_table, file = "./results/summary_table.xlsx", overwrite = TRUE))
@@ -64,7 +64,8 @@ model_list <- raw_table %>% pull(model) %>% unique()
 for (model_it in model_list){
   
   model_file <- raw_table %>% 
-    filter(model == model_it)
+    filter(model == model_it) %>% 
+    arrange(family, GCA_id, e_value)
   
   addWorksheet(wb, model_it)
   writeData(wb, model_it, model_file, startRow = 1, startCol = 1)
@@ -84,14 +85,14 @@ raw_table %>%
   mutate_at(c("MAYBE", "HIT", "NO HIT"),  ~coalesce(.,0)) %>% 
   mutate(`NO HIT` = ifelse(MAYBE == 1, 1, `NO HIT`),
          `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 
-  select(-MAYBE) %>% distinct() %>% group_by(model, family) %>% summarise(model, family, n = sum(HIT), m = sum(`NO HIT`)) %>% 
+  select(-MAYBE) %>% distinct() %>% group_by(model, family) %>% summarise(model, family, n = sum(HIT), m = sum(`NO HIT`) ) %>% 
   select(-m) %>% distinct() %>% 
   ggplot(aes(x = family, y = n, fill = model)) +
-  geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0) ) +
+  geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0), colour="black" ) +
   
   facet_grid(cols = vars(family), scale = "free", space = "free") +
   
-  geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", size = 1 ) +
+  geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", linewidth = 1 ) +
   
   labs(y = "Number of significant hits in the family", x = "",
        title = "Significant hits distribution across taxonomy families",

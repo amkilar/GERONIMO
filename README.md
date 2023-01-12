@@ -5,8 +5,7 @@
 ## Introduction
 GERONIMO is a bioinformatics pipeline designed to conduct high-throughput homology searches of structural genes using covariance models. These models are based on the alignment of sequences and the consensus of secondary structures. The pipeline is built using Snakemake, a workflow management tool that allows for the reproducible execution of analyses on various computational platforms.  
 
-The idea for developing GERONIMO emerged from a comprehensive search for [Telomerase RNA in lower plants] and was subsequently refined through an [expanded search of Telomerase RNA across Insecta].  
-GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
+The idea for developing GERONIMO emerged from a comprehensive search for [Telomerase RNA in lower plants] and was subsequently refined through an [expanded search of Telomerase RNA across Insecta]. GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
 
 
 [Telomerase RNA in lower plants]: https://doi.org/10.1093/nar/gkab545
@@ -26,7 +25,7 @@ It is crucial to remember that some gene families may exhibit similar characteri
 
 ## Pipeline overview
 
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=40% align="right">
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=30% align="right">
 
 By default, the GERONIMO pipeline conducts high-throughput searches of homology sequences in downloaded genomes utilizing covariance models. If a significant similarity is detected between the model and genome sequence, the pipeline extracts the upstream region, making it convenient to identify the promoter of the discovered gene. In brief, the pipeline:
 - Compiles a list of genomes using the NCBI's [Entrez] database based on a specified query, *e.g. "Rhodophyta"[Organism]*
@@ -118,11 +117,125 @@ Please adjust the analysis specifications, as on the following example:
   
 ### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in `GERONIMO/` directory)**
 
-### 4) Run GERONIMO
+## Run GERONIMO
 ```shell
 mamba activate env_snakemake
 cd ~/GERONIMO
 snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx
+```
+
+## Example results
+
+### Outputs characterisation
+<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_logo.png" width=100% align="center">
+
+#### A) Summary table
+The Excel table contains the results arranged by taxonomy information and hit significance. The specific columns include:
+* family, organism_name, class, order, phylum (taxonomy context)
+* GCA_id - corresponds to the genome assembly in the *NCBI database*
+* model - describes which covariance model identified the result
+* label - follows the *Infernal* convention of categorizing hits
+* number - the counter of the result
+* e_value - indicates the significance level of the hit
+* HIT_sequence - the exact HIT sequence found by *Infernal*, which corresponds to the covariance model
+* HIT_ID - describes in which part of the genome assembly the hit was found, which may be useful for publishing novel sequences
+* extended_genomic_region - upstream sequence, which may contain a possible promoter sequence
+* secondary_structure - the secondary structure consensus of the covariance model
+
+#### B) Significant Hits Distribution Across Taxonomy Families
+The plot provides an overview of the number of genomes in which at least one significant hit was identified, grouped by family. The bold black line corresponds to the number of genomes present in each family, helping to minimize bias regarding unequal data representation across taxonomy.
+
+#### C) Hits Distribution in Genomes Across Families
+The heatmap informs about the most significant hit from the genome found by a particular covariance model. Genomes are grouped by families (on the right). The darkest color of the tile represents the most significant hit. If grey, it means that no hit was identified.
+
+
+### GERONIMO directory structure
+
+The GERONIMO directory structure is designed to produce files in a highly structured manner, ensuring clear insight and facilitating the analysis of results. During a successful run, GERONIMO produces the following folders:
+* `/database` - which contains genome assemblies that were downloaded from the *NCBI database* and grouped in subfolders
+* `/taxonomy` - where taxonomy information is gathered and stored in the form of tables
+* `/results` - the main folder containing all produced results:
+  * `/infernal_raw` - contains the raw results produced by *Infernal*
+  * `/infernal` - contains restructured results of *Infernal* in table format
+  * `/cmdBLAST` - contains results of *cmdblast*, which extracts the extended genomic region
+  * `/summary` - contains summary files that join results from *Infernal*, *cmdblast*, and attach taxonomy context
+  * `/plots` - contains two types of summary plots
+* `/temp` - folder contains the information necessary to download genome assemblies from *NCBI database*
+
+* `/env` - stores instructions for dependency installation
+* `/models` - where calibrated covariance models can be pasted, *for example, from the Rfam database*
+* `/modes_to_built` - where multiple alignments in *.stk* format can be pasted
+* `/scripts` - contains developed scripts that perform results structurization
+
+#### The example GERONIMO directory structure:
+
+
+```shell
+GERONIMO
+├── database
+│   ├── GCA_000091205.1_ASM9120v1_genomic
+│   ├── GCA_000341285.1_ASM34128v1_genomic
+│   ├── GCA_000350225.2_ASM35022v2_genomic
+│   └── ...
+├── env
+├── models
+├── model_to_build
+├── results
+│   ├── cmdBLAST
+│   │   ├── MRP
+│   │   │   ├── GCA_000091205.1_ASM9120v1_genomic
+│   │   │   │   ├── extended
+│   │   │   │   └── filtered
+│   │   │   ├── GCA_000341285.1_ASM34128v1_genomic
+│   │   │   │   ├── extended
+│   │   │   │   └── filtered
+│   │   │   ├── GCA_000350225.2_ASM35022v2_genomic
+│   │   │   │   ├── extended
+│   │   │   │   └── filtered
+│   │   │   └── ...
+│   │   ├── SRP
+│   │   │   ├── GCA_000091205.1_ASM9120v1_genomic
+│   │   │   │   ├── extended
+│   │   │   │   └── filtered
+│   │   │   ├── GCA_000341285.1_ASM34128v1_genomic
+│   │   │   │   ├── extended
+│   │   │   │   └── filtered
+│   │   │   ├── GCA_000350225.2_ASM35022v2_genomic
+│   │   │   │   ├── extended
+│   │   │   │   └── filtered
+│   │   │   └── ...
+│   │   ├── ...
+│   ├── infernal
+│   │   ├── MRP
+│   │   │   ├── GCA_000091205.1_ASM9120v1_genomic
+│   │   │   ├── GCA_000341285.1_ASM34128v1_genomic
+│   │   │   ├── GCA_000350225.2_ASM35022v2_genomic
+│   │   │   ├── ...
+│   │   ├── SRP
+│   │   │   ├── GCA_000091205.1_ASM9120v1_genomic
+│   │   │   ├── GCA_000341285.1_ASM34128v1_genomic
+│   │   │   ├── GCA_000350225.2_ASM35022v2_genomic
+│   │   │   ├── ...
+│   ├── plots
+│   ├── raw_infernal
+│   │   ├── MRP
+│   │   │   ├── GCA_000091205.1_ASM9120v1_genomic
+│   │   │   ├── GCA_000341285.1_ASM34128v1_genomic
+│   │   │   ├── GCA_000350225.2_ASM35022v2_genomic
+│   │   │   ├── ...
+│   │   ├── SRP
+│   │   │   ├── GCA_000091205.1_ASM9120v1_genomic
+│   │   │   ├── GCA_000341285.1_ASM34128v1_genomic
+│   │   │   ├── GCA_000350225.2_ASM35022v2_genomic
+│   │   │   ├── ...
+│   └── summary
+│       ├── GCA_000091205.1_ASM9120v1_genomic
+│       ├── GCA_000341285.1_ASM34128v1_genomic
+│       ├── GCA_000350225.2_ASM35022v2_genomic
+│       ├── ...
+├── scripts
+├── taxonomy
+└── temp
 ```
 
 ## Questions & ansewrs

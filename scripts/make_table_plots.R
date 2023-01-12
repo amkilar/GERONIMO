@@ -47,9 +47,10 @@ options(dplyr.summarise.inform = FALSE)
 ################################################################################
 
 raw_table <- read_csv(RAW_TABLE,
-                      col_names = c("model","GCA_id","organism_name","family","label","number","e_value","extended_genomic_region","infernal_hit","seondary_structure","HIT_ID","phylum","class","order"),
+                      col_names = c("model","GCA_id","organism_name","family","label","number","e_value","extended_genomic_region","HIT_sequence","seondary_consensus","HIT_ID","phylum","class","order"),
                       show_col_types = FALSE) %>% 
-  arrange(model, family, GCA_id, e_value)
+  arrange(model, family, phylum, order, class, GCA_id, e_value) %>% 
+  select(family, organism_name, GCA_id, model, label, number, e_value, HIT_sequence, HIT_ID, extended_genomic_region, class, order, phylum, seondary_consensus)
 
 
 suppressMessages(write.xlsx(raw_table, file = "./results/summary_table.xlsx", overwrite = TRUE))

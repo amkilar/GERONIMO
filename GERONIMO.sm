@@ -110,10 +110,12 @@ rule infernal_search:
 
     input:  genome = "database/{genome}/{genome}.fna",
             model = "models/cov_model_{model}"
+            
+    threads: 1
 
     conda:  "env/infernal_env.yaml"
     
-    shell:  "cmsearch --notextw -A {output.alingment} -o {output.result} --tblout {output.table} {input.model} {input.genome}"      
+    shell:  "cmsearch --cpu {threads} --notextw -A {output.alingment} -o {output.result} --tblout {output.table} {input.model} {input.genome}"      
 
 
 rule search_taxonomy:

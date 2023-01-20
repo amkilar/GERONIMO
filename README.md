@@ -48,13 +48,18 @@ The Geronimo is available as a `snakemake pipeline` running on Linux and Windows
 Instal Linux on Windows 10 (WSL) according to [instructions], which bottling down to opening PowerShell or Windows Command Prompt in *administrator mode* and pasting the following:
 ```shell
 wsl --install
+wsl.exe --install UBUNTU
 ```
 Then restart the machine and follow the instructions for setting up the Linux environment.
 
 [instructions]: https://learn.microsoft.com/en-us/windows/wsl/install
 
 ### Linux:
-#### 1) Install `miniconda`
+#### Check whether the conda is intalled:
+```shell
+conda -V
+```
+#### 1) If you do not have intalled `conda` please install `miniconda`
 Please follow the instructions for installing [miniconda]
 
 [miniconda]: https://conda.io/projects/conda/en/stable/user-guide/install/linux.html
@@ -246,6 +251,11 @@ GERONIMO
 
 [NCBI Assemblies]: https://www.ncbi.nlm.nih.gov/assembly/?term=
 
+#### WSL: problem with creating `snakemake_env`
+In a case of error similar to below:
+> CondaError: Unable to create prefix directory '/mnt/c/Windows/system32/env_snakemake'.
+> Check that you have sufficient permissions.  
+You might try to delete cache with: `rm -r ~/.cache/` and try again.
 
 ## License
 The GERONIMO is freely available for academic users. Usage for commercial purposes is not allowed.

@@ -255,6 +255,7 @@ GERONIMO
 In a case of error similar to below:
 > CondaError: Unable to create prefix directory '/mnt/c/Windows/system32/env_snakemake'.
 > Check that you have sufficient permissions.  
+  
 You might try to delete cache with: `rm -r ~/.cache/` and try again.
 
 ## License

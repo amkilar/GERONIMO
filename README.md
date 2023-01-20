@@ -244,19 +244,22 @@ GERONIMO
 
 ## Questions & Answers
 
-#### How to specify the database query?
+### How to specify the database query?
 - Visit the [NCBI Assemblies] website.  
 - Follow the instruction on the graphic below:
 <img src="https://github.com/amkilar/GERONIMO/blob/main/database_query.png" width=100%>
 
 [NCBI Assemblies]: https://www.ncbi.nlm.nih.gov/assembly/?term=
 
-#### WSL: problem with creating `snakemake_env`
+### WSL: problem with creating `snakemake_env`
 In a case of error similar to below:
 > CondaError: Unable to create prefix directory '/mnt/c/Windows/system32/env_snakemake'.
 > Check that you have sufficient permissions.  
   
 You might try to delete cache with: `rm -r ~/.cache/` and try again.
+
+### How to browse GERONIMO results obtain in WSL?
+You can easily access the results obtained on WSL from your Windows environment by opening the `File Explorer` and pasting the following line into the search bar: `\\wsl.localhost\Ubuntu\home\`. This will reveal a folder with your username, as specified during the configuration of your Ubuntu system. To locate the GERONIMO results, simply navigate to the folder with your username, then navigate to the `home` folder. (`\\wsl.localhost\Ubuntu\home\<user>\home\GERONIMO`)
 
 ## License
 The GERONIMO is freely available for academic users. Usage for commercial purposes is not allowed.

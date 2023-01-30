@@ -97,14 +97,21 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure its name f
 
 #### **OR**
 
-#### Prepare your own `covariance model` using [RNAalifold]
+#### Prepare your own `covariance model` using [LocARNA]
 1. Paste or upload your sequences to the web server and download the `.stk` file with the alignment result.  
   
-    > *Please note that the `.stk` file format is crucial for the analysis, as it contains sequence alignment and secondary structure consensus.*  
+    > *Please note that the `.stk` file format is crucial for the analysis, as it contains sequence alignment and secondary structure consensus.*
+    
+    > The LocARNA webservice allow to align 30 sequences at once - if you need to align more sequences please use standalone version available [here]  
+    > After installation run: 
+    ```shell
+    mlocarna my_fasta_sequences.fasta
+    ```
   
 2. Paste the `.stk` alignment file to the folder `GERONIMO/model_to_build` and ensure its name follows the convention: `<NAME>.stk`
 
-[RNAalifold]: http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAalifold.cgi
+[RNAalifold]: http://rna.informatik.uni-freiburg.de/LocARNA/Input.jsp
+[here]: http://www.bioinf.uni-freiburg.de/Software/LocARNA/
 
 
 ### 2) Adjust the `config.yaml` file

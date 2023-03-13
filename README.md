@@ -5,11 +5,11 @@
 ## Introduction
 GERONIMO is a bioinformatics pipeline designed to conduct high-throughput homology searches of structural genes using covariance models. These models are based on the alignment of sequences and the consensus of secondary structures. The pipeline is built using Snakemake, a workflow management tool that allows for the reproducible execution of analyses on various computational platforms.  
 
-The idea for developing GERONIMO emerged from a comprehensive search for [Telomerase RNA in lower plants] and was subsequently refined through an [expanded search of Telomerase RNA across Insecta]. GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
+The idea for developing GERONIMO emerged from a comprehensive search for [telomerase RNA in lower plants] and was subsequently refined through an [expanded search of telomerase RNA across Insecta]. GERONIMO can test hundreds of genomes and ensures the stability and reproducibility of the analyses performed.
 
 
-[Telomerase RNA in lower plants]: https://doi.org/10.1093/nar/gkab545
-[expanded search of Telomerase RNA across Insecta]: https://doi.org/10.1093/nar/gkac1202
+[telomerase RNA in lower plants]: https://doi.org/10.1093/nar/gkab545
+[expanded search of telomerase RNA across Insecta]: https://doi.org/10.1093/nar/gkac1202
 
 ## Scope
 The GERONIMO tool utilises covariance models (CMs) to conduct homology searches of RNA sequences across a wide range of gene families in a broad evolutionary context. Specifically, it can be utilised to:

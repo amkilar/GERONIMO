@@ -59,6 +59,7 @@ Then restart the machine and follow the instructions for setting up the Linux en
 ```shell
 conda -V
 ```
+> Geronimo was tested on conda 23.3.1
 #### 1) If you do not have intalled `conda` please install `miniconda`
 Please follow the instructions for installing [miniconda]
 

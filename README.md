@@ -266,6 +266,25 @@ GERONIMO
 └── temp
 ```
 
+## GERONIMO applicability
+
+### Expanding the evolutionary context
+To add new genomes or database queries to an existing analysis, please follow the instructions:
+1) Rename the `list_of_genomes.txt` file to `previous_list_of_genomes.txt` or any other preferred name.
+2) Modify the `config.yaml` file by replacing the previous database query with the new one.
+3) Delete the `summary_table.xlsx` file located in the `GERONIMO\results` directory.
+4) Run GERONIMO to calculate new results using the command: `snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx`.
+5) Once the new results are generated, reviewing them before merging them with the original results is recommended.
+6) Copy the contents of the `previous_list_of_genomes.txt` file and paste them into the current `list_of_genomes.txt`.
+7) Delete the `.create_genome_list.touch` file.
+8) Delete the `summary_table.xlsx` file from the `GERONIMO\results` directory.
+9) Run GERONIMO to merge the results from both analyses using the command: `snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx`.
+
+### Incorporating different types of models
+
+### Model training
+
+
 ## Questions & Answers
 
 ### How to specify the database query?

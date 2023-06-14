@@ -88,6 +88,21 @@ cd <PATH>
 git clone https://github.com/amkilar/GERONIMO.git
 ```
 
+### Run sample analysis to ensure GERONIMO installation was successful
+All files are prepared for the sample analysis as a default. Please execute the line below:
+```shell
+snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx
+```
+
+This will prompt GERONIMO to quickly scan all modules, verifying the correct setup of the pipeline without executing any analysis.
+You should see the message `Building DAG of jobs...`, followed by `Nothing to be done (all requested files are present and up to date).`, when successfully completed.
+
+If you want to run the sample analysis fully please remove the folder `results` from the GERONIMO directory and execute GERONIMO again with:
+
+`snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx`
+
+> You might consider allowing more cores to speed up the analysis, which might take up to several hours.
+
 ## Setup the inputs
 
 ### 1) Prepare the `covariance models`:

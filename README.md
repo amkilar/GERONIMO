@@ -1,4 +1,5 @@
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_logo.png" width=40% align="right">
+<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/Geronimo_logo.png" width=40% align="right">
+
 
 # GERONIMO
 
@@ -25,7 +26,7 @@ It is crucial to remember that some gene families may exhibit similar characteri
 
 ## Pipeline overview
 
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Geronimo_workflow.png" width=30% align="right">
+<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/Geronimo_workflow.png" width=30% align="right">
 
 By default, the GERONIMO pipeline conducts high-throughput searches of homology sequences in downloaded genomes utilizing covariance models. If a significant similarity is detected between the model and genome sequence, the pipeline extracts the upstream region, making it convenient to identify the promoter of the discovered gene. In brief, the pipeline:
 - Compiles a list of genomes using the NCBI's [Entrez] database based on a specified query, *e.g. "Rhodophyta"[Organism]*
@@ -55,12 +56,12 @@ Then restart the machine and follow the instructions for setting up the Linux en
 [instructions]: https://learn.microsoft.com/en-us/windows/wsl/install
 
 ### Linux:
-#### Check whether the conda is intalled:
+#### Check whether the conda is installed:
 ```shell
 conda -V
 ```
 > Geronimo was tested on conda 23.3.1
-#### 1) If you do not have intalled `conda` please install `miniconda`
+#### 1) If you do not have installed `conda`, please install `miniconda`
 Please follow the instructions for installing [miniconda]
 
 [miniconda]: https://conda.io/projects/conda/en/stable/user-guide/install/linux.html
@@ -76,7 +77,7 @@ mamba create -p env_snakemake -c conda-forge -c bioconda snakemake
 mamba activate env_snakemake
 snakemake --help
 ```
-In case of complications, please follow the [official documentation].
+In case of complications, please check the section `Questions & Answers` below or follow the [official documentation] for troubleshooting.
 
 [official documentation]: https://snakemake.readthedocs.io/en/stable/getting_started/installation.html
 
@@ -101,9 +102,9 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure its name f
 #### Prepare your own `covariance model` using [LocARNA]
 1. Paste or upload your sequences to the web server and download the `.stk` file with the alignment result.  
   
-    > *Please note that the `.stk` file format is crucial for the analysis, as it contains sequence alignment and secondary structure consensus.*
+    > *Please note that the `.stk` file format is crucial for the analysis, containing sequence alignment and secondary structure consensus.*
     
-    > The LocARNA webservice allow to align 30 sequences at once - if you need to align more sequences please use standalone version available [here]  
+    > The LocARNA web service allows you to align 30 sequences at once - if you need to align more sequences, please use the standalone version available [here]  
     > After installation run: 
     ```shell
     mlocarna my_fasta_sequences.fasta
@@ -159,7 +160,7 @@ The plot provides an overview of the number of genomes in which at least one sig
 #### C) Hits Distribution in Genomes Across Families
 The heatmap informs about the most significant hit from the genome found by a particular covariance model. Genomes are grouped by families (on the right). The darkest colour of the tile represents the most significant hit. If grey, it means that no hit was identified.
 
-<img src="https://github.com/amkilar/GERONIMO/blob/main/Output_results.png" width=100% align="center">
+<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/Output_results.png" width=100% align="center">
 
 
 ### GERONIMO directory structure
@@ -255,19 +256,29 @@ GERONIMO
 ### How to specify the database query?
 - Visit the [NCBI Assemblies] website.  
 - Follow the instruction on the graphic below:
-<img src="https://github.com/amkilar/GERONIMO/blob/main/database_query.png" width=100%>
+<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/database_query.png" width=100%>
 
 [NCBI Assemblies]: https://www.ncbi.nlm.nih.gov/assembly/?term=
 
 ### WSL: problem with creating `snakemake_env`
-In a case of error similar to below:
+In the case of an error similar to the one below:
 > CondaError: Unable to create prefix directory '/mnt/c/Windows/system32/env_snakemake'.
 > Check that you have sufficient permissions.  
   
-You might try to delete cache with: `rm -r ~/.cache/` and try again.
+You might try to delete the cache with: `rm -r ~/.cache/` and try again.
 
-### How to browse GERONIMO results obtain in WSL?
-You can easily access the results obtained on WSL from your Windows environment by opening the `File Explorer` and pasting the following line into the search bar: `\\wsl.localhost\Ubuntu\home\`. This will reveal a folder with your username, as specified during the configuration of your Ubuntu system. To locate the GERONIMO results, simply navigate to the folder with your username, then navigate to the `home` folder. (`\\wsl.localhost\Ubuntu\home\<user>\home\GERONIMO`)
+### When `snakemake` does not seem to be installed properly
+In the case of the following error:
+> Command 'snakemake' not found ...
+> Check whether the `env_snakemake` is activated
+It should result in a change from (base) to (env_snakemake) before your login name in the command line window.
+> If you still see `(base)` before your login name, please try to activate the environment with conda:
+conda activate env_snakemake
+ 
+Please note that you might need to specify the full path to the `env_snakemake`, like /home/<user>/env_snakemake
+
+### How to browse GERONIMO results obtained in WSL?
+You can easily access the results obtained on WSL from your Windows environment by opening `File Explorer` and pasting the following line into the search bar: `\\wsl.localhost\Ubuntu\home\`. This will reveal a folder with your username, as specified during the configuration of your Ubuntu system. To locate the GERONIMO results, simply navigate to the folder with your username and then to the `home` folder. (`\\wsl.localhost\Ubuntu\home\<user>\home\GERONIMO`)
 
 ## License
 The GERONIMO is freely available for academic users. Usage for commercial purposes is not allowed.

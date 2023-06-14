@@ -79,10 +79,14 @@ suppressMessages(saveWorkbook(wb, file = "./results/summary_table_models.xlsx", 
 ###########    MAKE PLOT WITH HITS DISTRIBUTION   ##############################
 total_genomes <- raw_table %>% select(family, GCA_id) %>% distinct() %>% group_by(family) %>% count(family)
 
+#In case some of column would be empty after filtering for table transformation
+full_table_check <- tibble(MAYBE = NA, HIT = NA, 'NO HIT' = NA)
+
 raw_table %>% 
   select(model, GCA_id, family, label, number) %>% 
   filter(number == 1)  %>% 
   pivot_wider(names_from = label, values_from = number) %>% 
+  left_join(full_table_check) %>% 
   mutate_at(c("MAYBE", "HIT", "NO HIT"),  ~coalesce(.,0)) %>% 
   mutate(`NO HIT` = ifelse(MAYBE == 1, 1, `NO HIT`),
          `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 

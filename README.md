@@ -270,12 +270,15 @@ You might try to delete the cache with: `rm -r ~/.cache/` and try again.
 ### When `snakemake` does not seem to be installed properly
 In the case of the following error:
 > Command 'snakemake' not found ...
-> Check whether the `env_snakemake` is activated
-It should result in a change from (base) to (env_snakemake) before your login name in the command line window.
-> If you still see `(base)` before your login name, please try to activate the environment with conda:
-conda activate env_snakemake
- 
-Please note that you might need to specify the full path to the `env_snakemake`, like /home/<user>/env_snakemake
+
+Check whether the `env_snakemake` is activated.
+> It should result in a change from (base) to (env_snakemake) before your login name in the command line window.
+
+If you still see `(base)` before your login name, please try to activate the environment with conda:
+`conda activate env_snakemake`
+
+
+Please note that you might need to specify the full path to the `env_snakemake`, like /home/your user name/env_snakemake
 
 ### How to browse GERONIMO results obtained in WSL?
 You can easily access the results obtained on WSL from your Windows environment by opening `File Explorer` and pasting the following line into the search bar: `\\wsl.localhost\Ubuntu\home\`. This will reveal a folder with your username, as specified during the configuration of your Ubuntu system. To locate the GERONIMO results, simply navigate to the folder with your username and then to the `home` folder. (`\\wsl.localhost\Ubuntu\home\<user>\home\GERONIMO`)

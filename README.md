@@ -127,7 +127,9 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure its name f
   
 2. Paste the `.stk` alignment file to the folder `GERONIMO/model_to_build` and ensure its name follows the convention: `<NAME>.stk`
 
-[RNAalifold]: http://rna.informatik.uni-freiburg.de/LocARNA/Input.jsp
+   > Please check the example `heterotrichea.stk` format in `GERONIMO/models_to_built` for reference
+
+[LocARNA]: http://rna.informatik.uni-freiburg.de/LocARNA/Input.jsp
 [here]: http://www.bioinf.uni-freiburg.de/Software/LocARNA/
 
 

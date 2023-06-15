@@ -142,7 +142,7 @@ Please adjust the analysis specifications, as in the following example:
 
   > *Keep in mind that the covariance models and alignments must be present in the respective GERONIMO folders.*  
  
-  
+### 3) Remove folder `results`, which contains example analysis output
 ### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in the `GERONIMO/` directory)**
 
 ## Run GERONIMO
@@ -272,15 +272,27 @@ GERONIMO
 To add new genomes or database queries to an existing analysis, please follow the instructions:
 1) Rename the `list_of_genomes.txt` file to `previous_list_of_genomes.txt` or any other preferred name.
 2) Modify the `config.yaml` file by replacing the previous database query with the new one.
-3) Delete the `summary_table.xlsx` file located in the `GERONIMO\results` directory.
-4) Run GERONIMO to calculate new results using the command: `snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx`.
-5) Once the new results are generated, reviewing them before merging them with the original results is recommended.
-6) Copy the contents of the `previous_list_of_genomes.txt` file and paste them into the current `list_of_genomes.txt`.
-7) Delete the `.create_genome_list.touch` file.
-8) Delete the `summary_table.xlsx` file from the `GERONIMO\results` directory.
-9) Run GERONIMO to merge the results from both analyses using the command: `snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx`.
+3) Delete:
+   - `summary_table.xlsx`, `part_summary_table.csv`, `summary_table_models.xlsx` files located in the `GERONIMO\results` directory
+   - `.create_genome_list.touch` file
+5) Run GERONIMO to calculate new results using the command:
+     ```shell
+     snakemake -s GERONIMO.sm --cores <declare number of CPUs> --use-conda results/summary_table.xlsx
+     ```
+7) Once the new results are generated, reviewing them before merging them with the original results is recommended.
+8) Copy the contents of the `previous_list_of_genomes.txt` file and paste them into the current `list_of_genomes.txt`.
+9) Delete:
+   - `summary_table.xlsx` located in the `GERONIMO\results` directory
+   - `.create_genome_list.touch` file
+10) Run GERONIMO to merge the results from both analyses using the command:
+    ```shell
+      snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx`
+    ```
 
-### Incorporating different types of models
+### Incorporating new covariance models into existing analysis
+1) Copy the new covariance model to `GERONIMO/models`
+2) Modify the `config.yaml` file by adding the name of the new model to the line `models: [...]`
+3) Run GERONIMO to see the updated analysis outcome
 
 ### Model training
 

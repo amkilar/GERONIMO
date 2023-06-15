@@ -136,11 +136,12 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure its name f
 ### 2) Adjust the `config.yaml` file
 Please adjust the analysis specifications, as in the following example:
 
-> - CPU: <number> (specify the number of available CPUs (half of them will be used for covariance model building)
 > - database: '<DATABASE_QUERY> [Organism]' (in case of difficulties with defining the database query, please follow the instructions below)
-> - models_to_build: ["<NAME>"] (here specify the names of alignment/s in the `.stk` format that you want to build)
-> - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
 > - extract_genomic_region-length:  <number> (here you can determine how long the upstream genomic region should be extracted; tested for 200)
+> - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
+> - models_to_build: ["<NAME>"] (here specify the names of alignment/s in the `.stk` format that you want to build)
+> - CPU_for_model_building: <number> (specify the number of available CPUs devoted to the process of building model (cannot exceed the CPU number allowed to snakemake with `--cores`)
+
 
   > *Keep in mind that the covariance models and alignments must be present in the respective GERONIMO folders.*  
  

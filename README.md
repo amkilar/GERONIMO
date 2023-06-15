@@ -139,11 +139,14 @@ Please adjust the analysis specifications, as in the following example:
 > - database: '<DATABASE_QUERY> [Organism]' (in case of difficulties with defining the database query, please follow the instructions below)
 > - extract_genomic_region-length:  <number> (here you can determine how long the upstream genomic region should be extracted; tested for 200)
 > - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
-> - models_to_build: ["<NAME>"] (here specify the names of alignment/s in the `.stk` format that you want to build)
+>   
+>   *Here you can also insert the name of the covariance model you want to build with Geronimo - just be sure you placed `<NAME>.stk` file in `GERONIMO/models_to_build` before starting analysis*
 > - CPU_for_model_building: <number> (specify the number of available CPUs devoted to the process of building model (cannot exceed the CPU number allowed to snakemake with `--cores`)
+>
+>   *You might ignore this parameter when you do not need to create a new covariance model*
 
 
-  > *Keep in mind that the covariance models and alignments must be present in the respective GERONIMO folders.*  
+Keep in mind that the covariance models and alignments must be present in the respective GERONIMO folders.
  
 ### 3) Remove folder `results`, which contains example analysis output
 ### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in the `GERONIMO/` directory)**
@@ -297,7 +300,12 @@ To add new genomes or database queries to an existing analysis, please follow th
 2) Modify the `config.yaml` file by adding the name of the new model to the line `models: [...]`
 3) Run GERONIMO to see the updated analysis outcome
 
-### Model training
+### Building a new covariance model
+With GERONIMO, it is possible to build a new covariance model from multiple sequence alignment in the `.stk` format. 
+
+To do so simply paste `<NAME>.stk` file to `GERONIMO/models_to_build` and paste the name of the new covariance  model to `config.yaml` file to the line `models: ["<NAME>"]`
+
+and run GERONIMO.
 
 
 ## Questions & Answers

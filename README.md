@@ -97,11 +97,19 @@ snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx
 This will prompt GERONIMO to quickly scan all modules, verifying the correct setup of the pipeline without executing any analysis.
 You should see the message `Building DAG of jobs...`, followed by `Nothing to be done (all requested files are present and up to date).`, when successfully completed.
 
-If you want to run the sample analysis fully please remove the folder `results` from the GERONIMO directory and execute GERONIMO again with:
+If you want to run the sample analysis fully, please remove the folder `results` from the GERONIMO directory and execute GERONIMO again with:
 
 `snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx`
 
 > You might consider allowing more cores to speed up the analysis, which might take up to several hours.
+
+#### You might want to clean `GERONIMO/` directory from the files produced by the example analysis. You can safely remove the following:
+- `GERONIMO/results`
+- `GERONIMO/database`
+- `GERONIMO/taxonomy`
+- `GERONIMO/temp`
+- `.create_genome_list.touch`
+- `list_of_genomes.txt`
 
 ## Setup the inputs
 
@@ -128,6 +136,7 @@ Paste the covariance model to the folder `GERONIMO/models` and ensure its name f
 2. Paste the `.stk` alignment file to the folder `GERONIMO/model_to_build` and ensure its name follows the convention: `<NAME>.stk`
 
    > Please check the example `heterotrichea.stk` format in `GERONIMO/models_to_built` for reference
+   
 
 [LocARNA]: http://rna.informatik.uni-freiburg.de/LocARNA/Input.jsp
 [here]: http://www.bioinf.uni-freiburg.de/Software/LocARNA/
@@ -149,7 +158,7 @@ Please adjust the analysis specifications, as in the following example:
 Keep in mind that the covariance models and alignments must be present in the respective GERONIMO folders.
  
 ### 3) Remove folder `results`, which contains example analysis output
-### 3) **Please ensure you have enough storage capacity to download all the requested genomes (in the `GERONIMO/` directory)**
+### 4) **Please ensure you have enough storage capacity to download all the requested genomes (in the `GERONIMO/` directory)**
 
 ## Run GERONIMO
 ```shell
@@ -301,9 +310,9 @@ To add new genomes or database queries to an existing analysis, please follow th
 3) Run GERONIMO to see the updated analysis outcome
 
 ### Building a new covariance model
-With GERONIMO, it is possible to build a new covariance model from multiple sequence alignment in the `.stk` format. 
+With GERONIMO, building a new covariance model from multiple sequence alignment in the `.stk` format is possible. 
 
-To do so simply paste `<NAME>.stk` file to `GERONIMO/models_to_build` and paste the name of the new covariance  model to `config.yaml` file to the line `models: ["<NAME>"]`
+To do so, simply paste `<NAME>.stk` file to `GERONIMO/models_to_build` and paste the name of the new covariance  model to `config.yaml` file to the line `models: ["<NAME>"]`
 
 and run GERONIMO.
 
@@ -339,6 +348,19 @@ Please note that you might need to specify the full path to the `env_snakemake`,
 
 ### How to browse GERONIMO results obtained in WSL?
 You can easily access the results obtained on WSL from your Windows environment by opening `File Explorer` and pasting the following line into the search bar: `\\wsl.localhost\Ubuntu\home\`. This will reveal a folder with your username, as specified during the configuration of your Ubuntu system. To locate the GERONIMO results, simply navigate to the folder with your username and then to the `home` folder. (`\\wsl.localhost\Ubuntu\home\<user>\home\GERONIMO`)
+
+### GERONIMO occupies a lot of storage space
+Through genome downloads, GERONIMO can potentially consume storage space, rapidly leading to a shortage. Currently, downloading genomes is an essential step for optimal GERONIMO performance.
+
+Regrettably, if the analysis is rerun without the `/database` folder, it will result in the need to redownload genomes, which is a highly time-consuming process.
+
+Nevertheless, if you do not intend to repeat the analysis and have no requirement for additional genomes or models, you are welcome to retain your results tables and plots while removing the remaining files.
+
+It is strongly advised against using local machines for extensive analyses. If you lack access to external storage space, it is recommended to divide the analysis into smaller segments, which can be later merged, as explained in the section titled `Expanding the evolutionary context`.
+
+Considering this limitation, I am currently working on implementing a solution that will help circumvent the need for redundant genome downloads without compromising GERONIMO performance in the future.
+
+You might consider deleting the `.snakemake` folder to free up storage space. However, please note that deleting this folder will require the reinstallation of GERONIMO dependencies when the analysis is rerun.
 
 ## License
 The GERONIMO is freely available for academic users. Usage for commercial purposes is not allowed.

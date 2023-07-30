@@ -92,21 +92,29 @@ raw_table %>%
          `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 
   select(-MAYBE) %>% distinct() %>% group_by(model, family) %>% summarise(model, family, n = sum(HIT), m = sum(`NO HIT`) ) %>% 
   select(-m) %>% distinct() %>% 
+  mutate(model = str_remove(model, "cov_model_")) %>%
+  
   ggplot(aes(x = family, y = n, fill = model)) +
-  geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0), colour="black" ) +
-  
-  facet_grid(cols = vars(family), scale = "free", space = "free") +
-  
-  geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", linewidth = 1 ) +
-  
-  labs(y = "Number of significant hits in the family", x = "",
-       title = "Significant hits distribution across taxonomy families",
-       caption = "Obtained with Geronimo") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(size = 11, angle = -30, vjust = 1, hjust=0),
-        plot.title=element_text(face = "bold", size = 16), 
-        strip.text.x = element_blank()) +
-  scale_fill_discrete(name="Models:")
+    geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0), colour="black" ) +
+    
+    facet_grid(cols = vars(family), scale = "free", space = "free") +
+    
+    geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", linewidth = 1 ) +
+    
+    labs(y = "Number of significant hits per family (e_val < 0.01)", x = "",
+         title = "Significant hits distribution across taxonomy families",
+         caption = "Obtained with GERONIMO") +
+    
+    theme_minimal() +
+    theme(#axis.text.x = element_text(size = 11, angle = -30, face = "italic", vjust = 1, hjust=0),
+          axis.text.x = element_text(size = 13, angle = 0, face = "italic", vjust = 0, hjust = 0.5),
+          axis.text.y = element_text(size = 11),
+          legend.text = element_text(face = "bold", size = 11),
+          legend.title = element_text(face = "bold", size = 12),
+          plot.title=element_text(face = "bold", size = 16, hjust = 0.5),
+          strip.text.x = element_blank()) +
+
+    scale_fill_discrete(name="Models:")
 
 
 suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white",  width = 15, height = 10, dpi = 400, units = "in", device = "png"))
@@ -114,54 +122,45 @@ suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png",
 
 ###########    MAKE HEATMAP PLOT WITH HITS DISTRIBUTION   ######################
 
-evalue_treshold <- 0.05
-
 for_plot <- raw_table %>% 
   select(model, GCA_id, organism_name, family, e_value) %>% 
   mutate(label = paste0(organism_name, " (", GCA_id, ")")) %>% 
   group_by(model, GCA_id, label, family) %>% 
-  summarise(fill = suppressWarnings(min(e_value, na.rm = TRUE))) 
+  summarise(top_eval = suppressWarnings(min(e_value, na.rm = TRUE))) %>%
+  mutate(model = str_remove(model, "cov_model_")) %>%
+  mutate(tag = ifelse(top_eval < 0.01, "HIT", ifelse(top_eval > 10, "NO HIT", "MAYBE")) ) %>%
+  mutate(tag = ifelse(top_eval < 0.00001, "GREAT HIT", tag))
 
+for_plot %>% ggplot(aes(x = model, y = label, fill = tag)) +
+  geom_tile(colour = "white", linewidth = 0.3) +
 
-# extracting minimum and maximal e-value for scale adjustment
-eval <- for_plot %>% pull(fill)
-eval <- eval[!is.na(eval) & !is.infinite(eval)]
-
-min <- min(eval, na.rm = TRUE)
-max <- max(eval, na.rm = TRUE)
-
-breaks_scale <- c(signif(min, digits = 3), signif(max, digits = 2))
-
-
-for_plot %>% ggplot(aes(x = model, y = label, fill = fill )) +
-  geom_tile() +
-  
   facet_grid(cols = vars(model), rows = vars(family), scale = "free", space = "free") +
   
   theme_minimal() +
-  theme(axis.ticks.x=element_blank(),
+  theme(axis.ticks.x = element_blank(),
         axis.title.y = element_blank(),
         axis.title.x = element_blank(),
         axis.text.y = element_text(size = 10),
-        axis.text.x = element_text(size = 11, angle = -30, vjust = 1, hjust=0),
-        strip.text.y = element_text(angle=0, size = 12),
+        axis.text.x = element_text(angle=30, face = "bold", size = 12, hjust = 0.5, vjust = 0.7),
+        strip.text.y = element_text(angle=0, size = 12, face = "italic", hjust = 0),
         strip.text.x = element_blank(),
-        legend.text = element_text(size = 10),
-        legend.title = element_text(size = 12),
-        plot.title=element_text(face = "bold", size = 16) ) +
+        strip.background = element_rect(fill = "#F0F0F0", linetype = "blank"),
+        legend.text = element_text(face = "bold", size = 11),
+        legend.title = element_text(face = "bold", size = 12),
+        plot.title=element_text(face = "bold", size = 16, hjust = 0.5),
+        plot.subtitle = element_text(size = 12, hjust = 0.5)) +
   
-  labs(title = "Hits distribution in genomes across families",
-       caption = "Obtained with Geronimo") +
+  labs(title = "Overview of sequence homology between model and genomes across families",
+       #subtitle = "HIT: e-value < 0.01,   MAYBE: 0.01 - 10,   NO HIT: e-value > 10",
+       caption = "Obtained with GERONIMO") +
   
-  scale_fill_gradient(name = "Significance", low = "#ba5370", high = "#f4e2d8", na.value = "#7A918D",
-                      limits = c(min, max), breaks = breaks_scale ) 
-
-
+  scale_y_discrete(expand=c(0, 0) ) +
+  scale_x_discrete(expand=c(0, 0) ) +
+  
+  scale_fill_manual(name = "Significance [e-value]:",
+                    labels = c("HIT:   < 0.00001", "HIT:   0.00001 - 0.01", "MAYBE: 0.01 - 10", "NO HIT:   > 10"),
+                    values = c("#585481", "#B8A4C9", "#F5CCD4", "#f2f2f2"))
+                    
 suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white", width = 10, height = 20, dpi = 300, units = "in", device = "png"))
 
-
-
-
-
-
-
+                              

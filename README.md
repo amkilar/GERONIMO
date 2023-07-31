@@ -43,7 +43,7 @@ By default, the GERONIMO pipeline conducts high-throughput searches of homology 
 [*blastcmd*]: https://www.ncbi.nlm.nih.gov/books/NBK569853/
 
 ## Quick start
-The Geronimo is available as a `snakemake pipeline` running on Linux and Windows operating systems.
+The GERONIMO is available as a `snakemake pipeline` running on Linux and Windows operating systems.
 
 ### Windows 10
 Instal Linux on Windows 10 (WSL) according to [instructions], which bottling down to opening PowerShell or Windows Command Prompt in *administrator mode* and pasting the following:
@@ -60,7 +60,7 @@ Then restart the machine and follow the instructions for setting up the Linux en
 ```shell
 conda -V
 ```
-> Geronimo was tested on conda 23.3.1
+> GERONIMO was tested on conda 23.3.1
 #### 1) If you do not have installed `conda`, please install `miniconda`
 Please follow the instructions for installing [miniconda]
 
@@ -149,7 +149,7 @@ Please adjust the analysis specifications, as in the following example:
 > - extract_genomic_region-length:  <number> (here you can determine how long the upstream genomic region should be extracted; tested for 200)
 > - models: ["<NAME>", "<NAME>"] (here specify the names of models that should be used to perform analysis)
 >   
->   *Here you can also insert the name of the covariance model you want to build with Geronimo - just be sure you placed `<NAME>.stk` file in `GERONIMO/models_to_build` before starting analysis*
+>   *Here you can also insert the name of the covariance model you want to build with GERONIMO - just be sure you placed `<NAME>.stk` file in `GERONIMO/models_to_build` before starting analysis*
 > - CPU_for_model_building: <number> (specify the number of available CPUs devoted to the process of building model (cannot exceed the CPU number allowed to snakemake with `--cores`)
 >
 >   *You might ignore this parameter when you do not need to create a new covariance model*
@@ -188,7 +188,7 @@ The Excel table contains the results arranged by taxonomy information and hit si
 The plot provides an overview of the number of genomes in which at least one significant hit was identified, grouped by family. The bold black line corresponds to the number of genomes present in each family, helping to minimize bias regarding unequal data representation across the taxonomy.
 
 #### C) Hits Distribution in Genomes Across Families
-The heatmap informs about the most significant hit from the genome found by a particular covariance model. Genomes are grouped by families (on the right). The darkest colour of the tile represents the most significant hit. If grey, it means that no hit was identified.
+The heatmap provides information about the most significant hits from the genome, identified by a specific covariance model. Genomes are grouped by families (on the right). Hits are classified into three categories based on their e-values. Generally, these categories correspond to hit classifications ("HIT," "MAYBE," "NO HIT"). The "HIT" category is further divided to distinguish between highly significant hits and moderately significant ones.
 
 <img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/Output_results.png" width=100% align="center">
 
@@ -301,7 +301,7 @@ To add new genomes or database queries to an existing analysis, please follow th
    - `.create_genome_list.touch` file
 10) Run GERONIMO to merge the results from both analyses using the command:
     ```shell
-      snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx`
+      snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx
     ```
 
 ### Incorporating new covariance models into existing analysis
@@ -384,5 +384,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Contact
-mgr inż. Agata Magdalena Kilar (agata.kilar@ceitec.muni.cz)
+mgr inż. Agata Magdalena Kilar, PhD (agata.kilar@gmail.com)
 

@@ -189,12 +189,12 @@ The Excel table contains the results arranged by taxonomy information and hit si
 #### B) Significant Hits Distribution Across Taxonomy Families
 The plot provides an overview of the number of genomes in which at least one significant hit was identified, grouped by family. The bold black line corresponds to the number of genomes present in each family, helping to minimize bias regarding unequal data representation across the taxonomy.
 
-<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/plot_A.png" width=85% align="center">
+<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/plot_A.png" width=100% align="center">
 
 #### C) Hits Distribution in Genomes Across Families
 The heatmap provides information about the most significant hits from the genome, identified by a specific covariance model. Genomes are grouped by families (on the right). Hits are classified into three categories based on their e-values. Generally, these categories correspond to hit classifications ("HIT," "MAYBE," "NO HIT"). The "HIT" category is further divided to distinguish between highly significant hits and moderately significant ones.
 
-<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/plot_B.png" width=90% align="center">
+<img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/plot_B.png" width=100% align="center">
 
 
 ### GERONIMO directory structure

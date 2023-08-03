@@ -86,7 +86,7 @@ raw_table %>%
   select(model, GCA_id, family, label, number) %>% 
   filter(number == 1)  %>% 
   pivot_wider(names_from = label, values_from = number) %>% 
-  left_join(full_table_check) %>% 
+  left_join(full_table_check, by = c("HIT", "MAYBE", "NO HIT")) %>% 
   mutate_at(c("MAYBE", "HIT", "NO HIT"),  ~coalesce(.,0)) %>% 
   mutate(`NO HIT` = ifelse(MAYBE == 1, 1, `NO HIT`),
          `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 

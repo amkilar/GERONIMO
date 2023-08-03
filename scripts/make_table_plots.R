@@ -90,7 +90,7 @@ raw_table %>%
   mutate_at(c("MAYBE", "HIT", "NO HIT"),  ~coalesce(.,0)) %>% 
   mutate(`NO HIT` = ifelse(MAYBE == 1, 1, `NO HIT`),
          `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 
-  select(-MAYBE) %>% distinct() %>% group_by(model, family) %>% summarise(model, family, n = sum(HIT), m = sum(`NO HIT`) ) %>% 
+  select(-MAYBE) %>% distinct() %>% group_by(model, family) %>% reframe(model, family, n = sum(HIT), m = sum(`NO HIT`) ) %>% 
   select(-m) %>% distinct() %>% 
   mutate(model = str_remove(model, "cov_model_")) %>%
   

@@ -388,5 +388,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Contact
-mgr inż. Agata Magdalena Kilar, PhD (agata.kilar@gmail.com)
+mgr inż. Agata Magdalena Kilar, PhD (agata.kilar@ceitec.muni.cz)
 

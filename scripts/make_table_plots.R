@@ -126,7 +126,7 @@ for_plot <- raw_table %>%
   select(model, GCA_id, organism_name, family, e_value) %>% 
   mutate(label = paste0(organism_name, " (", GCA_id, ")")) %>% 
   group_by(model, GCA_id, label, family) %>% 
-  summarise(top_eval = suppressWarnings(min(e_value, na.rm = TRUE))) %>%
+  reframe(top_eval = suppressWarnings(min(e_value, na.rm = TRUE))) %>%
   mutate(model = str_remove(model, "cov_model_")) %>%
   mutate(tag = ifelse(top_eval < 0.01, "HIT", ifelse(top_eval > 10, "NO HIT", "MAYBE")) ) %>%
   mutate(tag = ifelse(top_eval < 0.00001, "GREAT HIT", tag))

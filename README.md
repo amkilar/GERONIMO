@@ -1,7 +1,7 @@
 <img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/Geronimo_logo.png" width=40% align="right">
 
 
-# GERONIMO
+# GERONIMO [![DOI](https://img.shields.io/badge/DOI-10.1093-blue)](https://doi.org/10.1093/gigascience/giad080)
 
 ## Introduction
 GERONIMO is a bioinformatics pipeline designed to conduct high-throughput homology searches of structural genes using covariance models. These models are based on the alignment of sequences and the consensus of secondary structures. The pipeline is built using Snakemake, a workflow management tool that allows for the reproducible execution of analyses on various computational platforms.  
@@ -41,6 +41,14 @@ By default, the GERONIMO pipeline conducts high-throughput searches of homology 
 [Infernal]: http://eddylab.org/infernal/
 [rentrez]: https://github.com/ropensci/rentrez
 [*blastcmd*]: https://www.ncbi.nlm.nih.gov/books/NBK569853/
+
+## Citation
+GERONIMO is published in Giga Science as [GERONIMO: A tool for systematic retrieval of structural RNAs in a broad evolutionary context]
+
+Data from [example analysis] might be found on Figshare.
+
+[GERONIMO: A tool for systematic retrieval of structural RNAs in a broad evolutionary context]: https://doi.org/10.1093/gigascience/giad080
+[example analysis]: https://doi.org/10.6084/m9.figshare.22266430.v2
 
 ## Quick start
 The GERONIMO is available as a `snakemake pipeline` running on Linux and Windows operating systems.

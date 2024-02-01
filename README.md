@@ -59,8 +59,14 @@ GERONIMO is published in Giga Science as [GERONIMO: A tool for systematic retrie
 [bio.tools]: https://bio.tools/GERONIMO
 
 ## Quick start
-The GERONIMO is available as a `snakemake pipeline` running on Linux and Windows operating systems.
+```shell
+$ git clone https://github.com/amkilar/GERONIMO.git
+$ cd GERONIMO
+$ snakemake -s GERONIMO.sm --cores 1 --use-conda results/summary_table.xlsx
+```
 
+## Extended installation
+The GERONIMO is available as a `snakemake pipeline` running on Linux and Windows operating systems.
 ### Windows 10
 Instal Linux on Windows 10 (WSL) according to [instructions], which bottling down to opening PowerShell or Windows Command Prompt in *administrator mode* and pasting the following:
 ```shell
@@ -71,7 +77,7 @@ Then restart the machine and follow the instructions for setting up the Linux en
 
 [instructions]: https://learn.microsoft.com/en-us/windows/wsl/install
 
-### Linux:
+### Linux
 #### Check whether the conda is installed:
 ```shell
 conda -V
@@ -96,6 +102,14 @@ snakemake --help
 In case of complications, please check the section `Questions & Answers` below or follow the [official documentation] for troubleshooting.
 
 [official documentation]: https://snakemake.readthedocs.io/en/stable/getting_started/installation.html
+
+### Remote services
+Contact your administrator to navigate the installation process. `Snakemake` is often pre-installed and available as a module.
+#### MetaCenter users
+If you are a MetaCenter user, you can load `snakemake` using the command below:
+```shell
+$ module add snakemake mambaforge
+```
 
 ### Clone the GERONIMO repository
 Go to the path in which you want to run the analysis and clone the repository:

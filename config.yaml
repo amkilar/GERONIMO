@@ -1,4 +1,4 @@
 database: '"Rhodophyta"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]))'
-extract_genomic_region-length:  "200"
-models: ["U1", "U2", "U3", "U4", "U5", "U6", "SRP", "MRP"]
+extract_genomic_region-length:  200
+models: ["U1", "U1"]
 CPU_for_model_building: 6

@@ -1,12 +1,23 @@
 configfile: "config.yaml"
 
-CPU=config["CPU_for_model_building"]
 DATABASE = config["database"]
 MODELS=config["models"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 
 
+rule run_tests:
+    output:
+        "config_tests_passed.txt"
+    shell:
+        """
+        python3 input_test.py > config_tests_passed.txt
+        touch config_tests_passed.txt
+
+        """
+
+
 rule create_genome_list:
+    input:  "config_tests_passed.txt"
     output: "list_of_genomes.txt"
     conda:  "env/entrez_env.yaml"
     
@@ -93,7 +104,7 @@ rule stk_to_model:
 
     conda: "env/infernal_env.yaml"
 
-    threads: CPU
+    threads: config["CPU_for_model_building"]
 
     shell:
         r"""

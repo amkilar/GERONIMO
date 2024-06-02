@@ -86,7 +86,7 @@ raw_table %>%
   select(model, GCA_id, family, label, number) %>% 
   filter(number == 1)  %>% 
   pivot_wider(names_from = label, values_from = number) %>% 
-  left_join(full_table_check, by = c("HIT", "MAYBE", "NO HIT")) %>% 
+  left_join(full_table_check) %>% 
   mutate_at(c("MAYBE", "HIT", "NO HIT"),  ~coalesce(.,0)) %>% 
   mutate(`NO HIT` = ifelse(MAYBE == 1, 1, `NO HIT`),
          `NO HIT` = ifelse(HIT == 1, 0, `NO HIT`)) %>% 
@@ -95,26 +95,26 @@ raw_table %>%
   mutate(model = str_remove(model, "cov_model_")) %>%
   
   ggplot(aes(x = family, y = n, fill = model)) +
-    geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0), colour="black" ) +
-    
-    facet_grid(cols = vars(family), scale = "free", space = "free") +
-    
-    geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", linewidth = 1 ) +
-    
-    labs(y = "Number of significant hits per family (e_val < 0.01)", x = "",
-         title = "Significant hits distribution across taxonomy families",
-         caption = "Obtained with GERONIMO") +
-    
-    theme_minimal() +
-    theme(#axis.text.x = element_text(size = 11, angle = -30, face = "italic", vjust = 1, hjust=0),
-          axis.text.x = element_text(size = 13, angle = 0, face = "italic", vjust = 0, hjust = 0.5),
-          axis.text.y = element_text(size = 11),
-          legend.text = element_text(face = "bold", size = 11),
-          legend.title = element_text(face = "bold", size = 12),
-          plot.title=element_text(face = "bold", size = 16, hjust = 0.5),
-          strip.text.x = element_blank()) +
-
-    scale_fill_discrete(name="Models:")
+  geom_bar(stat = "identity", position = position_dodge2(preserve = "single", padding = 0), colour="black" ) +
+  
+  facet_grid(cols = vars(family), scale = "free", space = "free") +
+  
+  geom_hline(data = total_genomes, aes(yintercept = n + 0.25), colour = "black", linewidth = 1 ) +
+  
+  labs(y = "Number of significant hits per family (e_val < 0.01)", x = "",
+       title = "Significant hits distribution across taxonomy families",
+       caption = "Obtained with GERONIMO") +
+  
+  theme_minimal() +
+  theme(#axis.text.x = element_text(size = 11, angle = -30, face = "italic", vjust = 1, hjust=0),
+    axis.text.x = element_text(size = 13, angle = 0, face = "italic", vjust = 0, hjust = 0.5),
+    axis.text.y = element_text(size = 11),
+    legend.text = element_text(face = "bold", size = 11),
+    legend.title = element_text(face = "bold", size = 12),
+    plot.title=element_text(face = "bold", size = 16, hjust = 0.5),
+    strip.text.x = element_blank()) +
+  
+  scale_fill_discrete(name="Models:")
 
 
 suppressMessages(ggsave("./results/plots/Hits_distribution_across_families.png", bg = "white",  width = 15, height = 10, dpi = 400, units = "in", device = "png"))
@@ -133,7 +133,7 @@ for_plot <- raw_table %>%
 
 for_plot %>% ggplot(aes(x = model, y = label, fill = tag)) +
   geom_tile(colour = "white", linewidth = 0.3) +
-
+  
   facet_grid(cols = vars(model), rows = vars(family), scale = "free", space = "free") +
   
   theme_minimal() +
@@ -160,7 +160,5 @@ for_plot %>% ggplot(aes(x = model, y = label, fill = tag)) +
   scale_fill_manual(name = "Significance [e-value]:",
                     labels = c("HIT:   < 0.00001", "HIT:   0.00001 - 0.01", "MAYBE: 0.01 - 10", "NO HIT:   > 10"),
                     values = c("#585481", "#B8A4C9", "#F5CCD4", "#f2f2f2"))
-                    
-suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white", width = 10, height = 20, dpi = 300, units = "in", device = "png"))
 
-                              
+suppressMessages(ggsave("./results/plots/Hits_distribution_heatmap.png", bg = "white", width = 10, height = 20, dpi = 300, units = "in", device = "png"))

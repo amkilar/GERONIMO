@@ -6,7 +6,19 @@ MODELS=config["models"]
 REGION_LENGTH = config["extract_genomic_region-length"]
 
 
+rule run_tests:
+    output: "config_tests_passed.txt"
+    params: script = "scripts/input_test.py"    
+    shell:
+        """
+        python3 {params.script} > config_tests_passed.txt
+        touch config_tests_passed.txt
+
+        """
+
+
 rule create_genome_list:
+    input:  "config_tests_passed.txt"
     output: "list_of_genomes.txt"
     conda:  "env/entrez_env.yaml"
     

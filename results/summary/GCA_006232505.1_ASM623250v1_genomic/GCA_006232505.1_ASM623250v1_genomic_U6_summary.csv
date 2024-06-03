@@ -1,0 +1,25 @@
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,NO HIT,0,NA,NA,NA,NA,NA,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,HIT,1,2.7e-23,TAAATAGGAAACAGCTTTTCCACAAGTTCCGTGTGACAGAACAGAAAGGATGGGAGAAATCAGAAATTGAAGATGTCCACTTTTTGTATGGACAACAAGTGTAGAGCTCCCACCATCAGAACCAGACGTTTCCCATCCCAACATCAAAAAATCCTGAATTATTTTTGCATTTAAATACGGAAATCGCATAATGTGTGTTAGTCCTTCGGGACATACGCAAAAATTGGAAAAATACAGAGAAGATTAGCATGGCCCCTGCGCAAGGATGACACGCAAAACTTCGAGAAGATCCCGGTTTTTTTGGTATCCTTTTTTTCGTTGCTCTAGCAAAACAAGAGCACACGGAGTCGGGTGTAAACGTGTCGTAAGGTTACTTTTTAGGCAACGGTGACCTAGTTGTTTGGAAACAACTGACAACCGCAGCAAATTCTATGTTTATTCGAAATAAAGTGAAAGACAGTTTTTCTCAAGTCAAACTTTCCTAAGAATAATTTCAGGTT,GUCC--UUCG--GGACAUACGCAAAAAUUGGAAAAAUACAGAGAAGAUUAGCAUGGCCCCUGCGCAAGGAUGACACGCAAAACUUCGAGAAGAUCCCGGUUUUU,<<<<<______>>>>>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::,SDGH01000067.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,1,0.24,NA,NA,NA,SDGH01000058.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,2,0.49,NA,NA,NA,SDGH01000099.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,3,0.7,NA,NA,NA,SDGH01000067.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,4,1.3,NA,NA,NA,SDGH01000067.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,5,1.8,NA,NA,NA,SDGH01000106.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,6,1.9,NA,NA,NA,SDGH01000049.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,7,1.9,NA,NA,NA,SDGH01000091.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,8,2.4,NA,NA,NA,SDGH01000094.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,9,2.5,NA,NA,NA,SDGH01000096.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,10,2.5,NA,NA,NA,SDGH01000077.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,11,3.5,NA,NA,NA,SDGH01000086.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,12,3.7,NA,NA,NA,SDGH01000053.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,13,3.8,NA,NA,NA,SDGH01000021.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,14,3.8,NA,NA,NA,SDGH01000035.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,15,4.1,NA,NA,NA,SDGH01000101.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,16,4.6,NA,NA,NA,SDGH01000072.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,17,4.6,NA,NA,NA,SDGH01000080.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,18,7.5,NA,NA,NA,SDGH01000052.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,19,8.8,NA,NA,NA,SDGH01000090.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,20,9,NA,NA,NA,SDGH01000039.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,21,9,NA,NA,NA,SDGH01000079.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,22,9.4,NA,NA,NA,SDGH01000059.1,Rhodophyta,Bangiophyceae,Galdieriales
+cov_model_U6,GCA_006232505.1,Galdieria_sulphuraria,Galdieriaceae,MAYBE,23,9.6,NA,NA,NA,SDGH01000057.1,Rhodophyta,Bangiophyceae,Galdieriales

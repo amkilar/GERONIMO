@@ -355,10 +355,36 @@ and run GERONIMO.
 
 ### How to specify the database query?
 - Visit the [NCBI Assemblies] website.  
-- Follow the instruction on the graphic below:
+- Follow the instructions on the graphic below:
 <img src="https://github.com/amkilar/pictures/blob/main/GERONIMO/database_query.png" width=100%>
 
 [NCBI Assemblies]: https://www.ncbi.nlm.nih.gov/assembly/?term=
+
+#### July 2024 update
+As of June 2024, the NCBI Assemblies webpage has been replaced by the NCBI Datasets webpage. Consequently, you may no longer search for assemblies using the previous method described. However, the query line in GERONIMO will still allow you to download assemblies.
+
+The new NCBI Datasets webpage provides updated information on the number and types of genome assemblies available for a given taxon.
+
+Below are examples to help you plan your database queries from the `config.yaml` file:
+
+* To select only “Representative” assemblies:
+  
+  `database: '"<taxon of your choice"[Organism] AND (latest[filter] AND "representative genome"[filter] AND all[filter] NOT anomalous[filter]))'`
+  
+  > for example:
+  > 
+  > database: '"Lycopodiopsida"[Organism] AND (latest[filter] AND "representative genome"[filter] AND all[filter] NOT anomalous[filter]))'
+  
+* To select all assemblies under the given taxon:
+  
+  `database: '"<taxon of your choice"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]))'`
+  
+  > for example:
+  > 
+  > database: '"Lycopodiopsida"[Organism] AND (latest[filter] AND all[filter] NOT anomalous[filter]))'
+
+Both database queries result in downloading 6 genome assemblies in this particular example.
+
 
 ### WSL: problem with creating `snakemake_env`
 In the case of an error similar to the one below:
